@@ -80,25 +80,7 @@ Before diving into setup, here is the key insight: **most of this workflow is au
 | Review final output | Hooks fire on events (edit, save, compact) |
 | Say "commit" when ready | Rules load based on files you touch |
 
-### Example: "Fix my slides before tomorrow"
-
-```
-You: "Review my lecture slides and fix all issues before tomorrow's class"
-     ↓
-Claude automatically:
-  → Runs /proofread (grammar, typos, consistency)
-  → Runs /visual-audit (overflow, layout, spacing)
-  → Runs /pedagogy-review (narrative flow, notation clarity)
-  → Synthesizes findings into prioritized fix list
-  → Applies fixes (critical → major → minor)
-  → Re-verifies everything compiles
-  → Scores against quality gates
-     ↓
-You see: "Done. Fixed 12 issues. Score: 88/100. Ready to commit?"
-You: "Yes"
-     ↓
-Claude runs /commit (only because you explicitly approved)
-```
+### Common Examples
 
 ::: {.panel-tabset}
 
@@ -111,6 +93,7 @@ Claude automatically:
   → Runs /review-paper (argument structure, methods, citations)
   → Runs /proofread (grammar, consistency, formatting)
   → Runs /validate-bib (cross-reference citations)
+  → Runs /devils-advocate (challenge assumptions, missing alternatives)
   → Synthesizes findings into prioritized fix list
   → Applies fixes (critical → major → minor)
   → Re-verifies everything compiles
@@ -127,10 +110,26 @@ You: "Analyze this dataset and produce publication-ready output"
 Claude automatically:
   → Runs /data-analysis-python (explore, model, tables, figures)
   → Runs /review-python (code quality, reproducibility)
+  → Runs /econ-visualization if charts needed (publication-quality figures)
   → Produces Python script, tables, and figures
   → Scores against quality gates
      ↓
 You see: "Analysis complete. 3 tables, 4 figures. Score: 85/100."
+```
+
+### Literature Review
+
+```
+You: "Search for papers on AI coaching effectiveness and synthesize the key findings"
+     ↓
+Claude automatically:
+  → Runs /lit-search (CrossRef, Semantic Scholar, Tavily)
+  → Runs /lit-read (structured reading notes per paper)
+  → Runs /lit-review (synthesize themes, identify gaps)
+  → Runs /validate-bib (verify all citations are in bibliography)
+  → Produces paper list, reading notes, and synthesis report
+     ↓
+You see: "Found 23 papers. 15 kept after screening. 4 major themes identified."
 ```
 
 :::
@@ -227,6 +226,72 @@ To use an API key instead of browser login, set the environment variable:
 # Add to your ~/.zshrc or ~/.bashrc
 export ANTHROPIC_API_KEY="sk-ant-..."
 ```
+
+::: {.callout-tip collapse="true"}
+## Using a Third-Party API Provider (GLM, OpenRouter, etc.)
+
+If you are in China or prefer a non-Anthropic provider, configure Claude Code to use an Anthropic-compatible API by editing your **user-level settings file**. The same JSON config works on both platforms --- only the file path differs.
+
+::: {.panel-tabset}
+
+#### macOS / Linux
+
+Settings file: `~/.claude/settings.json`
+
+Create or edit the file:
+
+```bash
+mkdir -p ~/.claude
+nano ~/.claude/settings.json
+```
+
+#### Windows
+
+Settings file: `%APPDATA%\claude\settings.json`
+
+Open it in Notepad:
+
+```powershell
+notepad "$env:APPDATA\claude\settings.json"
+```
+
+:::
+
+Paste the following (example: Zhipu GLM):
+
+```json
+{
+  "env": {
+    "ANTHROPIC_AUTH_TOKEN": "your-glm-api-key",
+    "ANTHROPIC_BASE_URL": "https://open.bigmodel.cn/api/paas/v4",
+    "ANTHROPIC_DEFAULT_HAIKU_MODEL": "glm-4.7",
+    "ANTHROPIC_DEFAULT_SONNET_MODEL": "glm-5.1",
+    "ANTHROPIC_DEFAULT_OPUS_MODEL": "glm-5.1"
+  },
+  "model": "glm-5.1"
+}
+```
+
+**Key fields:**
+
+| Field | Purpose |
+|-------|---------|
+| `ANTHROPIC_AUTH_TOKEN` | Your API key from the provider |
+| `ANTHROPIC_BASE_URL` | The provider's Anthropic-compatible endpoint |
+| `ANTHROPIC_DEFAULT_*_MODEL` | Model ID for each Claude Code tier (haiku/sonnet/opus) |
+| `model` | Default model Claude Code uses |
+
+**Other providers:**
+
+| Provider | `ANTHROPIC_BASE_URL` |
+|----------|---------------------|
+| Zhipu GLM | `https://open.bigmodel.cn/api/paas/v4` |
+| OpenRouter | `https://openrouter.ai/api/v1` |
+| AWS Bedrock | Set `CLAUDE_CODE_USE_BEDROCK=1` instead |
+| Google Vertex | Set `CLAUDE_CODE_USE_VERTEX=1` instead |
+
+> **Tip:** You can also place this config in the **project-level** `.claude/settings.json` if you want different providers per project.
+:::
 
 You can also authenticate inside VS Code --- the extension will prompt you on first use.
 
