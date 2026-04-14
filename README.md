@@ -18,6 +18,26 @@ See the [full workflow guide](https://carltonton.github.io/mgmt-cc-workflow/Quar
 
 ---
 
+## API Keys Configuration
+
+Some skills require external API keys. Create a `.env` file in the root directory:
+
+```bash
+# Required for /lit-search (CrossRef, Semantic Scholar, Tavily)
+TAVILY_API_KEY=tvly-your-key-here
+CROSSREF_EMAIL=your-email@example.com
+
+# Optional: Semantic Scholar (increases rate limits)
+SEMANTIC_SCHOLAR_API_KEY=your-key-here
+
+# Required: Anthropic API (if using API key auth instead of browser sign-in)
+ANTHROPIC_API_KEY=sk-ant-your-key-here
+```
+
+> **Note:** The `.env` file is already in `.gitignore` and will NOT be committed to your repository.
+
+---
+
 ## What's Included
 
 | Component | Count | Description |
