@@ -1,0 +1,2825 @@
+{
+  "metadata": {
+    "version": "2024",
+    "source": "ABS Academic Journal Guide 2024",
+    "last_updated": "2025-03-30",
+    "description": "All ABS 3+ rated journals from the 2024 guide (468 journals)",
+    "total_journals": 468
+  },
+  "journals": {
+    "4*": [
+      {
+        "name": "Accounting Review",
+        "field": "ACCOUNT",
+        "issn": "0963-8180",
+        "domain": "ACCOUNT"
+      },
+      {
+        "name": "Accounting, Organizations and Society",
+        "field": "ACCOUNT",
+        "issn": "0361-3682",
+        "domain": "ACCOUNT"
+      },
+      {
+        "name": "Journal of Accounting and Economics",
+        "field": "ACCOUNT",
+        "issn": "0165-4101",
+        "domain": "ACCOUNT"
+      },
+      {
+        "name": "Journal of Accounting Research",
+        "field": "ACCOUNT",
+        "issn": "2333-0783",
+        "domain": "ACCOUNT"
+      },
+      {
+        "name": "American Economic Review",
+        "field": "ECON",
+        "issn": "0002-8282",
+        "domain": "ECON"
+      },
+      {
+        "name": "Annals of Statistics",
+        "field": "ECON",
+        "issn": "0090-5364",
+        "domain": "ECON"
+      },
+      {
+        "name": "Econometrica",
+        "field": "ECON",
+        "issn": "0012-9682",
+        "domain": "ECON"
+      },
+      {
+        "name": "Journal of Political Economy",
+        "field": "ECON",
+        "issn": "0022-3808",
+        "domain": "ECON"
+      },
+      {
+        "name": "Quarterly Journal of Economics",
+        "field": "ECON",
+        "issn": "0033-5533",
+        "domain": "ECON"
+      },
+      {
+        "name": "Review of Economic Studies",
+        "field": "ECON",
+        "issn": "0034-6527",
+        "domain": "ECON"
+      },
+      {
+        "name": "Entrepreneurship Theory and Practice",
+        "field": "ENT-SBM",
+        "issn": "1042-2587",
+        "domain": "ENT-SBM"
+      },
+      {
+        "name": "Journal of Business Venturing",
+        "field": "ENT-SBM",
+        "issn": "0883-9026",
+        "domain": "ENT-SBM"
+      },
+      {
+        "name": "Academy of Management Annals",
+        "field": "ETHICS-CSR-MAN",
+        "issn": "1941-6520",
+        "domain": "ETHICS-CSR-MAN"
+      },
+      {
+        "name": "Academy of Management Journal",
+        "field": "ETHICS-CSR-MAN",
+        "issn": "0001-4273",
+        "domain": "ETHICS-CSR-MAN"
+      },
+      {
+        "name": "Academy of Management Review",
+        "field": "ETHICS-CSR-MAN",
+        "issn": "0363-7425",
+        "domain": "ETHICS-CSR-MAN"
+      },
+      {
+        "name": "Administrative Science Quarterly",
+        "field": "ETHICS-CSR-MAN",
+        "issn": "0001-8392",
+        "domain": "ETHICS-CSR-MAN"
+      },
+      {
+        "name": "Journal of Management",
+        "field": "ETHICS-CSR-MAN",
+        "issn": "0149-2063",
+        "domain": "ETHICS-CSR-MAN"
+      },
+      {
+        "name": "Journal of Finance",
+        "field": "FINANCE",
+        "issn": "3026-6734",
+        "domain": "FINANCE"
+      },
+      {
+        "name": "Journal of Financial Economics",
+        "field": "FINANCE",
+        "issn": "0304-405X",
+        "domain": "FINANCE"
+      },
+      {
+        "name": "Review of Financial Studies",
+        "field": "FINANCE",
+        "issn": "0893-9454",
+        "domain": "FINANCE"
+      },
+      {
+        "name": "Human Resource Management Journal",
+        "field": "HRM&EMP",
+        "issn": "1748-8583",
+        "domain": "HRM&EMP"
+      },
+      {
+        "name": "Journal of International Business Studies",
+        "field": "IB&AREA",
+        "issn": "0047-2506",
+        "domain": "IB&AREA"
+      },
+      {
+        "name": "Information Systems Research",
+        "field": "INFO MAN",
+        "issn": "1047-7047",
+        "domain": "INFO MAN"
+      },
+      {
+        "name": "Journal of the Association for Information Systems",
+        "field": "INFO MAN",
+        "issn": "1536-9323",
+        "domain": "INFO MAN"
+      },
+      {
+        "name": "MIS Quarterly",
+        "field": "INFO MAN",
+        "issn": "0276-7783",
+        "domain": "INFO MAN"
+      },
+      {
+        "name": "Research Policy",
+        "field": "INNOV",
+        "issn": "0048-7333",
+        "domain": "INNOV"
+      },
+      {
+        "name": "Academy of Management Learning and Education",
+        "field": "MDEV&EDU",
+        "issn": "1537-260X",
+        "domain": "MDEV&EDU"
+      },
+      {
+        "name": "Journal of Consumer Psychology",
+        "field": "MKT",
+        "issn": "1057-7408",
+        "domain": "MKT"
+      },
+      {
+        "name": "Journal of Consumer Research",
+        "field": "MKT",
+        "issn": "0093-5301",
+        "domain": "MKT"
+      },
+      {
+        "name": "Journal of Marketing",
+        "field": "MKT",
+        "issn": "1234-3706",
+        "domain": "MKT"
+      },
+      {
+        "name": "Journal of Marketing Research",
+        "field": "MKT",
+        "issn": "2148-4767",
+        "domain": "MKT"
+      },
+      {
+        "name": "Journal of the Academy of Marketing Science",
+        "field": "MKT",
+        "issn": "0092-0703",
+        "domain": "MKT"
+      },
+      {
+        "name": "Marketing Science",
+        "field": "MKT",
+        "issn": "0732-2399",
+        "domain": "MKT"
+      },
+      {
+        "name": "Journal of Operations Management",
+        "field": "OPS&TECH",
+        "issn": "0272-6963",
+        "domain": "OPS&TECH"
+      },
+      {
+        "name": "Management Science",
+        "field": "OR&MANSCI",
+        "issn": "2080-6000",
+        "domain": "OR&MANSCI"
+      },
+      {
+        "name": "Operations Research",
+        "field": "OR&MANSCI",
+        "issn": "0030-364X",
+        "domain": "OR&MANSCI"
+      },
+      {
+        "name": "Organization Science",
+        "field": "ORG STUD",
+        "issn": "1047-7039",
+        "domain": "ORG STUD"
+      },
+      {
+        "name": "Psychological Science",
+        "field": "PSYCH (GENERAL)",
+        "issn": "3033-6430",
+        "domain": "PSYCH (GENERAL)"
+      },
+      {
+        "name": "Journal of Applied Psychology",
+        "field": "PSYCH (WOP-OB)",
+        "issn": "0021-9010",
+        "domain": "PSYCH (WOP-OB)"
+      },
+      {
+        "name": "Personnel Psychology",
+        "field": "PSYCH (WOP-OB)",
+        "issn": "0031-5826",
+        "domain": "PSYCH (WOP-OB)"
+      },
+      {
+        "name": "Public Administration Review",
+        "field": "PUB SEC",
+        "issn": "0033-3352",
+        "domain": "PUB SEC"
+      },
+      {
+        "name": "American Journal of Political Science",
+        "field": "SOC SCI",
+        "issn": "0092-5853",
+        "domain": "SOC SCI"
+      },
+      {
+        "name": "American Journal of Sociology",
+        "field": "SOC SCI",
+        "issn": "0002-9602",
+        "domain": "SOC SCI"
+      },
+      {
+        "name": "American Political Science Review",
+        "field": "SOC SCI",
+        "issn": "0003-0554",
+        "domain": "SOC SCI"
+      },
+      {
+        "name": "American Sociological Review",
+        "field": "SOC SCI",
+        "issn": "0003-1224",
+        "domain": "SOC SCI"
+      },
+      {
+        "name": "Annual Review of Sociology",
+        "field": "SOC SCI",
+        "issn": "0360-0572",
+        "domain": "SOC SCI"
+      },
+      {
+        "name": "Strategic Management Journal",
+        "field": "STRAT",
+        "issn": "0143-2095",
+        "domain": "STRAT"
+      }
+    ],
+    "4": [
+      {
+        "name": "Contemporary Accounting Research",
+        "field": "ACCOUNT",
+        "issn": "0823-9150",
+        "domain": "ACCOUNT"
+      },
+      {
+        "name": "Review of Accounting Studies",
+        "field": "ACCOUNT",
+        "issn": "1380-6653",
+        "domain": "ACCOUNT"
+      },
+      {
+        "name": "Business History",
+        "field": "BUS HIST & ECON HIST",
+        "issn": "0007-6791",
+        "domain": "BUS HIST & ECON HIST"
+      },
+      {
+        "name": "Business History Review",
+        "field": "BUS HIST & ECON HIST",
+        "issn": "0007-6805",
+        "domain": "BUS HIST & ECON HIST"
+      },
+      {
+        "name": "Economic History Review",
+        "field": "BUS HIST & ECON HIST",
+        "issn": "0004-8992",
+        "domain": "BUS HIST & ECON HIST"
+      },
+      {
+        "name": "American Economic Journal: Applied Economics",
+        "field": "ECON",
+        "issn": "1945-7782",
+        "domain": "ECON"
+      },
+      {
+        "name": "American Economic Journal: Macroeconomics",
+        "field": "ECON",
+        "issn": "1945-7707",
+        "domain": "ECON"
+      },
+      {
+        "name": "Biometrika",
+        "field": "ECON",
+        "issn": "0006-3444",
+        "domain": "ECON"
+      },
+      {
+        "name": "Econometric Theory",
+        "field": "ECON",
+        "issn": "0266-4666",
+        "domain": "ECON"
+      },
+      {
+        "name": "Economic Journal",
+        "field": "ECON",
+        "issn": "2598-4799",
+        "domain": "ECON"
+      },
+      {
+        "name": "International Economic Review",
+        "field": "ECON",
+        "issn": "0020-6598",
+        "domain": "ECON"
+      },
+      {
+        "name": "Journal of Business and Economic Statistics",
+        "field": "ECON",
+        "issn": "0735-0015",
+        "domain": "ECON"
+      },
+      {
+        "name": "Journal of Econometrics",
+        "field": "ECON",
+        "issn": "0304-4076",
+        "domain": "ECON"
+      },
+      {
+        "name": "Journal of Economic Literature",
+        "field": "ECON",
+        "issn": "2775-4251",
+        "domain": "ECON"
+      },
+      {
+        "name": "Journal of Economic Perspectives",
+        "field": "ECON",
+        "issn": "0895-3309",
+        "domain": "ECON"
+      },
+      {
+        "name": "Journal of Economic Theory",
+        "field": "ECON",
+        "issn": "0022-0531",
+        "domain": "ECON"
+      },
+      {
+        "name": "Journal of International Economics",
+        "field": "ECON",
+        "issn": "0022-1996",
+        "domain": "ECON"
+      },
+      {
+        "name": "Journal of Labor Economics",
+        "field": "ECON",
+        "issn": "0734-306X",
+        "domain": "ECON"
+      },
+      {
+        "name": "Journal of Monetary Economics",
+        "field": "ECON",
+        "issn": "0304-3932",
+        "domain": "ECON"
+      },
+      {
+        "name": "Journal of the American Statistical Association",
+        "field": "ECON",
+        "issn": "0162-1459",
+        "domain": "ECON"
+      },
+      {
+        "name": "Journal of the European Economic Association",
+        "field": "ECON",
+        "issn": "1542-4766",
+        "domain": "ECON"
+      },
+      {
+        "name": "Journal of the Royal Statistical Society. Series B: Statistical Methodology",
+        "field": "ECON",
+        "issn": "1369-7412",
+        "domain": "ECON"
+      },
+      {
+        "name": "Quantitative Economics",
+        "field": "ECON",
+        "issn": "1759-7323",
+        "domain": "ECON"
+      },
+      {
+        "name": "RAND Journal of Economics",
+        "field": "ECON",
+        "issn": "0741-6261",
+        "domain": "ECON"
+      },
+      {
+        "name": "Review of Economics and Statistics",
+        "field": "ECON",
+        "issn": "0034-6535",
+        "domain": "ECON"
+      },
+      {
+        "name": "Theoretical Economics",
+        "field": "ECON",
+        "issn": "1933-6837",
+        "domain": "ECON"
+      },
+      {
+        "name": "Strategic Entrepreneurship Journal",
+        "field": "ENT-SBM",
+        "issn": "1932-4391",
+        "domain": "ENT-SBM"
+      },
+      {
+        "name": "Academy of Management Perspectives",
+        "field": "ETHICS-CSR-MAN",
+        "issn": "1558-9080",
+        "domain": "ETHICS-CSR-MAN"
+      },
+      {
+        "name": "British Journal of Management",
+        "field": "ETHICS-CSR-MAN",
+        "issn": "1045-3172",
+        "domain": "ETHICS-CSR-MAN"
+      },
+      {
+        "name": "Journal of Management Studies",
+        "field": "ETHICS-CSR-MAN",
+        "issn": "2980-3799",
+        "domain": "ETHICS-CSR-MAN"
+      },
+      {
+        "name": "Journal of Corporate Finance",
+        "field": "FINANCE",
+        "issn": "0929-1199",
+        "domain": "FINANCE"
+      },
+      {
+        "name": "Journal of Financial and Quantitative Analysis",
+        "field": "FINANCE",
+        "issn": "0022-1090",
+        "domain": "FINANCE"
+      },
+      {
+        "name": "Journal of Financial Intermediation",
+        "field": "FINANCE",
+        "issn": "1042-9573",
+        "domain": "FINANCE"
+      },
+      {
+        "name": "Journal of Money, Credit and Banking",
+        "field": "FINANCE",
+        "issn": "0022-2879",
+        "domain": "FINANCE"
+      },
+      {
+        "name": "Review of Finance",
+        "field": "FINANCE",
+        "issn": "1572-3097",
+        "domain": "FINANCE"
+      },
+      {
+        "name": "British Journal of Industrial Relations",
+        "field": "HRM&EMP",
+        "issn": "0007-1080",
+        "domain": "HRM&EMP"
+      },
+      {
+        "name": "Human Resource Management",
+        "field": "HRM&EMP",
+        "issn": "1748-8583",
+        "domain": "HRM&EMP"
+      },
+      {
+        "name": "Industrial Relations",
+        "field": "HRM&EMP",
+        "issn": "0019-8692",
+        "domain": "HRM&EMP"
+      },
+      {
+        "name": "Work, Employment and Society",
+        "field": "HRM&EMP",
+        "issn": "0950-0170",
+        "domain": "HRM&EMP"
+      },
+      {
+        "name": "Journal of World Business",
+        "field": "IB&AREA",
+        "issn": "1090-9516",
+        "domain": "IB&AREA"
+      },
+      {
+        "name": "European Journal of Information Systems",
+        "field": "INFO MAN",
+        "issn": "0960-085X",
+        "domain": "INFO MAN"
+      },
+      {
+        "name": "Information Systems Journal",
+        "field": "INFO MAN",
+        "issn": "1350-1917",
+        "domain": "INFO MAN"
+      },
+      {
+        "name": "Journal of Information Technology",
+        "field": "INFO MAN",
+        "issn": "0268-3962",
+        "domain": "INFO MAN"
+      },
+      {
+        "name": "Journal of Management Information Systems",
+        "field": "INFO MAN",
+        "issn": "0742-1222",
+        "domain": "INFO MAN"
+      },
+      {
+        "name": "Journal of Strategic Information Systems",
+        "field": "INFO MAN",
+        "issn": "0963-8687",
+        "domain": "INFO MAN"
+      },
+      {
+        "name": "Journal of Product Innovation Management",
+        "field": "INNOV",
+        "issn": "0737-6782",
+        "domain": "INNOV"
+      },
+      {
+        "name": "International Journal of Research in Marketing",
+        "field": "MKT",
+        "issn": "0167-8116",
+        "domain": "MKT"
+      },
+      {
+        "name": "Journal of Retailing",
+        "field": "MKT",
+        "issn": "0022-4359",
+        "domain": "MKT"
+      },
+      {
+        "name": "International Journal of Operations and Production Management",
+        "field": "OPS&TECH",
+        "issn": "0144-3577",
+        "domain": "OPS&TECH"
+      },
+      {
+        "name": "Journal of Supply Chain Management",
+        "field": "OPS&TECH",
+        "issn": "1523-2409",
+        "domain": "OPS&TECH"
+      },
+      {
+        "name": "Production and Operations Management",
+        "field": "OPS&TECH",
+        "issn": "1059-1478",
+        "domain": "OPS&TECH"
+      },
+      {
+        "name": "European Journal of Operational Research",
+        "field": "OR&MANSCI",
+        "issn": "0377-2217",
+        "domain": "OR&MANSCI"
+      },
+      {
+        "name": "IEEE Transactions on Evolutionary Computation",
+        "field": "OR&MANSCI",
+        "issn": "1089-778X",
+        "domain": "OR&MANSCI"
+      },
+      {
+        "name": "Mathematical Programming",
+        "field": "OR&MANSCI",
+        "issn": "0025-5610",
+        "domain": "OR&MANSCI"
+      },
+      {
+        "name": "Human Relations",
+        "field": "ORG STUD",
+        "issn": "0018-7267",
+        "domain": "ORG STUD"
+      },
+      {
+        "name": "Leadership Quarterly",
+        "field": "ORG STUD",
+        "issn": "1048-9843",
+        "domain": "ORG STUD"
+      },
+      {
+        "name": "Organization Studies",
+        "field": "ORG STUD",
+        "issn": "0170-8406",
+        "domain": "ORG STUD"
+      },
+      {
+        "name": "Organizational Research Methods",
+        "field": "ORG STUD",
+        "issn": "1094-4281",
+        "domain": "ORG STUD"
+      },
+      {
+        "name": "Annual Review of Psychology",
+        "field": "PSYCH (GENERAL)",
+        "issn": "0066-4308",
+        "domain": "PSYCH (GENERAL)"
+      },
+      {
+        "name": "Behavioral and Brain Sciences",
+        "field": "PSYCH (GENERAL)",
+        "issn": "0140-525X",
+        "domain": "PSYCH (GENERAL)"
+      },
+      {
+        "name": "Cognition",
+        "field": "PSYCH (GENERAL)",
+        "issn": "2595-8801",
+        "domain": "PSYCH (GENERAL)"
+      },
+      {
+        "name": "Current Directions in Psychological Science",
+        "field": "PSYCH (GENERAL)",
+        "issn": "0963-7214",
+        "domain": "PSYCH (GENERAL)"
+      },
+      {
+        "name": "Journal of Experimental Psychology: Applied",
+        "field": "PSYCH (GENERAL)",
+        "issn": "1076-898X",
+        "domain": "PSYCH (GENERAL)"
+      },
+      {
+        "name": "Journal of Experimental Psychology: General",
+        "field": "PSYCH (GENERAL)",
+        "issn": "0096-3445",
+        "domain": "PSYCH (GENERAL)"
+      },
+      {
+        "name": "Journal of Experimental Social Psychology",
+        "field": "PSYCH (GENERAL)",
+        "issn": "0022-1031",
+        "domain": "PSYCH (GENERAL)"
+      },
+      {
+        "name": "Journal of Personality and Social Psychology",
+        "field": "PSYCH (GENERAL)",
+        "issn": "0022-3514",
+        "domain": "PSYCH (GENERAL)"
+      },
+      {
+        "name": "Nature Human Behaviour",
+        "field": "PSYCH (GENERAL)",
+        "issn": "2397-3374",
+        "domain": "PSYCH (GENERAL)"
+      },
+      {
+        "name": "Personality and Social Psychology Bulletin",
+        "field": "PSYCH (GENERAL)",
+        "issn": "0146-1672",
+        "domain": "PSYCH (GENERAL)"
+      },
+      {
+        "name": "Psychological Bulletin",
+        "field": "PSYCH (GENERAL)",
+        "issn": "0033-2909",
+        "domain": "PSYCH (GENERAL)"
+      },
+      {
+        "name": "Psychological Review",
+        "field": "PSYCH (GENERAL)",
+        "issn": "0144-3895",
+        "domain": "PSYCH (GENERAL)"
+      },
+      {
+        "name": "Journal of Occupational and Organizational Psychology",
+        "field": "PSYCH (WOP-OB)",
+        "issn": "0963-1798",
+        "domain": "PSYCH (WOP-OB)"
+      },
+      {
+        "name": "Journal of Occupational Health Psychology",
+        "field": "PSYCH (WOP-OB)",
+        "issn": "1076-8998",
+        "domain": "PSYCH (WOP-OB)"
+      },
+      {
+        "name": "Journal of Organizational Behavior",
+        "field": "PSYCH (WOP-OB)",
+        "issn": "0894-3796",
+        "domain": "PSYCH (WOP-OB)"
+      },
+      {
+        "name": "Journal of Vocational Behavior",
+        "field": "PSYCH (WOP-OB)",
+        "issn": "0001-8791",
+        "domain": "PSYCH (WOP-OB)"
+      },
+      {
+        "name": "Organizational Behavior and Human Decision Processes",
+        "field": "PSYCH (WOP-OB)",
+        "issn": "0749-5978",
+        "domain": "PSYCH (WOP-OB)"
+      },
+      {
+        "name": "Work and Stress",
+        "field": "PSYCH (WOP-OB)",
+        "issn": "0267-8373",
+        "domain": "PSYCH (WOP-OB)"
+      },
+      {
+        "name": "Governance",
+        "field": "PUB SEC",
+        "issn": "0952-1895",
+        "domain": "PUB SEC"
+      },
+      {
+        "name": "Journal of Public Administration Research and Theory",
+        "field": "PUB SEC",
+        "issn": "1053-1858",
+        "domain": "PUB SEC"
+      },
+      {
+        "name": "Public Administration",
+        "field": "PUB SEC",
+        "issn": "2830-1714",
+        "domain": "PUB SEC"
+      },
+      {
+        "name": "Public Management Review",
+        "field": "PUB SEC",
+        "issn": "1471-9037",
+        "domain": "PUB SEC"
+      },
+      {
+        "name": "Economic Geography",
+        "field": "REGIONAL STUDIES, PLANNING AND ENVIRONMENT",
+        "issn": "0013-0095",
+        "domain": "REGIONAL STUDIES, PLANNING AND ENVIRONMENT"
+      },
+      {
+        "name": "Journal of Economic Geography",
+        "field": "REGIONAL STUDIES, PLANNING AND ENVIRONMENT",
+        "issn": "1468-2702",
+        "domain": "REGIONAL STUDIES, PLANNING AND ENVIRONMENT"
+      },
+      {
+        "name": "Regional Studies",
+        "field": "REGIONAL STUDIES, PLANNING AND ENVIRONMENT",
+        "issn": "2083-3725",
+        "domain": "REGIONAL STUDIES, PLANNING AND ENVIRONMENT"
+      },
+      {
+        "name": "Annals of Tourism Research",
+        "field": "SECTOR",
+        "issn": "0160-7383",
+        "domain": "SECTOR"
+      },
+      {
+        "name": "Journal of Service Research",
+        "field": "SECTOR",
+        "issn": "1094-6705",
+        "domain": "SECTOR"
+      },
+      {
+        "name": "Journal of Travel Research",
+        "field": "SECTOR",
+        "issn": "0047-2875",
+        "domain": "SECTOR"
+      },
+      {
+        "name": "Tourism Management",
+        "field": "SECTOR",
+        "issn": "0261-5177",
+        "domain": "SECTOR"
+      },
+      {
+        "name": "Transportation Research, Series B: Methodological",
+        "field": "SECTOR",
+        "issn": "0191-2615",
+        "domain": "SECTOR"
+      },
+      {
+        "name": "Environment and Planning D: Society and Space",
+        "field": "SOC SCI",
+        "issn": "0263-7758",
+        "domain": "SOC SCI"
+      },
+      {
+        "name": "International Organization",
+        "field": "SOC SCI",
+        "issn": "0020-8183",
+        "domain": "SOC SCI"
+      },
+      {
+        "name": "International Studies Quarterly",
+        "field": "SOC SCI",
+        "issn": "0020-8833",
+        "domain": "SOC SCI"
+      },
+      {
+        "name": "Journal of Politics",
+        "field": "SOC SCI",
+        "issn": "0951-6298",
+        "domain": "SOC SCI"
+      },
+      {
+        "name": "Risk Analysis",
+        "field": "SOC SCI",
+        "issn": "0272-4332",
+        "domain": "SOC SCI"
+      },
+      {
+        "name": "Social Science and Medicine",
+        "field": "SOC SCI",
+        "issn": "0271-5392",
+        "domain": "SOC SCI"
+      },
+      {
+        "name": "Socio-Economic Review",
+        "field": "SOC SCI",
+        "issn": "1475-1461",
+        "domain": "SOC SCI"
+      },
+      {
+        "name": "Sociology",
+        "field": "SOC SCI",
+        "issn": "0038-0385",
+        "domain": "SOC SCI"
+      },
+      {
+        "name": "Global Strategy Journal",
+        "field": "STRAT",
+        "issn": "2042-5791",
+        "domain": "STRAT"
+      },
+      {
+        "name": "Long Range Planning",
+        "field": "STRAT",
+        "issn": "0024-6301",
+        "domain": "STRAT"
+      }
+    ],
+    "3": [
+      {
+        "name": "Abacus",
+        "field": "ACCOUNT",
+        "issn": "0001-3072",
+        "domain": "ACCOUNT"
+      },
+      {
+        "name": "Accounting and Business Research",
+        "field": "ACCOUNT",
+        "issn": "0001-4788",
+        "domain": "ACCOUNT"
+      },
+      {
+        "name": "Accounting Forum",
+        "field": "ACCOUNT",
+        "issn": "0155-9982",
+        "domain": "ACCOUNT"
+      },
+      {
+        "name": "Accounting Horizons",
+        "field": "ACCOUNT",
+        "issn": "0888-7993",
+        "domain": "ACCOUNT"
+      },
+      {
+        "name": "Accounting, Auditing and Accountability Journal",
+        "field": "ACCOUNT",
+        "issn": "0951-3574",
+        "domain": "ACCOUNT"
+      },
+      {
+        "name": "Auditing",
+        "field": "ACCOUNT",
+        "issn": "0268-6902",
+        "domain": "ACCOUNT"
+      },
+      {
+        "name": "Behavioral Research in Accounting",
+        "field": "ACCOUNT",
+        "issn": "1050-4753",
+        "domain": "ACCOUNT"
+      },
+      {
+        "name": "British Accounting Review",
+        "field": "ACCOUNT",
+        "issn": "0890-8389",
+        "domain": "ACCOUNT"
+      },
+      {
+        "name": "British Tax Review",
+        "field": "ACCOUNT",
+        "issn": "0007-1870",
+        "domain": "ACCOUNT"
+      },
+      {
+        "name": "Critical Perspectives on Accounting",
+        "field": "ACCOUNT",
+        "issn": "1045-2354",
+        "domain": "ACCOUNT"
+      },
+      {
+        "name": "European Accounting Review",
+        "field": "ACCOUNT",
+        "issn": "0963-8180",
+        "domain": "ACCOUNT"
+      },
+      {
+        "name": "Financial Accountability and Management",
+        "field": "ACCOUNT",
+        "issn": "0267-4424",
+        "domain": "ACCOUNT"
+      },
+      {
+        "name": "Foundations and Trends in Accounting",
+        "field": "ACCOUNT",
+        "issn": "1554-0642",
+        "domain": "ACCOUNT"
+      },
+      {
+        "name": "International Journal of Accounting",
+        "field": "ACCOUNT",
+        "issn": "0020-7063",
+        "domain": "ACCOUNT"
+      },
+      {
+        "name": "Journal of Accounting and Public Policy",
+        "field": "ACCOUNT",
+        "issn": "0278-4254",
+        "domain": "ACCOUNT"
+      },
+      {
+        "name": "Journal of Accounting Literature",
+        "field": "ACCOUNT",
+        "issn": "0737-4607",
+        "domain": "ACCOUNT"
+      },
+      {
+        "name": "Journal of Accounting, Auditing and Finance",
+        "field": "ACCOUNT",
+        "issn": "2685-7685",
+        "domain": "ACCOUNT"
+      },
+      {
+        "name": "Journal of Business Finance and Accounting",
+        "field": "ACCOUNT",
+        "issn": "2521-3830",
+        "domain": "ACCOUNT"
+      },
+      {
+        "name": "Journal of Financial Reporting",
+        "field": "ACCOUNT",
+        "issn": "2380-2146",
+        "domain": "ACCOUNT"
+      },
+      {
+        "name": "Journal of International Accounting, Auditing and Taxation",
+        "field": "ACCOUNT",
+        "issn": "1061-9518",
+        "domain": "ACCOUNT"
+      },
+      {
+        "name": "Journal of the American Taxation Association",
+        "field": "ACCOUNT",
+        "issn": "0198-9073",
+        "domain": "ACCOUNT"
+      },
+      {
+        "name": "Management Accounting Research",
+        "field": "ACCOUNT",
+        "issn": "1044-5005",
+        "domain": "ACCOUNT"
+      },
+      {
+        "name": "Enterprise and Society",
+        "field": "BUS HIST & ECON HIST",
+        "issn": "1467-2227",
+        "domain": "BUS HIST & ECON HIST"
+      },
+      {
+        "name": "European Review of Economic History",
+        "field": "BUS HIST & ECON HIST",
+        "issn": "1361-4916",
+        "domain": "BUS HIST & ECON HIST"
+      },
+      {
+        "name": "Explorations in Economic History",
+        "field": "BUS HIST & ECON HIST",
+        "issn": "0014-4983",
+        "domain": "BUS HIST & ECON HIST"
+      },
+      {
+        "name": "Journal of Economic History",
+        "field": "BUS HIST & ECON HIST",
+        "issn": "2308-2488",
+        "domain": "BUS HIST & ECON HIST"
+      },
+      {
+        "name": "American Economic Journal: Economic Policy",
+        "field": "ECON",
+        "issn": "1945-774X",
+        "domain": "ECON"
+      },
+      {
+        "name": "American Economic Journal: Microeconomics",
+        "field": "ECON",
+        "issn": "1945-7669",
+        "domain": "ECON"
+      },
+      {
+        "name": "American Economic Review: Insights",
+        "field": "ECON",
+        "issn": "2640-2068",
+        "domain": "ECON"
+      },
+      {
+        "name": "American Journal of Agricultural Economics",
+        "field": "ECON",
+        "issn": "0002-9092",
+        "domain": "ECON"
+      },
+      {
+        "name": "Annual Review of Economics",
+        "field": "ECON",
+        "issn": "1941-1383",
+        "domain": "ECON"
+      },
+      {
+        "name": "Brookings Papers on Economic Activity",
+        "field": "ECON",
+        "issn": "0007-2303",
+        "domain": "ECON"
+      },
+      {
+        "name": "Cambridge Journal of Economics",
+        "field": "ECON",
+        "issn": "0309-166X",
+        "domain": "ECON"
+      },
+      {
+        "name": "Canadian Journal of Economics",
+        "field": "ECON",
+        "issn": "0008-4085",
+        "domain": "ECON"
+      },
+      {
+        "name": "Computational Statistics and Data Analysis",
+        "field": "ECON",
+        "issn": "0167-9473",
+        "domain": "ECON"
+      },
+      {
+        "name": "Ecological Economics",
+        "field": "ECON",
+        "issn": "0921-8009",
+        "domain": "ECON"
+      },
+      {
+        "name": "Econometric Reviews",
+        "field": "ECON",
+        "issn": "0747-4938",
+        "domain": "ECON"
+      },
+      {
+        "name": "Econometrics Journal",
+        "field": "ECON",
+        "issn": "1368-4221",
+        "domain": "ECON"
+      },
+      {
+        "name": "Economic Development and Cultural Change",
+        "field": "ECON",
+        "issn": "0013-0079",
+        "domain": "ECON"
+      },
+      {
+        "name": "Economic Inquiry",
+        "field": "ECON",
+        "issn": "0095-2583",
+        "domain": "ECON"
+      },
+      {
+        "name": "Economic Policy",
+        "field": "ECON",
+        "issn": "3115-7343",
+        "domain": "ECON"
+      },
+      {
+        "name": "Economic Theory",
+        "field": "ECON",
+        "issn": "0938-2259",
+        "domain": "ECON"
+      },
+      {
+        "name": "Economica",
+        "field": "ECON",
+        "issn": "1680-0044",
+        "domain": "ECON"
+      },
+      {
+        "name": "Economics Letters",
+        "field": "ECON",
+        "issn": "0165-1765",
+        "domain": "ECON"
+      },
+      {
+        "name": "Energy Economics",
+        "field": "ECON",
+        "issn": "0140-9883",
+        "domain": "ECON"
+      },
+      {
+        "name": "Environmental and Resource Economics",
+        "field": "ECON",
+        "issn": "0924-6460",
+        "domain": "ECON"
+      },
+      {
+        "name": "European Economic Review",
+        "field": "ECON",
+        "issn": "0014-2921",
+        "domain": "ECON"
+      },
+      {
+        "name": "European Review of Agricultural Economics",
+        "field": "ECON",
+        "issn": "0165-1587",
+        "domain": "ECON"
+      },
+      {
+        "name": "Experimental Economics",
+        "field": "ECON",
+        "issn": "1386-4157",
+        "domain": "ECON"
+      },
+      {
+        "name": "Games and Economic Behavior",
+        "field": "ECON",
+        "issn": "0899-8256",
+        "domain": "ECON"
+      },
+      {
+        "name": "Health Economics (United Kingdom)",
+        "field": "ECON",
+        "issn": "1099-1050",
+        "domain": "ECON"
+      },
+      {
+        "name": "IMF Economic Review",
+        "field": "ECON",
+        "issn": "2041-4161",
+        "domain": "ECON"
+      },
+      {
+        "name": "International Journal of Industrial Organization",
+        "field": "ECON",
+        "issn": "0167-7187",
+        "domain": "ECON"
+      },
+      {
+        "name": "International Statistical Review",
+        "field": "ECON",
+        "issn": "0306-7734",
+        "domain": "ECON"
+      },
+      {
+        "name": "Journal of Agricultural Economics",
+        "field": "ECON",
+        "issn": "0021-857X",
+        "domain": "ECON"
+      },
+      {
+        "name": "Journal of Applied Econometrics",
+        "field": "ECON",
+        "issn": "0883-7252",
+        "domain": "ECON"
+      },
+      {
+        "name": "Journal of Comparative Economics",
+        "field": "ECON",
+        "issn": "0147-5967",
+        "domain": "ECON"
+      },
+      {
+        "name": "Journal of Computational and Graphical Statistics",
+        "field": "ECON",
+        "issn": "1061-8600",
+        "domain": "ECON"
+      },
+      {
+        "name": "Journal of Development Economics",
+        "field": "ECON",
+        "issn": "0304-3878",
+        "domain": "ECON"
+      },
+      {
+        "name": "Journal of Economic Behavior and Organization",
+        "field": "ECON",
+        "issn": "2328-7608",
+        "domain": "ECON"
+      },
+      {
+        "name": "Journal of Economic Dynamics and Control",
+        "field": "ECON",
+        "issn": "0165-1889",
+        "domain": "ECON"
+      },
+      {
+        "name": "Journal of Economic Growth",
+        "field": "ECON",
+        "issn": "1381-4338",
+        "domain": "ECON"
+      },
+      {
+        "name": "Journal of Environmental Economics and Management",
+        "field": "ECON",
+        "issn": "0095-0696",
+        "domain": "ECON"
+      },
+      {
+        "name": "Journal of Health Economics",
+        "field": "ECON",
+        "issn": "0167-6296",
+        "domain": "ECON"
+      },
+      {
+        "name": "Journal of Human Capital",
+        "field": "ECON",
+        "issn": "1932-8575",
+        "domain": "ECON"
+      },
+      {
+        "name": "Journal of Human Resources",
+        "field": "ECON",
+        "issn": "1548-8004",
+        "domain": "ECON"
+      },
+      {
+        "name": "Journal of Industrial Economics",
+        "field": "ECON",
+        "issn": "0022-1821",
+        "domain": "ECON"
+      },
+      {
+        "name": "Journal of Institutional Economics",
+        "field": "ECON",
+        "issn": "1744-1374",
+        "domain": "ECON"
+      },
+      {
+        "name": "Journal of Law and Economics",
+        "field": "ECON",
+        "issn": "2963-9204",
+        "domain": "ECON"
+      },
+      {
+        "name": "Journal of Law, Economics, and Organization",
+        "field": "ECON",
+        "issn": "8756-6222",
+        "domain": "ECON"
+      },
+      {
+        "name": "Journal of Legal Studies",
+        "field": "ECON",
+        "issn": "2392-7054",
+        "domain": "ECON"
+      },
+      {
+        "name": "Journal of Mathematical Economics",
+        "field": "ECON",
+        "issn": "0304-4068",
+        "domain": "ECON"
+      },
+      {
+        "name": "Journal of Multivariate Analysis",
+        "field": "ECON",
+        "issn": "0047-259X",
+        "domain": "ECON"
+      },
+      {
+        "name": "Journal of Population Economics",
+        "field": "ECON",
+        "issn": "0933-1433",
+        "domain": "ECON"
+      },
+      {
+        "name": "Journal of Public Economics",
+        "field": "ECON",
+        "issn": "0047-2727",
+        "domain": "ECON"
+      },
+      {
+        "name": "Journal of Risk and Uncertainty",
+        "field": "ECON",
+        "issn": "0895-5646",
+        "domain": "ECON"
+      },
+      {
+        "name": "Journal of the Association of Environmental and Resource Economists",
+        "field": "ECON",
+        "issn": "2333-5955",
+        "domain": "ECON"
+      },
+      {
+        "name": "Journal of the Royal Statistical Society. Series A: Statistics in Society",
+        "field": "ECON",
+        "issn": "0964-1998",
+        "domain": "ECON"
+      },
+      {
+        "name": "Journal of the Royal Statistical Society. Series C: Applied Statistics",
+        "field": "ECON",
+        "issn": "0035-9254",
+        "domain": "ECON"
+      },
+      {
+        "name": "Journal of Time Series Analysis",
+        "field": "ECON",
+        "issn": "0143-9782",
+        "domain": "ECON"
+      },
+      {
+        "name": "Journal of Urban Economics",
+        "field": "ECON",
+        "issn": "0094-1190",
+        "domain": "ECON"
+      },
+      {
+        "name": "Labour Economics",
+        "field": "ECON",
+        "issn": "0927-5371",
+        "domain": "ECON"
+      },
+      {
+        "name": "Land Economics",
+        "field": "ECON",
+        "issn": "2789-035X",
+        "domain": "ECON"
+      },
+      {
+        "name": "Oxford Bulletin of Economics and Statistics",
+        "field": "ECON",
+        "issn": "0305-9049",
+        "domain": "ECON"
+      },
+      {
+        "name": "Oxford Economic Papers",
+        "field": "ECON",
+        "issn": "0030-7653",
+        "domain": "ECON"
+      },
+      {
+        "name": "Public Choice",
+        "field": "ECON",
+        "issn": "0048-5829",
+        "domain": "ECON"
+      },
+      {
+        "name": "Real Estate Economics",
+        "field": "ECON",
+        "issn": "1080-8620",
+        "domain": "ECON"
+      },
+      {
+        "name": "Review of Economic Dynamics",
+        "field": "ECON",
+        "issn": "1094-2025",
+        "domain": "ECON"
+      },
+      {
+        "name": "Review of Income and Wealth",
+        "field": "ECON",
+        "issn": "0034-6586",
+        "domain": "ECON"
+      },
+      {
+        "name": "Scandinavian Journal of Economics",
+        "field": "ECON",
+        "issn": "0347-0520",
+        "domain": "ECON"
+      },
+      {
+        "name": "Scandinavian Journal of Statistics",
+        "field": "ECON",
+        "issn": "0303-6898",
+        "domain": "ECON"
+      },
+      {
+        "name": "Social Choice and Welfare",
+        "field": "ECON",
+        "issn": "0176-1714",
+        "domain": "ECON"
+      },
+      {
+        "name": "World Bank Economic Review",
+        "field": "ECON",
+        "issn": "0258-6770",
+        "domain": "ECON"
+      },
+      {
+        "name": "Entrepreneurship and Regional Development",
+        "field": "ENT-SBM",
+        "issn": "0898-5626",
+        "domain": "ENT-SBM"
+      },
+      {
+        "name": "Family Business Review",
+        "field": "ENT-SBM",
+        "issn": "0894-4865",
+        "domain": "ENT-SBM"
+      },
+      {
+        "name": "International Journal of Entrepreneurial Behaviour and Research",
+        "field": "ENT-SBM",
+        "issn": "1355-2554",
+        "domain": "ENT-SBM"
+      },
+      {
+        "name": "International Small Business Journal",
+        "field": "ENT-SBM",
+        "issn": "0266-2426",
+        "domain": "ENT-SBM"
+      },
+      {
+        "name": "Journal of Small Business Management",
+        "field": "ENT-SBM",
+        "issn": "0447-2778",
+        "domain": "ENT-SBM"
+      },
+      {
+        "name": "Small Business Economics",
+        "field": "ENT-SBM",
+        "issn": "0921-898X",
+        "domain": "ENT-SBM"
+      },
+      {
+        "name": "Academy of Management Discoveries",
+        "field": "ETHICS-CSR-MAN",
+        "issn": "2168-1007",
+        "domain": "ETHICS-CSR-MAN"
+      },
+      {
+        "name": "Business and Society",
+        "field": "ETHICS-CSR-MAN",
+        "issn": "0045-3609",
+        "domain": "ETHICS-CSR-MAN"
+      },
+      {
+        "name": "Business Ethics Quarterly",
+        "field": "ETHICS-CSR-MAN",
+        "issn": "1052-150X",
+        "domain": "ETHICS-CSR-MAN"
+      },
+      {
+        "name": "California Management Review",
+        "field": "ETHICS-CSR-MAN",
+        "issn": "0008-1256",
+        "domain": "ETHICS-CSR-MAN"
+      },
+      {
+        "name": "European Management Review",
+        "field": "ETHICS-CSR-MAN",
+        "issn": "1740-4754",
+        "domain": "ETHICS-CSR-MAN"
+      },
+      {
+        "name": "Gender and Society",
+        "field": "ETHICS-CSR-MAN",
+        "issn": "2615-4676",
+        "domain": "ETHICS-CSR-MAN"
+      },
+      {
+        "name": "Gender, Work and Organization",
+        "field": "ETHICS-CSR-MAN",
+        "issn": "0968-6673",
+        "domain": "ETHICS-CSR-MAN"
+      },
+      {
+        "name": "Harvard Business Review",
+        "field": "ETHICS-CSR-MAN",
+        "issn": "0017-8012",
+        "domain": "ETHICS-CSR-MAN"
+      },
+      {
+        "name": "International Journal of Management Reviews",
+        "field": "ETHICS-CSR-MAN",
+        "issn": "1460-8545",
+        "domain": "ETHICS-CSR-MAN"
+      },
+      {
+        "name": "Journal of Business Ethics",
+        "field": "ETHICS-CSR-MAN",
+        "issn": "0167-4544",
+        "domain": "ETHICS-CSR-MAN"
+      },
+      {
+        "name": "Journal of Business Research",
+        "field": "ETHICS-CSR-MAN",
+        "issn": "2008-014X",
+        "domain": "ETHICS-CSR-MAN"
+      },
+      {
+        "name": "Journal of Management Inquiry",
+        "field": "ETHICS-CSR-MAN",
+        "issn": "1056-4926",
+        "domain": "ETHICS-CSR-MAN"
+      },
+      {
+        "name": "MIT Sloan Management Review",
+        "field": "ETHICS-CSR-MAN",
+        "issn": "1532-9194",
+        "domain": "ETHICS-CSR-MAN"
+      },
+      {
+        "name": "Annual Review of Financial Economics",
+        "field": "FINANCE",
+        "issn": "1941-1367",
+        "domain": "FINANCE"
+      },
+      {
+        "name": "Corporate Governance: An International Review",
+        "field": "FINANCE",
+        "issn": "0964-8410",
+        "domain": "FINANCE"
+      },
+      {
+        "name": "European Financial Management",
+        "field": "FINANCE",
+        "issn": "1354-7798",
+        "domain": "FINANCE"
+      },
+      {
+        "name": "European Journal of Finance",
+        "field": "FINANCE",
+        "issn": "1351-847X",
+        "domain": "FINANCE"
+      },
+      {
+        "name": "Finance and Stochastics",
+        "field": "FINANCE",
+        "issn": "0949-2984",
+        "domain": "FINANCE"
+      },
+      {
+        "name": "Financial Analysts Journal",
+        "field": "FINANCE",
+        "issn": "0015-198X",
+        "domain": "FINANCE"
+      },
+      {
+        "name": "Financial Management",
+        "field": "FINANCE",
+        "issn": "0046-3892",
+        "domain": "FINANCE"
+      },
+      {
+        "name": "Financial Markets, Institutions and Instruments",
+        "field": "FINANCE",
+        "issn": "0963-8008",
+        "domain": "FINANCE"
+      },
+      {
+        "name": "Financial Review",
+        "field": "FINANCE",
+        "issn": "0732-8516",
+        "domain": "FINANCE"
+      },
+      {
+        "name": "Insurance: Mathematics and Economics",
+        "field": "FINANCE",
+        "issn": "0167-6687",
+        "domain": "FINANCE"
+      },
+      {
+        "name": "International Journal of Central Banking",
+        "field": "FINANCE",
+        "issn": "1815-4654",
+        "domain": "FINANCE"
+      },
+      {
+        "name": "International Journal of Finance and Economics",
+        "field": "FINANCE",
+        "issn": "1916-971X",
+        "domain": "FINANCE"
+      },
+      {
+        "name": "International Review of Financial Analysis",
+        "field": "FINANCE",
+        "issn": "1057-5219",
+        "domain": "FINANCE"
+      },
+      {
+        "name": "Journal of Banking and Finance",
+        "field": "FINANCE",
+        "issn": "2227-541X",
+        "domain": "FINANCE"
+      },
+      {
+        "name": "Journal of Commodity Markets",
+        "field": "FINANCE",
+        "issn": "2405-8513",
+        "domain": "FINANCE"
+      },
+      {
+        "name": "Journal of Empirical Finance",
+        "field": "FINANCE",
+        "issn": "0927-5398",
+        "domain": "FINANCE"
+      },
+      {
+        "name": "Journal of Financial Econometrics",
+        "field": "FINANCE",
+        "issn": "1479-8409",
+        "domain": "FINANCE"
+      },
+      {
+        "name": "Journal of Financial Markets",
+        "field": "FINANCE",
+        "issn": "1386-4181",
+        "domain": "FINANCE"
+      },
+      {
+        "name": "Journal of Financial Research",
+        "field": "FINANCE",
+        "issn": "0920-8550",
+        "domain": "FINANCE"
+      },
+      {
+        "name": "Journal of Financial Services Research",
+        "field": "FINANCE",
+        "issn": "0920-8550",
+        "domain": "FINANCE"
+      },
+      {
+        "name": "Journal of Financial Stability",
+        "field": "FINANCE",
+        "issn": "1572-3089",
+        "domain": "FINANCE"
+      },
+      {
+        "name": "Journal of Futures Markets",
+        "field": "FINANCE",
+        "issn": "0270-7314",
+        "domain": "FINANCE"
+      },
+      {
+        "name": "Journal of International Financial Markets, Institutions and Money",
+        "field": "FINANCE",
+        "issn": "1042-4431",
+        "domain": "FINANCE"
+      },
+      {
+        "name": "Journal of International Money and Finance",
+        "field": "FINANCE",
+        "issn": "0261-5606",
+        "domain": "FINANCE"
+      },
+      {
+        "name": "Journal of Portfolio Management",
+        "field": "FINANCE",
+        "issn": "0095-4918",
+        "domain": "FINANCE"
+      },
+      {
+        "name": "Journal of Real Estate Finance and Economics",
+        "field": "FINANCE",
+        "issn": "0895-5638",
+        "domain": "FINANCE"
+      },
+      {
+        "name": "Journal of Risk and Insurance",
+        "field": "FINANCE",
+        "issn": "2194-606X",
+        "domain": "FINANCE"
+      },
+      {
+        "name": "Mathematical Finance",
+        "field": "FINANCE",
+        "issn": "0960-1627",
+        "domain": "FINANCE"
+      },
+      {
+        "name": "Quantitative Finance",
+        "field": "FINANCE",
+        "issn": "1469-7688",
+        "domain": "FINANCE"
+      },
+      {
+        "name": "Review of Asset Pricing Studies",
+        "field": "FINANCE",
+        "issn": "2045-9920",
+        "domain": "FINANCE"
+      },
+      {
+        "name": "Review of Corporate Finance Studies",
+        "field": "FINANCE",
+        "issn": "2046-9128",
+        "domain": "FINANCE"
+      },
+      {
+        "name": "Review of Quantitative Finance and Accounting",
+        "field": "FINANCE",
+        "issn": "0924-865X",
+        "domain": "FINANCE"
+      },
+      {
+        "name": "Economic and Industrial Democracy",
+        "field": "HRM&EMP",
+        "issn": "0143-831X",
+        "domain": "HRM&EMP"
+      },
+      {
+        "name": "European Journal of Industrial Relations",
+        "field": "HRM&EMP",
+        "issn": "0959-6801",
+        "domain": "HRM&EMP"
+      },
+      {
+        "name": "Human Resource Management Review",
+        "field": "HRM&EMP",
+        "issn": "1053-4822",
+        "domain": "HRM&EMP"
+      },
+      {
+        "name": "ILR Review",
+        "field": "HRM&EMP",
+        "issn": "0019-7939",
+        "domain": "HRM&EMP"
+      },
+      {
+        "name": "Industrial Law Journal",
+        "field": "HRM&EMP",
+        "issn": "0305-9332",
+        "domain": "HRM&EMP"
+      },
+      {
+        "name": "Industrial Relations Journal",
+        "field": "HRM&EMP",
+        "issn": "0019-8692",
+        "domain": "HRM&EMP"
+      },
+      {
+        "name": "International Journal of Human Resource Management",
+        "field": "HRM&EMP",
+        "issn": "0958-5192",
+        "domain": "HRM&EMP"
+      },
+      {
+        "name": "New Technology, Work and Employment",
+        "field": "HRM&EMP",
+        "issn": "0268-1072",
+        "domain": "HRM&EMP"
+      },
+      {
+        "name": "Work and Occupations",
+        "field": "HRM&EMP",
+        "issn": "0730-8884",
+        "domain": "HRM&EMP"
+      },
+      {
+        "name": "African Affairs",
+        "field": "IB&AREA",
+        "issn": "0001-9909",
+        "domain": "IB&AREA"
+      },
+      {
+        "name": "Asia Pacific Journal of Management",
+        "field": "IB&AREA",
+        "issn": "0217-4561",
+        "domain": "IB&AREA"
+      },
+      {
+        "name": "International Business Review",
+        "field": "IB&AREA",
+        "issn": "0969-5931",
+        "domain": "IB&AREA"
+      },
+      {
+        "name": "Journal of Common Market Studies",
+        "field": "IB&AREA",
+        "issn": "0021-9886",
+        "domain": "IB&AREA"
+      },
+      {
+        "name": "Journal of International Business Policy",
+        "field": "IB&AREA",
+        "issn": "2522-0691",
+        "domain": "IB&AREA"
+      },
+      {
+        "name": "Journal of International Management",
+        "field": "IB&AREA",
+        "issn": "1075-4253",
+        "domain": "IB&AREA"
+      },
+      {
+        "name": "Management and Organization Review",
+        "field": "IB&AREA",
+        "issn": "1740-8776",
+        "domain": "IB&AREA"
+      },
+      {
+        "name": "Management International Review",
+        "field": "IB&AREA",
+        "issn": "0938-8249",
+        "domain": "IB&AREA"
+      },
+      {
+        "name": "Multinational Business Review",
+        "field": "IB&AREA",
+        "issn": "1525-383X",
+        "domain": "IB&AREA"
+      },
+      {
+        "name": "Decision Support Systems",
+        "field": "INFO MAN",
+        "issn": "0167-9236",
+        "domain": "INFO MAN"
+      },
+      {
+        "name": "Government Information Quarterly",
+        "field": "INFO MAN",
+        "issn": "0740-624X",
+        "domain": "INFO MAN"
+      },
+      {
+        "name": "Information and Management",
+        "field": "INFO MAN",
+        "issn": "0378-7206",
+        "domain": "INFO MAN"
+      },
+      {
+        "name": "Information and Organization",
+        "field": "INFO MAN",
+        "issn": "1471-7727",
+        "domain": "INFO MAN"
+      },
+      {
+        "name": "Information Society",
+        "field": "INFO MAN",
+        "issn": "1606-1330",
+        "domain": "INFO MAN"
+      },
+      {
+        "name": "Information Systems Frontiers",
+        "field": "INFO MAN",
+        "issn": "1387-3326",
+        "domain": "INFO MAN"
+      },
+      {
+        "name": "Information Technology and People",
+        "field": "INFO MAN",
+        "issn": "0959-3845",
+        "domain": "INFO MAN"
+      },
+      {
+        "name": "International Journal of Electronic Commerce",
+        "field": "INFO MAN",
+        "issn": "1086-4415",
+        "domain": "INFO MAN"
+      },
+      {
+        "name": "Internet Research",
+        "field": "INFO MAN",
+        "issn": "1066-2243",
+        "domain": "INFO MAN"
+      },
+      {
+        "name": "Journal of Computer-Mediated Communication",
+        "field": "INFO MAN",
+        "issn": "1083-6101",
+        "domain": "INFO MAN"
+      },
+      {
+        "name": "Journal of the Association for Information Science and Technology (JASIST)",
+        "field": "INFO MAN",
+        "issn": "2330-1643",
+        "domain": "INFO MAN"
+      },
+      {
+        "name": "Industry and Innovation",
+        "field": "INNOV",
+        "issn": "1366-2716",
+        "domain": "INNOV"
+      },
+      {
+        "name": "Journal of Technology Transfer",
+        "field": "INNOV",
+        "issn": "0892-9912",
+        "domain": "INNOV"
+      },
+      {
+        "name": "R and D Management",
+        "field": "INNOV",
+        "issn": "0033-6807",
+        "domain": "INNOV"
+      },
+      {
+        "name": "Technological Forecasting and Social Change",
+        "field": "INNOV",
+        "issn": "0040-1625",
+        "domain": "INNOV"
+      },
+      {
+        "name": "Technovation",
+        "field": "INNOV",
+        "issn": "0166-4972",
+        "domain": "INNOV"
+      },
+      {
+        "name": "Management Learning",
+        "field": "MDEV&EDU",
+        "issn": "1350-5076",
+        "domain": "MDEV&EDU"
+      },
+      {
+        "name": "Studies in Higher Education",
+        "field": "MDEV&EDU",
+        "issn": "0307-5079",
+        "domain": "MDEV&EDU"
+      },
+      {
+        "name": "European Journal of Marketing",
+        "field": "MKT",
+        "issn": "0309-0566",
+        "domain": "MKT"
+      },
+      {
+        "name": "Industrial Marketing Management",
+        "field": "MKT",
+        "issn": "0019-8501",
+        "domain": "MKT"
+      },
+      {
+        "name": "International Marketing Review",
+        "field": "MKT",
+        "issn": "0265-1335",
+        "domain": "MKT"
+      },
+      {
+        "name": "Journal of Advertising",
+        "field": "MKT",
+        "issn": "0091-3367",
+        "domain": "MKT"
+      },
+      {
+        "name": "Journal of Advertising Research",
+        "field": "MKT",
+        "issn": "0021-8499",
+        "domain": "MKT"
+      },
+      {
+        "name": "Journal of Interactive Marketing",
+        "field": "MKT",
+        "issn": "1094-9968",
+        "domain": "MKT"
+      },
+      {
+        "name": "Journal of International Marketing",
+        "field": "MKT",
+        "issn": "1069-031X",
+        "domain": "MKT"
+      },
+      {
+        "name": "Journal of Public Policy and Marketing",
+        "field": "MKT",
+        "issn": "0743-9156",
+        "domain": "MKT"
+      },
+      {
+        "name": "Marketing Letters",
+        "field": "MKT",
+        "issn": "0923-0645",
+        "domain": "MKT"
+      },
+      {
+        "name": "Marketing Theory",
+        "field": "MKT",
+        "issn": "1470-5931",
+        "domain": "MKT"
+      },
+      {
+        "name": "Psychology and Marketing",
+        "field": "MKT",
+        "issn": "0742-6046",
+        "domain": "MKT"
+      },
+      {
+        "name": "Quantitative Marketing and Economics",
+        "field": "MKT",
+        "issn": "1570-7156",
+        "domain": "MKT"
+      },
+      {
+        "name": "Computers in Industry",
+        "field": "OPS&TECH",
+        "issn": "0166-3615",
+        "domain": "OPS&TECH"
+      },
+      {
+        "name": "IEEE Transactions on Engineering Management",
+        "field": "OPS&TECH",
+        "issn": "0018-9391",
+        "domain": "OPS&TECH"
+      },
+      {
+        "name": "International Journal of Production Economics",
+        "field": "OPS&TECH",
+        "issn": "0925-5273",
+        "domain": "OPS&TECH"
+      },
+      {
+        "name": "International Journal of Production Research",
+        "field": "OPS&TECH",
+        "issn": "0020-7543",
+        "domain": "OPS&TECH"
+      },
+      {
+        "name": "Journal of Business Logistics",
+        "field": "OPS&TECH",
+        "issn": "0735-3766",
+        "domain": "OPS&TECH"
+      },
+      {
+        "name": "Journal of Purchasing and Supply Management",
+        "field": "OPS&TECH",
+        "issn": "1478-4092",
+        "domain": "OPS&TECH"
+      },
+      {
+        "name": "Manufacturing and Service Operations Management",
+        "field": "OPS&TECH",
+        "issn": "2616-3349",
+        "domain": "OPS&TECH"
+      },
+      {
+        "name": "Production Planning and Control",
+        "field": "OPS&TECH",
+        "issn": "0953-7287",
+        "domain": "OPS&TECH"
+      },
+      {
+        "name": "Supply Chain Management",
+        "field": "OPS&TECH",
+        "issn": "2291-6822",
+        "domain": "OPS&TECH"
+      },
+      {
+        "name": "ACM Transactions on Modeling and Computer Simulation",
+        "field": "OR&MANSCI",
+        "issn": "1049-3301",
+        "domain": "OR&MANSCI"
+      },
+      {
+        "name": "Annals of Operations Research",
+        "field": "OR&MANSCI",
+        "issn": "0254-5330",
+        "domain": "OR&MANSCI"
+      },
+      {
+        "name": "Computational Optimization and Applications",
+        "field": "OR&MANSCI",
+        "issn": "0926-6003",
+        "domain": "OR&MANSCI"
+      },
+      {
+        "name": "Computers and Operations Research",
+        "field": "OR&MANSCI",
+        "issn": "0305-0548",
+        "domain": "OR&MANSCI"
+      },
+      {
+        "name": "Decision Sciences",
+        "field": "OR&MANSCI",
+        "issn": "0011-7315",
+        "domain": "OR&MANSCI"
+      },
+      {
+        "name": "Evolutionary Computation",
+        "field": "OR&MANSCI",
+        "issn": "1063-6560",
+        "domain": "OR&MANSCI"
+      },
+      {
+        "name": "Fuzzy Optimization and Decision Making",
+        "field": "OR&MANSCI",
+        "issn": "1568-4539",
+        "domain": "OR&MANSCI"
+      },
+      {
+        "name": "IEEE Transactions on Cybernetics",
+        "field": "OR&MANSCI",
+        "issn": "2168-2267",
+        "domain": "OR&MANSCI"
+      },
+      {
+        "name": "IEEE Transactions on Systems, Man, and Cybernetics: Systems",
+        "field": "OR&MANSCI",
+        "issn": "2168-2216",
+        "domain": "OR&MANSCI"
+      },
+      {
+        "name": "IISE Transactions",
+        "field": "OR&MANSCI",
+        "issn": "2472-5854",
+        "domain": "OR&MANSCI"
+      },
+      {
+        "name": "INFORMS Journal on Computing",
+        "field": "OR&MANSCI",
+        "issn": "0899-1499",
+        "domain": "OR&MANSCI"
+      },
+      {
+        "name": "International Journal of Forecasting",
+        "field": "OR&MANSCI",
+        "issn": "0169-2070",
+        "domain": "OR&MANSCI"
+      },
+      {
+        "name": "Journal of Heuristics",
+        "field": "OR&MANSCI",
+        "issn": "1381-1231",
+        "domain": "OR&MANSCI"
+      },
+      {
+        "name": "Journal of Optimization Theory and Applications",
+        "field": "OR&MANSCI",
+        "issn": "0022-3239",
+        "domain": "OR&MANSCI"
+      },
+      {
+        "name": "Journal of the Operational Research Society",
+        "field": "OR&MANSCI",
+        "issn": "0160-5682",
+        "domain": "OR&MANSCI"
+      },
+      {
+        "name": "Mathematics of Operations Research",
+        "field": "OR&MANSCI",
+        "issn": "0364-765X",
+        "domain": "OR&MANSCI"
+      },
+      {
+        "name": "Naval Research Logistics",
+        "field": "OR&MANSCI",
+        "issn": "0894-069X",
+        "domain": "OR&MANSCI"
+      },
+      {
+        "name": "Omega",
+        "field": "OR&MANSCI",
+        "issn": "3067-1329",
+        "domain": "OR&MANSCI"
+      },
+      {
+        "name": "OR Spectrum",
+        "field": "OR&MANSCI",
+        "issn": "0171-6468",
+        "domain": "OR&MANSCI"
+      },
+      {
+        "name": "Reliability Engineering and System Safety",
+        "field": "OR&MANSCI",
+        "issn": "0951-8320",
+        "domain": "OR&MANSCI"
+      },
+      {
+        "name": "SIAM Journal on Optimization",
+        "field": "OR&MANSCI",
+        "issn": "1052-6234",
+        "domain": "OR&MANSCI"
+      },
+      {
+        "name": "Transportation Science",
+        "field": "OR&MANSCI",
+        "issn": "0041-1655",
+        "domain": "OR&MANSCI"
+      },
+      {
+        "name": "Group and Organization Management",
+        "field": "ORG STUD",
+        "issn": "1059-3278",
+        "domain": "ORG STUD"
+      },
+      {
+        "name": "Organization",
+        "field": "ORG STUD",
+        "issn": "1350-5084",
+        "domain": "ORG STUD"
+      },
+      {
+        "name": "Organization and Environment",
+        "field": "ORG STUD",
+        "issn": "1086-0266",
+        "domain": "ORG STUD"
+      },
+      {
+        "name": "Organizational Dynamics",
+        "field": "ORG STUD",
+        "issn": "0090-2616",
+        "domain": "ORG STUD"
+      },
+      {
+        "name": "Research in Organizational Behavior",
+        "field": "ORG STUD",
+        "issn": "0191-3085",
+        "domain": "ORG STUD"
+      },
+      {
+        "name": "Research in the Sociology of Organizations",
+        "field": "ORG STUD",
+        "issn": "0733-558X",
+        "domain": "ORG STUD"
+      },
+      {
+        "name": "British Journal of Psychology",
+        "field": "PSYCH (GENERAL)",
+        "issn": "0007-1269",
+        "domain": "PSYCH (GENERAL)"
+      },
+      {
+        "name": "British Journal of Social Psychology",
+        "field": "PSYCH (GENERAL)",
+        "issn": "0144-6665",
+        "domain": "PSYCH (GENERAL)"
+      },
+      {
+        "name": "Cognitive Science",
+        "field": "PSYCH (GENERAL)",
+        "issn": "0364-0213",
+        "domain": "PSYCH (GENERAL)"
+      },
+      {
+        "name": "European Journal of Social Psychology",
+        "field": "PSYCH (GENERAL)",
+        "issn": "0046-2772",
+        "domain": "PSYCH (GENERAL)"
+      },
+      {
+        "name": "Journal of Behavioral Decision Making",
+        "field": "PSYCH (GENERAL)",
+        "issn": "0894-3257",
+        "domain": "PSYCH (GENERAL)"
+      },
+      {
+        "name": "Journal of Conflict Resolution",
+        "field": "PSYCH (GENERAL)",
+        "issn": "0022-0027",
+        "domain": "PSYCH (GENERAL)"
+      },
+      {
+        "name": "Journal of Cross-Cultural Psychology",
+        "field": "PSYCH (GENERAL)",
+        "issn": "0022-0221",
+        "domain": "PSYCH (GENERAL)"
+      },
+      {
+        "name": "Journal of Environmental Psychology",
+        "field": "PSYCH (GENERAL)",
+        "issn": "0272-4944",
+        "domain": "PSYCH (GENERAL)"
+      },
+      {
+        "name": "Journal of Experimental Psychology: Learning Memory and Cognition",
+        "field": "PSYCH (GENERAL)",
+        "issn": "0278-7393",
+        "domain": "PSYCH (GENERAL)"
+      },
+      {
+        "name": "Journal of Mathematical Psychology",
+        "field": "PSYCH (GENERAL)",
+        "issn": "0022-2496",
+        "domain": "PSYCH (GENERAL)"
+      },
+      {
+        "name": "Journal of Personality",
+        "field": "PSYCH (GENERAL)",
+        "issn": "0022-3506",
+        "domain": "PSYCH (GENERAL)"
+      },
+      {
+        "name": "Judgment and Decision Making",
+        "field": "PSYCH (GENERAL)",
+        "issn": "1930-2975",
+        "domain": "PSYCH (GENERAL)"
+      },
+      {
+        "name": "Personality and Individual Differences",
+        "field": "PSYCH (GENERAL)",
+        "issn": "0191-8869",
+        "domain": "PSYCH (GENERAL)"
+      },
+      {
+        "name": "Psychological Research",
+        "field": "PSYCH (GENERAL)",
+        "issn": "1819-2068",
+        "domain": "PSYCH (GENERAL)"
+      },
+      {
+        "name": "Psychology of Women Quarterly",
+        "field": "PSYCH (GENERAL)",
+        "issn": "0361-6843",
+        "domain": "PSYCH (GENERAL)"
+      },
+      {
+        "name": "Psychometrika",
+        "field": "PSYCH (GENERAL)",
+        "issn": "0033-3123",
+        "domain": "PSYCH (GENERAL)"
+      },
+      {
+        "name": "Quarterly Journal of Experimental Psychology",
+        "field": "PSYCH (GENERAL)",
+        "issn": "0033-555X",
+        "domain": "PSYCH (GENERAL)"
+      },
+      {
+        "name": "Social Psychological and Personality Science",
+        "field": "PSYCH (GENERAL)",
+        "issn": "1948-5506",
+        "domain": "PSYCH (GENERAL)"
+      },
+      {
+        "name": "Stress and Health",
+        "field": "PSYCH (GENERAL)",
+        "issn": "1532-3005",
+        "domain": "PSYCH (GENERAL)"
+      },
+      {
+        "name": "Accident Analysis and Prevention",
+        "field": "PSYCH (WOP-OB)",
+        "issn": "0001-4575",
+        "domain": "PSYCH (WOP-OB)"
+      },
+      {
+        "name": "Applied Ergonomics",
+        "field": "PSYCH (WOP-OB)",
+        "issn": "0003-6870",
+        "domain": "PSYCH (WOP-OB)"
+      },
+      {
+        "name": "Applied Psychology",
+        "field": "PSYCH (WOP-OB)",
+        "issn": "0269-994X",
+        "domain": "PSYCH (WOP-OB)"
+      },
+      {
+        "name": "Ergonomics",
+        "field": "PSYCH (WOP-OB)",
+        "issn": "0014-0139",
+        "domain": "PSYCH (WOP-OB)"
+      },
+      {
+        "name": "European Journal of Work and Organizational Psychology",
+        "field": "PSYCH (WOP-OB)",
+        "issn": "1359-432X",
+        "domain": "PSYCH (WOP-OB)"
+      },
+      {
+        "name": "Human Factors",
+        "field": "PSYCH (WOP-OB)",
+        "issn": "1093-9741",
+        "domain": "PSYCH (WOP-OB)"
+      },
+      {
+        "name": "Human Performance",
+        "field": "PSYCH (WOP-OB)",
+        "issn": "0895-9285",
+        "domain": "PSYCH (WOP-OB)"
+      },
+      {
+        "name": "International Journal of Rehabilitation Research",
+        "field": "PSYCH (WOP-OB)",
+        "issn": "0342-5282",
+        "domain": "PSYCH (WOP-OB)"
+      },
+      {
+        "name": "Journal of Business and Psychology",
+        "field": "PSYCH (WOP-OB)",
+        "issn": "0889-3268",
+        "domain": "PSYCH (WOP-OB)"
+      },
+      {
+        "name": "Journal of Managerial Psychology",
+        "field": "PSYCH (WOP-OB)",
+        "issn": "0268-3946",
+        "domain": "PSYCH (WOP-OB)"
+      },
+      {
+        "name": "Journal of School Psychology",
+        "field": "PSYCH (WOP-OB)",
+        "issn": "0022-4405",
+        "domain": "PSYCH (WOP-OB)"
+      },
+      {
+        "name": "Occupational and Environmental Medicine",
+        "field": "PSYCH (WOP-OB)",
+        "issn": "1351-0711",
+        "domain": "PSYCH (WOP-OB)"
+      },
+      {
+        "name": "Scandinavian Journal of Work, Environment and Health",
+        "field": "PSYCH (WOP-OB)",
+        "issn": "0355-3140",
+        "domain": "PSYCH (WOP-OB)"
+      },
+      {
+        "name": "American Review of Public Administration",
+        "field": "PUB SEC",
+        "issn": "0275-0740",
+        "domain": "PUB SEC"
+      },
+      {
+        "name": "Environment and Planning C: Politics and Space",
+        "field": "PUB SEC",
+        "issn": "2399-6544",
+        "domain": "PUB SEC"
+      },
+      {
+        "name": "Health Services Research",
+        "field": "PUB SEC",
+        "issn": "0017-9124",
+        "domain": "PUB SEC"
+      },
+      {
+        "name": "International Public Management Journal",
+        "field": "PUB SEC",
+        "issn": "1096-7494",
+        "domain": "PUB SEC"
+      },
+      {
+        "name": "International Review of Administrative Sciences",
+        "field": "PUB SEC",
+        "issn": "0020-8523",
+        "domain": "PUB SEC"
+      },
+      {
+        "name": "Journal of European Public Policy",
+        "field": "PUB SEC",
+        "issn": "1350-1763",
+        "domain": "PUB SEC"
+      },
+      {
+        "name": "Journal of Policy Analysis and Management",
+        "field": "PUB SEC",
+        "issn": "0276-8739",
+        "domain": "PUB SEC"
+      },
+      {
+        "name": "Milbank Quarterly",
+        "field": "PUB SEC",
+        "issn": "0887-378X",
+        "domain": "PUB SEC"
+      },
+      {
+        "name": "Policy and Politics",
+        "field": "PUB SEC",
+        "issn": "2194-6299",
+        "domain": "PUB SEC"
+      },
+      {
+        "name": "Policy Studies Journal",
+        "field": "PUB SEC",
+        "issn": "0190-292X",
+        "domain": "PUB SEC"
+      },
+      {
+        "name": "Regulation and Governance",
+        "field": "PUB SEC",
+        "issn": "2220-9352",
+        "domain": "PUB SEC"
+      },
+      {
+        "name": "Cambridge Journal of Regions, Economy and Society",
+        "field": "REGIONAL STUDIES, PLANNING AND ENVIRONMENT",
+        "issn": "1752-1378",
+        "domain": "REGIONAL STUDIES, PLANNING AND ENVIRONMENT"
+      },
+      {
+        "name": "Environment and Planning A",
+        "field": "REGIONAL STUDIES, PLANNING AND ENVIRONMENT",
+        "issn": "0308-518X",
+        "domain": "REGIONAL STUDIES, PLANNING AND ENVIRONMENT"
+      },
+      {
+        "name": "European Urban and Regional Studies",
+        "field": "REGIONAL STUDIES, PLANNING AND ENVIRONMENT",
+        "issn": "0969-7764",
+        "domain": "REGIONAL STUDIES, PLANNING AND ENVIRONMENT"
+      },
+      {
+        "name": "Global Environmental Change",
+        "field": "REGIONAL STUDIES, PLANNING AND ENVIRONMENT",
+        "issn": "0959-3780",
+        "domain": "REGIONAL STUDIES, PLANNING AND ENVIRONMENT"
+      },
+      {
+        "name": "Journal of Regional Science",
+        "field": "REGIONAL STUDIES, PLANNING AND ENVIRONMENT",
+        "issn": "0022-4146",
+        "domain": "REGIONAL STUDIES, PLANNING AND ENVIRONMENT"
+      },
+      {
+        "name": "Journal of Rural Studies",
+        "field": "REGIONAL STUDIES, PLANNING AND ENVIRONMENT",
+        "issn": "0743-0167",
+        "domain": "REGIONAL STUDIES, PLANNING AND ENVIRONMENT"
+      },
+      {
+        "name": "Papers in Regional Science",
+        "field": "REGIONAL STUDIES, PLANNING AND ENVIRONMENT",
+        "issn": "1435-5957",
+        "domain": "REGIONAL STUDIES, PLANNING AND ENVIRONMENT"
+      },
+      {
+        "name": "Regional Science and Urban Economics",
+        "field": "REGIONAL STUDIES, PLANNING AND ENVIRONMENT",
+        "issn": "0166-0462",
+        "domain": "REGIONAL STUDIES, PLANNING AND ENVIRONMENT"
+      },
+      {
+        "name": "Urban Studies",
+        "field": "REGIONAL STUDIES, PLANNING AND ENVIRONMENT",
+        "issn": "0042-0980",
+        "domain": "REGIONAL STUDIES, PLANNING AND ENVIRONMENT"
+      },
+      {
+        "name": "Energy Journal",
+        "field": "SECTOR",
+        "issn": "0146-0412",
+        "domain": "SECTOR"
+      },
+      {
+        "name": "European Sport Management Quarterly",
+        "field": "SECTOR",
+        "issn": "1618-4742",
+        "domain": "SECTOR"
+      },
+      {
+        "name": "Food Policy",
+        "field": "SECTOR",
+        "issn": "0306-9192",
+        "domain": "SECTOR"
+      },
+      {
+        "name": "International Journal of Contemporary Hospitality Management",
+        "field": "SECTOR",
+        "issn": "0959-6119",
+        "domain": "SECTOR"
+      },
+      {
+        "name": "International Journal of Hospitality Management",
+        "field": "SECTOR",
+        "issn": "0278-4319",
+        "domain": "SECTOR"
+      },
+      {
+        "name": "Journal of Sustainable Tourism",
+        "field": "SECTOR",
+        "issn": "0966-9582",
+        "domain": "SECTOR"
+      },
+      {
+        "name": "Nonprofit and Voluntary Sector Quarterly",
+        "field": "SECTOR",
+        "issn": "0899-7640",
+        "domain": "SECTOR"
+      },
+      {
+        "name": "Transportation Research, Part A: Policy and Practice",
+        "field": "SECTOR",
+        "issn": "0965-8564",
+        "domain": "SECTOR"
+      },
+      {
+        "name": "Transportation Research, Part D: Transport and Environment",
+        "field": "SECTOR",
+        "issn": "1361-9209",
+        "domain": "SECTOR"
+      },
+      {
+        "name": "Transportation Research, Part E: Logistics and Transportation Review",
+        "field": "SECTOR",
+        "issn": "1366-5545",
+        "domain": "SECTOR"
+      },
+      {
+        "name": "Antipode",
+        "field": "SOC SCI",
+        "issn": "0066-4812",
+        "domain": "SOC SCI"
+      },
+      {
+        "name": "British Journal of Sociology",
+        "field": "SOC SCI",
+        "issn": "0007-1315",
+        "domain": "SOC SCI"
+      },
+      {
+        "name": "Business Strategy and the Environment",
+        "field": "SOC SCI",
+        "issn": "0964-4733",
+        "domain": "SOC SCI"
+      },
+      {
+        "name": "Development and Change",
+        "field": "SOC SCI",
+        "issn": "0012-155X",
+        "domain": "SOC SCI"
+      },
+      {
+        "name": "Economy and Society",
+        "field": "SOC SCI",
+        "issn": "0308-5147",
+        "domain": "SOC SCI"
+      },
+      {
+        "name": "Electoral Studies",
+        "field": "SOC SCI",
+        "issn": "0261-3794",
+        "domain": "SOC SCI"
+      },
+      {
+        "name": "Environmental Science & Technology",
+        "field": "SOC SCI",
+        "issn": "0013-936X",
+        "domain": "SOC SCI"
+      },
+      {
+        "name": "Environmental Science and Policy",
+        "field": "SOC SCI",
+        "issn": "1462-9011",
+        "domain": "SOC SCI"
+      },
+      {
+        "name": "European Sociological Review",
+        "field": "SOC SCI",
+        "issn": "0266-7215",
+        "domain": "SOC SCI"
+      },
+      {
+        "name": "Global Networks",
+        "field": "SOC SCI",
+        "issn": "1470-2266",
+        "domain": "SOC SCI"
+      },
+      {
+        "name": "Industrial and Corporate Change",
+        "field": "SOC SCI",
+        "issn": "0960-6491",
+        "domain": "SOC SCI"
+      },
+      {
+        "name": "Journal of Cultural Economy",
+        "field": "SOC SCI",
+        "issn": "1753-0350",
+        "domain": "SOC SCI"
+      },
+      {
+        "name": "Journal of Development Studies",
+        "field": "SOC SCI",
+        "issn": "2667-9922",
+        "domain": "SOC SCI"
+      },
+      {
+        "name": "Journal of European Social Policy",
+        "field": "SOC SCI",
+        "issn": "0958-9287",
+        "domain": "SOC SCI"
+      },
+      {
+        "name": "Journal of Social Policy",
+        "field": "SOC SCI",
+        "issn": "0047-2794",
+        "domain": "SOC SCI"
+      },
+      {
+        "name": "New Political Economy",
+        "field": "SOC SCI",
+        "issn": "1356-3467",
+        "domain": "SOC SCI"
+      },
+      {
+        "name": "Politics and Society",
+        "field": "SOC SCI",
+        "issn": "1843-1348",
+        "domain": "SOC SCI"
+      },
+      {
+        "name": "Progress in Human Geography",
+        "field": "SOC SCI",
+        "issn": "0309-1325",
+        "domain": "SOC SCI"
+      },
+      {
+        "name": "Public Opinion Quarterly",
+        "field": "SOC SCI",
+        "issn": "0033-362X",
+        "domain": "SOC SCI"
+      },
+      {
+        "name": "Quarterly Journal of Political Science",
+        "field": "SOC SCI",
+        "issn": "1554-0626",
+        "domain": "SOC SCI"
+      },
+      {
+        "name": "Research in Social Stratification and Mobility",
+        "field": "SOC SCI",
+        "issn": "0276-5624",
+        "domain": "SOC SCI"
+      },
+      {
+        "name": "Review of International Political Economy",
+        "field": "SOC SCI",
+        "issn": "0969-2290",
+        "domain": "SOC SCI"
+      },
+      {
+        "name": "Social Forces",
+        "field": "SOC SCI",
+        "issn": "0037-7732",
+        "domain": "SOC SCI"
+      },
+      {
+        "name": "Social Science Research",
+        "field": "SOC SCI",
+        "issn": "2199-1553",
+        "domain": "SOC SCI"
+      },
+      {
+        "name": "Sociological Methodology",
+        "field": "SOC SCI",
+        "issn": "0081-1750",
+        "domain": "SOC SCI"
+      },
+      {
+        "name": "Sociological Review",
+        "field": "SOC SCI",
+        "issn": "0266-7215",
+        "domain": "SOC SCI"
+      },
+      {
+        "name": "Sociology of Health and Illness",
+        "field": "SOC SCI",
+        "issn": "0141-9889",
+        "domain": "SOC SCI"
+      },
+      {
+        "name": "Theory, Culture and Society",
+        "field": "SOC SCI",
+        "issn": "0263-2764",
+        "domain": "SOC SCI"
+      },
+      {
+        "name": "West European Politics",
+        "field": "SOC SCI",
+        "issn": "0140-2382",
+        "domain": "SOC SCI"
+      },
+      {
+        "name": "World Development",
+        "field": "SOC SCI",
+        "issn": "0305-750X",
+        "domain": "SOC SCI"
+      },
+      {
+        "name": "Strategic Organization",
+        "field": "STRAT",
+        "issn": "1476-1270",
+        "domain": "STRAT"
+      },
+      {
+        "name": "Strategy Science",
+        "field": "STRAT",
+        "issn": "2333-2050",
+        "domain": "STRAT"
+      }
+    ]
+  }
+}

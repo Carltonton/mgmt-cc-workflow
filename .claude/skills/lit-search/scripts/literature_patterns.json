@@ -1,0 +1,72 @@
+{
+  "academic_keywords": [
+    "paper",
+    "publication",
+    "journal",
+    "DOI",
+    "cite",
+    "citation",
+    "bibliography",
+    "reference",
+    "literature",
+    "research",
+    "academic",
+    "scholarly",
+    "peer-reviewed",
+    "manuscript",
+    "proceedings",
+    "文献",
+    "论文",
+    "期刊",
+    "引用",
+    "学术",
+    "研究"
+  ],
+  "trigger_phrases": [
+    "search for papers",
+    "find literature",
+    "search publications",
+    "academic search",
+    "search bibliography",
+    "find papers",
+    "search for",
+    "look up papers",
+    "paper about",
+    "research on",
+    "publication about",
+    "查找论文",
+    "文献检索",
+    "搜索论文",
+    "找论文",
+    "学术论文"
+  ],
+  "exclusion_patterns": [
+    "wikipedia",
+    "reddit",
+    "stack overflow",
+    "news",
+    "weather",
+    "stock price",
+    "definition",
+    "meaning of",
+    "how to",
+    "tutorial",
+    "example code",
+    "github",
+    "stackoverflow",
+    "quora"
+  ],
+  "override_phrases": [
+    "不要用 hook",
+    "do not use hook",
+    "use web search",
+    "bypass hook",
+    "直接用网络搜索",
+    "use mcp search"
+  ],
+  "google_scholar_trigger": [
+    "google scholar",
+    "Google Scholar",
+    "scholar.google"
+  ]
+}

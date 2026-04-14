@@ -1,0 +1,120 @@
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# Thumbnails
+._*
+
+# Files that might appear in the root of a volume
+.DocumentRevisions-V100
+.fseventsd
+.Spotlight-V100
+.TemporaryItems
+.Trashes
+.VolumeIcon.icns
+.com.apple.timemachine.donotpresent
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+pip-wheel-metadata/
+share/python-wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+MANIFEST
+
+# Virtual environments
+.venv/
+venv/
+ENV/
+env/
+
+# Jupyter Notebook
+.ipynb_checkpoints
+*.ipynb_checkpoints/
+
+# PyCharm
+.idea/
+
+# VSCode
+.vscode/
+
+# R
+.Rproj.user
+.Rhistory
+.RData
+.Ruserdata
+
+# LaTeX
+*.aux
+*.log
+*.out
+*.toc
+*.fls
+*.fdb_latexmk
+*.synctex.gz
+*.synctex.gz(busy)
+*.bbl
+*.blg
+*.bcf
+*.run.xml
+
+# Output files (generated, should be regenerated)
+output/*.png
+output/*.pdf
+output/*.tex
+output/*.csv
+output/*.xlsx
+!output/.gitkeep
+
+# Model artifacts (large files)
+models/*.pkl
+models/*.h5
+models/*.pt
+models/*.pth
+!output/.gitkeep
+
+# Session-specific files (already tracked in quality_reports/)
+.claude/temp/
+
+# Local settings
+.claude/settings.local.json
+
+# Temporary files
+*.tmp
+*.temp
+*.swp
+*.swo
+*~
+
+# Compressed files (in data/)
+*.7z
+*.rar
+*.zip
+
+# Large data files (uncomment if needed)
+# data/**/*.xlsx
+# data/**/*.csv
+# data/**/*.dta
+# !data/README.md
+
+# Log files
+*.log
+.env
