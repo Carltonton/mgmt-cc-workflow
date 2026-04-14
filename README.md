@@ -12,9 +12,9 @@ A structured AI-assisted workflow for academic research, built on [Claude Code](
 1. **Fork** this repo on GitHub
 2. **Clone** your fork: `git clone https://github.com/YOUR_USERNAME/mgmt-cc-workflow.git my-project`
 3. **Configure** `CLAUDE.md` — fill in the `[PLACEHOLDERS]` with your project details
-4. **Start Claude Code**: open your terminal, run `claude`, and paste the starter prompt from the [workflow guide](Quarto/guide/workflow-guide.html)
+4. **Start Claude Code**: open your terminal, run `claude`, and paste the starter prompt from the [workflow guide](https://carltonton.github.io/mgmt-cc-workflow/Quarto/guide/workflow-guide.html)
 
-See the [full workflow guide](Quarto/guide/workflow-guide.html) for detailed setup instructions.
+See the [full workflow guide](https://carltonton.github.io/mgmt-cc-workflow/Quarto/guide/workflow-guide.html) for detailed setup instructions.
 
 ---
 
@@ -67,7 +67,7 @@ my-project/
 
 ## Documentation
 
-- **[Workflow Guide](Quarto/guide/workflow-guide.html)** — Comprehensive guide covering all patterns, skills, and workflows
+- **[Workflow Guide](https://carltonton.github.io/mgmt-cc-workflow/Quarto/guide/workflow-guide.html)** — Comprehensive guide covering all patterns, skills, and workflows
 - **[CLAUDE.md](CLAUDE.md)** — Project configuration (fill in placeholders for your project)
 - **[MEMORY.md](MEMORY.md)** — Persistent memory system for cross-session learning
 - **[.claude/rules/](.claude/rules/)** — Detailed workflow protocols and conventions
