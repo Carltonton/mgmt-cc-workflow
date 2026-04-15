@@ -9,12 +9,83 @@ A structured AI-assisted workflow for academic research, built on [Claude Code](
 
 ## Quick Start
 
-1. **Fork** this repo on GitHub
-2. **Clone** your fork: `git clone https://github.com/YOUR_USERNAME/mgmt-cc-workflow.git my-project`
-3. **Configure** `CLAUDE.md` — fill in the `[PLACEHOLDERS]` with your project details
-4. **Start Claude Code**: open your terminal, run `claude`, and paste the starter prompt from the [workflow guide](https://carltonton.github.io/mgmt-cc-workflow/Quarto/guide/workflow-guide.html)
+### Step 1: Install VS Code
 
-See the [full workflow guide](https://carltonton.github.io/mgmt-cc-workflow/Quarto/guide/workflow-guide.html) for detailed setup instructions.
+Download from [code.visualstudio.com](https://code.visualstudio.com) (free, macOS/Windows/Linux).
+
+### Step 2: Install Claude Code
+
+Claude Code runs as both a **CLI tool** and a **VS Code extension** — same capabilities, different interface.
+
+<details>
+<summary><strong>Option A: CLI (Terminal)</strong></summary>
+
+```bash
+# Requires Node.js 18+ — check with: node --version
+# If missing, install from https://nodejs.org
+
+# Install Claude Code
+curl -fsSL https://claude.ai/install.sh | bash
+
+# Verify
+claude --version
+```
+
+</details>
+
+<details>
+<summary><strong>Option B: VS Code Extension</strong></summary>
+
+1. Open VS Code
+2. Press `Cmd+Shift+X` (Mac) or `Ctrl+Shift+X` (Windows/Linux)
+3. Search **"Claude Code"** → click **Install**
+4. Open the Claude panel from the sidebar
+
+</details>
+
+### Step 3: Clone This Template
+
+```bash
+git clone https://github.com/Carltonton/mgmt-cc-workflow.git my-project
+cd my-project
+```
+
+### Step 4: Authenticate
+
+Run `claude` in your terminal — your browser will open for sign-in. You need a [Claude Pro or Max subscription](https://claude.ai), or an [Anthropic API key](https://console.anthropic.com).
+
+<details>
+<summary><strong>Using a third-party API? (GLM, OpenRouter, etc.)</strong></summary>
+
+Edit your **user-level settings file** and add:
+
+```json
+{
+  "env": {
+    "ANTHROPIC_AUTH_TOKEN": "your-api-key",
+    "ANTHROPIC_BASE_URL": "https://open.bigmodel.cn/api/paas/v4",
+    "ANTHROPIC_DEFAULT_HAIKU_MODEL": "glm-4.7",
+    "ANTHROPIC_DEFAULT_SONNET_MODEL": "glm-5.1",
+    "ANTHROPIC_DEFAULT_OPUS_MODEL": "glm-5.1"
+  },
+  "model": "glm-5.1"
+}
+```
+
+- **macOS/Linux:** `~/.claude/settings.json`
+- **Windows:** `%APPDATA%\claude\settings.json`
+
+</details>
+
+### Step 5: Start Working
+
+Run `claude` in your project directory and paste this starter prompt:
+
+> I'm starting a project on **[YOUR TOPIC]** in this repo. Please read `CLAUDE.md` and all files in `.claude/`, then fill in the placeholders with my project details. After that, use the plan-first workflow for all tasks.
+
+That's it — Claude will configure everything and you can start describing what you want to build.
+
+> For the complete walkthrough, see the [**full workflow guide**](https://carltonton.github.io/mgmt-cc-workflow/Quarto/guide/workflow-guide.html).
 
 ---
 
@@ -40,12 +111,12 @@ ANTHROPIC_API_KEY=sk-ant-your-key-here
 
 ## What's Included
 
-| Component | Count | Description |
-|-----------|-------|-------------|
-| **Agents** | 11 | Specialized review agents (code, slides, pedagogy, visuals, literature) |
-| **Skills** | 33 | User-invocable commands for common academic tasks |
-| **Rules** | 20 | Workflow governance (always-on + path-scoped) |
-| **Hooks** | 8 | Automated triggers (context monitoring, verification reminders) |
+| Component        | Count | Description                                                             |
+| ---------------- | ----- | ----------------------------------------------------------------------- |
+| **Agents** | 11    | Specialized review agents (code, slides, pedagogy, visuals, literature) |
+| **Skills** | 33    | User-invocable commands for common academic tasks                       |
+| **Rules**  | 20    | Workflow governance (always-on + path-scoped)                           |
+| **Hooks**  | 8     | Automated triggers (context monitoring, verification reminders)         |
 
 ### Skill Categories
 
