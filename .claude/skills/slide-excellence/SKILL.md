@@ -1,6 +1,6 @@
 ---
 name: slide-excellence
-description: Multi-agent slide review (visual, pedagogy, proofreading). Use for comprehensive quality check before milestones.
+description: Comprehensive multi-agent slide review (visual + pedagogy + proofreading). Use before major milestones.
 argument-hint: "[QMD or TEX filename]"
 allowed-tools: ["Read", "Grep", "Glob", "Write", "Task"]
 context: fork
@@ -8,94 +8,118 @@ context: fork
 
 # Slide Excellence Review
 
-Run a comprehensive multi-dimensional review of lecture slides. Multiple agents analyze the file independently, then results are synthesized.
+Run comprehensive quality review on lecture slides. Three specialized agents analyze independently, then synthesize findings.
 
-## Steps
+**Input:** `$ARGUMENTS` — path to `.qmd` or `.tex` file (e.g., `Quarto/Lecture01.qmd` or `Slides/Lecture01.tex`)
 
-### 1. Identify the File
+---
 
-Parse `$ARGUMENTS` for the filename. Resolve path in `Quarto/` or `Slides/`.
+## Workflow
 
-### 2. Run Review Agents in Parallel
+### Step 1: File Resolution
 
-**Agent 1: Visual Audit** (slide-auditor)
-- Overflow, font consistency, box fatigue, spacing, images
-- Save: `quality_reports/[FILE]_visual_audit.md`
+1. Parse `$ARGUMENTS` for filename
+2. Search in `Quarto/` for `.qmd` files
+3. Search in `Slides/` for `.tex` files
+4. Abort if file not found
 
-**Agent 2: Pedagogical Review** (pedagogy-reviewer)
-- 13 pedagogical patterns, narrative, pacing, notation
-- Save: `quality_reports/[FILE]_pedagogy_report.md`
+### Step 2: Parallel Agent Review
 
-**Agent 3: Proofreading** (proofreader)
-- Grammar, typos, consistency, academic quality, citations
-- Save: `quality_reports/[FILE]_report.md`
+Launch 3 agents simultaneously (independent analysis):
 
-**Agent 4: TikZ Review** (only if file contains TikZ)
-- Label overlaps, geometric accuracy, visual semantics
-- Save: `quality_reports/[FILE]_tikz_review.md`
+| Agent | Subagent Type | Focus Area | Output |
+|-------|--------------|------------|--------|
+| Visual Audit | `slide-auditor` | Overflow, fonts, spacing, images | `quality_reports/[FILE]_visual.md` |
+| Pedagogy Review | `pedagogy-reviewer` | Narrative, pacing, notation, examples | `quality_reports/[FILE]_pedagogy.md` |
+| Proofreading | `proofreader` | Grammar, typos, consistency, citations | `quality_reports/[FILE]_proofread.md` |
 
-**Agent 5: Content Parity** (only for .qmd files with corresponding .tex)
-- Frame count comparison, environment parity, content drift
-- Save: `quality_reports/[FILE]_parity_report.md`
+### Step 3: Synthesize Report
 
-**Agent 6: Substance Review** (optional, for .tex files)
-- Domain correctness via domain-reviewer protocol
-- Save: `quality_reports/[FILE]_substance_review.md`
-
-### 3. Synthesize Combined Summary
+Read all 3 agent reports and create combined summary:
 
 ```markdown
 # Slide Excellence Review: [Filename]
 
-## Overall Quality Score: [EXCELLENT / GOOD / NEEDS WORK / POOR]
+**Date:** [Current date]
+**File:** [File path]
 
-| Dimension | Critical | Medium | Low |
-|-----------|----------|--------|-----|
-| Visual/Layout | | | |
-| Pedagogical | | | |
-| Proofreading | | | |
+## Overall Assessment: [EXCELLENT / GOOD / NEEDS WORK / POOR]
 
-### Critical Issues (Immediate Action Required)
-### Medium Issues (Next Revision)
-### Recommended Next Steps
+| Dimension | Critical Issues | Medium Issues | Low Issues |
+|-----------|-----------------|---------------|------------|
+| Visual/Layout | [count] | [count] | [count] |
+| Pedagogical | [count] | [count] | [count] |
+| Proofreading | [count] | [count] | [count] |
+| **TOTAL** | **[sum]** | **[sum]** | **[sum]** |
+
+---
+
+## Critical Issues (Fix Before Presenting)
+[From all agents, merged by priority]
+
+## Medium Issues (Address in Next Revision)
+[From all agents, merged by priority]
+
+## Minor Suggestions (Future Improvements)
+[From all agents, merged by priority]
+
+---
+
+## Agent Reports
+
+### Visual Audit
+[Summary of key findings]
+→ Full report: `quality_reports/[FILE]_visual.md`
+
+### Pedagogy Review
+[Summary of key findings]
+→ Full report: `quality_reports/[FILE]_pedagogy.md`
+
+### Proofreading
+[Summary of key findings]
+→ Full report: `quality_reports/[FILE]_proofread.md`
 ```
 
-## Quality Score Rubric
+Save to: `quality_reports/[FILE]_excellence.md`
 
-| Score | Critical | Medium | Meaning |
-|-------|----------|--------|---------|
-| Excellent | 0-2 | 0-5 | Ready to present |
-| Good | 3-5 | 6-15 | Minor refinements |
-| Needs Work | 6-10 | 16-30 | Significant revision |
-| Poor | 11+ | 31+ | Major restructuring |
+---
+
+## Quality Thresholds
+
+| Rating | Critical | Medium | Action |
+|--------|----------|--------|--------|
+| **EXCELLENT** | 0-2 | 0-5 | Ready to present |
+| **GOOD** | 3-5 | 6-15 | Minor polish recommended |
+| **NEEDS WORK** | 6-10 | 16-30 | Significant revision needed |
+| **POOR** | 11+ | 31+ | Major restructuring required |
+
+---
+
+## Important
+
+- **Agents run in parallel** — use `Task` tool with `run_in_background: true`
+- **Read all outputs before synthesizing** — don't guess agent findings
+- **Preserve agent voice** — quote key issues directly from reports
+- **File paths use `pathlib.Path`** — cross-platform compatible
 
 ---
 
 ## Gotchas
 
-<!-- Document frequently encountered issues and their solutions -->
-
-### Configuration
 | Issue | Solution |
 |-------|----------|
-| | |
+| Agent timeout | Increase `timeout` in Task call, default 300s may be insufficient for long slides |
+| Output file conflicts | Use timestamp in filename: `[FILE]_excellence_[TIMESTAMP].md` |
+| Missing agent reports | Check if agent failed; don't synthesize incomplete data |
+| File path resolution | Handle both absolute and relative paths gracefully |
 
-### Data/Input
-| Issue | Solution |
-|-------|----------|
-| | |
+---
 
-### Processing
-| Issue | Solution |
-|-------|----------|
-| | |
+## Exit Conditions
 
-### Output/Export
-| Issue | Solution |
-|-------|----------|
-| | |
+**Success:** Combined report saved to `quality_reports/`
 
-### Environment
-| Issue | Solution |
-|-------|----------|
-| | |
+**Failure:**
+- File not found → Report error to user
+- All agents failed → Report system error
+- Partial agent failure → Note in report, synthesize available data

@@ -44,35 +44,25 @@ See `.claude/rules/` for detailed protocols.
 
 - `/lit-search` — Academic literature search, reference lookup, and metadata collection (CrossRef, Semantic Scholar, Tavily)
 - `/lit-review` — Literature synthesis with gap identification
-- `/validate-bib` — Validate bibliography entries
 - `/review-paper` — Comprehensive manuscript review
-- `/research-ideation` — Generate research questions and hypotheses
+- `/research-ideation` — Generate research topics from empirical observations using PXYV framework
 - `/interview-me` — Formalize research idea into specification
 - `/mgmt-*` — Management research guides (theory, empirical, qualitative, intro)
 
 ### Quality Reviews
 
-- `/proofread` — Grammar, typos, consistency
 - `/slide-excellence` — Multi-agent slide review
-- `/pedagogy-review` — Holistic pedagogical review
-- `/visual-audit` — Adversarial visual audit
-- `/qa-quarto` — Quarto vs Beamer QA
 - `/review-python` — Python code quality
 
 ### Analysis & Documentation
 
-- `/data-analysis-python` — End-to-end Python workflow
-- `/python-regression` — Python regression with publication tables
+- `/data-analysis-python` — End-to-end Python workflow (EDA, regression, tables, figures)
 - `/stata-regression` — Stata regression analysis
 - `/econ-visualization` — Publication-quality charts
-- `/create-lecture` — Create Beamer lectures
-- `/deploy` — Render and sync Quarto slides
-- `/translate-to-quarto` — Beamer to Quarto conversion
 
 ### Development
 
 - `/commit` — Stage, commit, create PR, merge
-- `/simplify` — Review and improve code
 - `/learn` — Extract session knowledge into skill
 
 ---
@@ -112,6 +102,7 @@ Task received → Delegation check (3-question checklist)
 ```
 
 **Delegation Protocol:**
+
 1. Before each implementation subtask, run the delegation checklist (see `codex` skill)
 2. Fully specified + low risk + mechanical → Codex
 3. Ambiguous + judgment-required + high risk → Claude
@@ -129,14 +120,14 @@ codex --profile seed-code
 
 **Task Allocation:**
 
-| Claude Handles | Codex Handles |
-|---------------|---------------|
-| Research design & ideation | Batch file operations |
-| Literature synthesis & writing | Code formatting & linting |
-| Pedagogical design decisions | Repetitive find-replace edits |
-| Data analysis interpretation | Script execution (compile, render) |
-| Multi-agent coordination | Bibliography validation |
-| Domain-specific judgment | Simple refactoring & cleanup |
+| Claude Handles                 | Codex Handles                      |
+| ------------------------------ | ---------------------------------- |
+| Research design & ideation     | Batch file operations              |
+| Literature synthesis & writing | Code formatting & linting          |
+| Pedagogical design decisions   | Repetitive find-replace edits      |
+| Data analysis interpretation   | Script execution (compile, render) |
+| Multi-agent coordination       | Bibliography validation            |
+| Domain-specific judgment       | Simple refactoring & cleanup       |
 
 ---
 

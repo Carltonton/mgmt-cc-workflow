@@ -1,0 +1,178 @@
+/*-- Custom SCSS for Tebao Analysis Academic Presentation --*/
+
+/*-- scss:defaults --*/
+$navy: #1a2a4a;
+$steel: #3d5a80;
+$accent: #4a90d9;
+$light-bg: #f8f9fa;
+$amber: #e8a838;
+$green: #2d8659;
+$red: #c0392b;
+$text-dark: #2c3e50;
+$text-muted: #6c757d;
+
+/*-- scss:rules --*/
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;700&family=Inter:wght@300;400;500;600;700&display=swap');
+
+/*-- Base Overrides --*/
+.reveal {
+  font-family: 'Inter', 'Noto Sans SC', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: 22px;
+  color: $text-dark;
+
+  h1, h2, h3 {
+    font-family: 'Inter', 'Noto Sans SC', sans-serif;
+    font-weight: 700;
+    color: $navy;
+    text-transform: none;
+    letter-spacing: normal;
+  }
+
+  h1 { font-size: 2.2em; }
+  h2 {
+    font-size: 1.5em;
+    border-bottom: 3px solid $accent;
+    padding-bottom: 0.3em;
+    margin-bottom: 0.6em;
+  }
+  h3 { font-size: 1.15em; color: $steel; }
+
+  strong { color: $navy; }
+
+  ul, ol { margin-left: 0.5em; }
+  li { margin-bottom: 0.3em; }
+
+  .progress { height: 4px; }
+  .progress span { background: $accent; }
+}
+
+.reveal .slide-background-content {
+  background: white;
+}
+
+/*-- Tables --*/
+.reveal table {
+  font-size: 0.72em;
+  border-collapse: collapse;
+  width: 100%;
+  margin: 0.4em 0;
+
+  th {
+    background: $navy;
+    color: white;
+    font-weight: 600;
+    padding: 6px 10px;
+    border: 1px solid darken($navy, 5%);
+  }
+
+  td {
+    padding: 5px 10px;
+    border: 1px solid #dee2e6;
+  }
+
+  tr:nth-child(even) { background: $light-bg; }
+  td:nth-child(n+2) { font-family: 'JetBrains Mono', 'Menlo', monospace; font-size: 0.95em; }
+}
+
+.reveal table.compact {
+  font-size: 0.58em;
+  th, td { padding: 3px 6px; }
+}
+
+.reveal table.regression {
+  font-family: 'JetBrains Mono', 'Menlo', monospace;
+  font-size: 0.55em;
+  th { background: $steel; font-weight: 500; }
+  td, th { padding: 2px 6px; }
+  td { background: transparent; }
+  tr { border-bottom: 1px solid #e9ecef; }
+}
+
+/*-- Callout Boxes --*/
+.reveal .callout {
+  border-radius: 8px;
+  padding: 12px 18px;
+  margin: 0.6em 0;
+  font-size: 0.85em;
+  border-left: 5px solid;
+}
+
+.reveal .callout-note { background: #e8f0fe; border-left-color: $accent; }
+.reveal .callout-warning { background: #fef3e2; border-left-color: $amber; }
+.reveal .callout-important { background: #fde8e8; border-left-color: $red; }
+.reveal .callout-tip { background: #e6f4ed; border-left-color: $green; }
+.reveal .callout-title { font-weight: 700; font-size: 0.95em; margin-bottom: 4px; }
+
+/*-- Key Finding Highlight --*/
+.reveal .finding {
+  background: linear-gradient(135deg, #e8f0fe 0%, #f0f4ff 100%);
+  border: 1px solid $accent;
+  border-radius: 8px;
+  padding: 12px 18px;
+  margin: 0.5em 0;
+  font-size: 0.85em;
+}
+
+.reveal .finding strong:first-child { color: $accent; }
+
+/*-- Two Column Layout Helper --*/
+.reveal .columns { display: flex; gap: 1.5em; align-items: flex-start; }
+.reveal .columns .column { flex: 1; }
+.reveal .columns .column-60 { flex: 3; }
+.reveal .columns .column-40 { flex: 2; }
+
+/*-- Stat Highlight Box --*/
+.reveal .stat-box {
+  display: inline-block;
+  text-align: center;
+  padding: 8px 16px;
+  margin: 4px;
+  border-radius: 8px;
+  background: $light-bg;
+  border: 1px solid #dee2e6;
+}
+
+.reveal .stat-box .stat-value {
+  font-size: 1.4em;
+  font-weight: 700;
+  color: $accent;
+  display: block;
+}
+
+.reveal .stat-box .stat-label {
+  font-size: 0.7em;
+  color: $text-muted;
+}
+
+.reveal .stat-box.positive .stat-value { color: $green; }
+.reveal .stat-box.negative .stat-value { color: $red; }
+
+/*-- Scrollable Container --*/
+.reveal .scrollable {
+  max-height: 520px;
+  overflow-y: auto;
+  scrollbar-width: thin;
+  scrollbar-color: $steel transparent;
+}
+
+.reveal .scrollable::-webkit-scrollbar { width: 6px; }
+.reveal .scrollable::-webkit-scrollbar-thumb { background: $steel; border-radius: 3px; }
+
+/*-- Figure Styling --*/
+.reveal img { border-radius: 6px; box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08); }
+.reveal figcaption { font-size: 0.7em; color: $text-muted; margin-top: 0.3em; }
+
+/*-- Fragment Animation --*/
+.reveal .fragment.fade-up { transition: all 0.3s ease; }
+
+/*-- Speaker Notes --*/
+.reveal .speaker-notes { font-family: 'Inter', 'Noto Sans SC', sans-serif; font-size: 16px; color: #333; }
+
+/*-- Title Slide Override --*/
+.reveal .title-slide h1 { font-size: 2.0em; color: white; text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); }
+.reveal .title-slide p { color: rgba(255, 255, 255, 0.9); font-size: 1.1em; }
+
+/*-- Number Highlighting --*/
+.reveal .highlight-positive { color: $green; font-weight: 700; }
+.reveal .highlight-negative { color: $red; font-weight: 700; }
+.reveal .highlight-accent { color: $accent; font-weight: 700; }

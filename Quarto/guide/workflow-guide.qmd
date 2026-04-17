@@ -1,8 +1,8 @@
 ---
 title: "My Claude Code Setup"
 subtitle: "A Comprehensive Guide to AI-Assisted Academic Workflows: Slides, Papers, Analysis, and Beyond"
-author: "Lexuan Huang (based on Pedro Sant'Anna)"
-date: "2026-04-14"
+author: "Lexuan Huang"
+date: "2026-04-08"
 date-modified: last-modified
 format:
   html:
@@ -80,7 +80,25 @@ Before diving into setup, here is the key insight: **most of this workflow is au
 | Review final output | Hooks fire on events (edit, save, compact) |
 | Say "commit" when ready | Rules load based on files you touch |
 
-### Common Examples
+### Example: "Fix my slides before tomorrow"
+
+```
+You: "Review my lecture slides and fix all issues before tomorrow's class"
+     ↓
+Claude automatically:
+  → Runs /proofread (grammar, typos, consistency)
+  → Runs /visual-audit (overflow, layout, spacing)
+  → Runs /pedagogy-review (narrative flow, notation clarity)
+  → Synthesizes findings into prioritized fix list
+  → Applies fixes (critical → major → minor)
+  → Re-verifies everything compiles
+  → Scores against quality gates
+     ↓
+You see: "Done. Fixed 12 issues. Score: 88/100. Ready to commit?"
+You: "Yes"
+     ↓
+Claude runs /commit (only because you explicitly approved)
+```
 
 ::: {.panel-tabset}
 
@@ -93,7 +111,6 @@ Claude automatically:
   → Runs /review-paper (argument structure, methods, citations)
   → Runs /proofread (grammar, consistency, formatting)
   → Runs /validate-bib (cross-reference citations)
-  → Runs /devils-advocate (challenge assumptions, missing alternatives)
   → Synthesizes findings into prioritized fix list
   → Applies fixes (critical → major → minor)
   → Re-verifies everything compiles
@@ -110,26 +127,10 @@ You: "Analyze this dataset and produce publication-ready output"
 Claude automatically:
   → Runs /data-analysis-python (explore, model, tables, figures)
   → Runs /review-python (code quality, reproducibility)
-  → Runs /econ-visualization if charts needed (publication-quality figures)
   → Produces Python script, tables, and figures
   → Scores against quality gates
      ↓
 You see: "Analysis complete. 3 tables, 4 figures. Score: 85/100."
-```
-
-### Literature Review
-
-```
-You: "Search for papers on AI coaching effectiveness and synthesize the key findings"
-     ↓
-Claude automatically:
-  → Runs /lit-search (CrossRef, Semantic Scholar, Tavily)
-  → Runs /lit-read (structured reading notes per paper)
-  → Runs /lit-review (synthesize themes, identify gaps)
-  → Runs /validate-bib (verify all citations are in bibliography)
-  → Produces paper list, reading notes, and synthesis report
-     ↓
-You see: "Found 23 papers. 15 kept after screening. 4 major themes identified."
 ```
 
 :::
@@ -142,7 +143,7 @@ You see: "Found 23 papers. 15 kept after screening. 4 major themes identified."
 
 ### Skills: The Only Commands You Might Type
 
-Skills like `/proofread` or `/compile-latex` can be invoked two ways:
+Skills like `/proofread` can be invoked two ways:
 
 1. **Explicitly** --- You type `/proofread MySlides.tex`
 2. **Automatically** --- Claude invokes them when relevant to your request
@@ -152,13 +153,13 @@ Most of the time, you just describe what you want and Claude handles the rest. E
 ::: {.callout-important}
 ## The Bottom Line
 
-**You talk, Claude orchestrates.** The 11 agents, 28 skills, and 19 rules exist so you don't have to think about them. Describe your goal, approve the plan, and let the system work.
+**You talk, Claude orchestrates.** The 11 agents, 26 skills, and 19 rules exist so you don't have to think about them. Describe your goal, approve the plan, and let the system work.
 :::
 
 ::: {.callout-note}
 ## You Don't Need All of This on Day One
 
-This guide describes the full system --- 11 agents, 28 skills, 19 rules. That is the ceiling, not the floor. **Start with just CLAUDE.md and 2--3 skills** (`/compile-latex`, `/proofread`, `/commit`). Add rules and agents as you discover what you need. The template is designed for progressive adoption: fork it, fill in the placeholders, and start working. Everything else is there when you're ready.
+This guide describes the full system --- 11 agents, 26 skills, 19 rules. That is the ceiling, not the floor. **Start with just CLAUDE.md and 2--3 skills** (`/proofread`, `/commit`). Add rules and agents as you discover what you need. The template is designed for progressive adoption: fork it, fill in the placeholders, and start working. Everything else is there when you're ready.
 :::
 
 ---
@@ -227,72 +228,6 @@ To use an API key instead of browser login, set the environment variable:
 export ANTHROPIC_API_KEY="sk-ant-..."
 ```
 
-::: {.callout-tip collapse="true"}
-## Using a Third-Party API Provider (GLM, OpenRouter, etc.)
-
-If you are in China or prefer a non-Anthropic provider, configure Claude Code to use an Anthropic-compatible API by editing your **user-level settings file**. The same JSON config works on both platforms --- only the file path differs.
-
-::: {.panel-tabset}
-
-#### macOS / Linux
-
-Settings file: `~/.claude/settings.json`
-
-Create or edit the file:
-
-```bash
-mkdir -p ~/.claude
-nano ~/.claude/settings.json
-```
-
-#### Windows
-
-Settings file: `%APPDATA%\claude\settings.json`
-
-Open it in Notepad:
-
-```powershell
-notepad "$env:APPDATA\claude\settings.json"
-```
-
-:::
-
-Paste the following (example: Zhipu GLM):
-
-```json
-{
-  "env": {
-    "ANTHROPIC_AUTH_TOKEN": "your-glm-api-key",
-    "ANTHROPIC_BASE_URL": "https://open.bigmodel.cn/api/paas/v4",
-    "ANTHROPIC_DEFAULT_HAIKU_MODEL": "glm-4.7",
-    "ANTHROPIC_DEFAULT_SONNET_MODEL": "glm-5.1",
-    "ANTHROPIC_DEFAULT_OPUS_MODEL": "glm-5.1"
-  },
-  "model": "glm-5.1"
-}
-```
-
-**Key fields:**
-
-| Field | Purpose |
-|-------|---------|
-| `ANTHROPIC_AUTH_TOKEN` | Your API key from the provider |
-| `ANTHROPIC_BASE_URL` | The provider's Anthropic-compatible endpoint |
-| `ANTHROPIC_DEFAULT_*_MODEL` | Model ID for each Claude Code tier (haiku/sonnet/opus) |
-| `model` | Default model Claude Code uses |
-
-**Other providers:**
-
-| Provider | `ANTHROPIC_BASE_URL` |
-|----------|---------------------|
-| Zhipu GLM | `https://open.bigmodel.cn/api/paas/v4` |
-| OpenRouter | `https://openrouter.ai/api/v1` |
-| AWS Bedrock | Set `CLAUDE_CODE_USE_BEDROCK=1` instead |
-| Google Vertex | Set `CLAUDE_CODE_USE_VERTEX=1` instead |
-
-> **Tip:** You can also place this config in the **project-level** `.claude/settings.json` if you want different providers per project.
-:::
-
 You can also authenticate inside VS Code --- the extension will prompt you on first use.
 
 ## Prerequisites {#sec-prerequisites}
@@ -356,7 +291,7 @@ For more, see [Troubleshooting](#troubleshooting) in the Appendix.
 
 ```bash
 # Fork this repo on GitHub (click "Fork" on the repo page), then:
-git clone https://github.com/YOUR_USERNAME/mgmt-cc-workflow.git my-project
+git clone https://github.com/YOUR_USERNAME/claude-code-my-workflow.git my-project
 cd my-project
 ```
 
@@ -381,7 +316,7 @@ I am starting to work on **[PROJECT NAME]** in this repo. **[Describe your proje
 
 I want our collaboration to be structured, precise, and rigorous --- even if it takes more time. When creating visuals, everything must be polished and publication-ready. I don't want to repeat myself, so our workflow should be smart about remembering decisions and learning from corrections.
 
-I've set up the Claude Code academic workflow (forked from `Carltonton/mgmt-cc-workflow`). The configuration files are already in this repo (`.claude/`, `CLAUDE.md`, templates, scripts). Please read them, understand the workflow, and then **update all configuration files to fit my project** --- fill in placeholders in `CLAUDE.md`, adjust rules if needed, and propose any customizations specific to my use case.
+I've set up the Claude Code academic workflow (forked from `pedrohcgs/claude-code-my-workflow`). The configuration files are already in this repo (`.claude/`, `CLAUDE.md`, templates, scripts). Please read them, understand the workflow, and then **update all configuration files to fit my project** --- fill in placeholders in `CLAUDE.md`, adjust rules if needed, and propose any customizations specific to my use case.
 
 After that, use the plan-first workflow for all non-trivial tasks. Once I approve a plan, switch to contractor mode --- coordinate everything autonomously and only come back to me when there's ambiguity or a decision to make. For our first few sessions, check in with me a bit more often so I can learn how the workflow operates.
 
@@ -417,7 +352,6 @@ If you prefer to configure things yourself instead of letting Claude handle it:
 
 ```bash
 # In Claude Code, type:
-/compile-latex MyFirstLecture
 /proofread Slides/MyFirstLecture.tex
 python scripts/quality_score.py Slides/MyFirstLecture.tex
 ```
@@ -651,7 +585,6 @@ Move everything else into `.claude/rules/` files (with path-scoping so they only
 ## Quick Reference
 | Command | What It Does |
 |---------|-------------|
-| `/compile-latex [file]` | 3-pass XeLaTeX compilation |
 | `/proofread [file]` | Grammar/typo review |
 | `/deploy [Lecture]` | Render and deploy to GitHub Pages |
 ```
@@ -751,19 +684,16 @@ Skills are multi-step workflows invoked with `/command`. Each skill lives in `.c
 
 ```yaml
 ---
-name: compile-latex
-description: Compile LaTeX with 3-pass XeLaTeX + bibtex
-argument-hint: "[filename without .tex extension]"
+name: deploy
+description: Render Quarto slides and sync to docs/
+argument-hint: "[Lecture name or 'all']"
 ---
 
 # Steps:
-1. cd to Slides/
-2. Run xelatex pass 1
-3. Run bibtex
-4. Run xelatex pass 2
-5. Run xelatex pass 3
-6. Check for errors
-7. Report results
+1. Run quarto render
+2. Copy output to docs/
+3. Sync to GitHub Pages
+4. Report results
 ```
 
 **Skills you get in the template:**
@@ -774,7 +704,6 @@ argument-hint: "[filename without .tex extension]"
 
 | Skill | Purpose | When to Use |
 |-------|---------|------------|
-| `/compile-latex` | Build PDF from .tex | After any Beamer edit |
 | `/deploy` | Render Quarto + sync to docs/ | Before pushing to GitHub Pages |
 | `/slide-excellence` | Full multi-agent review | Before major milestones |
 | `/create-lecture` | New lecture from scratch | Starting a new topic |
@@ -800,15 +729,14 @@ argument-hint: "[filename without .tex extension]"
 | `/lit-search` | Academic literature search (CrossRef, Semantic Scholar, Tavily) | Finding papers on a topic |
 | `/lit-read` | Structured reading of academic PDFs | Processing a batch of papers |
 | `/lit-review` | Literature synthesis and gap identification | Starting a new project or section |
-| `/research-ideation` | Research questions and strategies | Brainstorming phase |
+| `/research-ideation` | Research topics from empirical observations (PXYV framework) | From phenomenon to research question |
 | `/interview-me` | Interactive research interview | When you have an intuition but not a plan |
 
 ### Data Analysis
 
 | Skill | Purpose | When to Use |
 |-------|---------|------------|
-| `/data-analysis-python` | End-to-end Python analysis workflow | Empirical analysis phase |
-| `/python-regression` | Python regression with publication tables | Running regressions in Python |
+| `/data-analysis-python` | End-to-end Python analysis workflow (EDA, regression, tables, figures) | Empirical analysis phase |
 | `/stata-regression` | Stata regression with publication tables | Running regressions in Stata |
 | `/econ-visualization` | Publication-quality charts and graphs | Creating figures for papers |
 
@@ -934,7 +862,7 @@ Beyond model selection, agent definitions support several configuration fields:
 | `permissionMode` | Restrict permissions | `plan` (read-only agent) |
 | `tools` | Whitelist specific tools | `["Read", "Grep", "Glob"]` |
 | `disallowedTools` | Blacklist specific tools | `["Write", "Edit"]` |
-| `skills` | Make specific skills available | `["compile-latex"]` |
+| `skills` | Make specific skills available | `["deploy"]` |
 | `background` | Run concurrently | `true` |
 
 Example: a read-only proofreader that can't edit files:
@@ -1642,11 +1570,10 @@ Ten skills support the research workflow beyond slide development:
 | `/lit-search [query]` | Academic literature search via CrossRef, Semantic Scholar, and Tavily APIs | Finding papers on a topic |
 | `/lit-read [directory]` | Structured reading of academic PDFs in 3 phases (cluster, read, abstract) | Processing a batch of papers |
 | `/lit-review [topic]` | Synthesize and identify gaps in the literature | Starting a new project or section |
-| `/research-ideation [topic]` | Generate research questions, hypotheses, and empirical strategies | Brainstorming phase |
+| `/research-ideation [topic]` | Generate research topics from empirical observations using PXYV framework | From phenomenon to research question |
 | `/interview-me [topic]` | Interactive interview to formalize a vague idea into a concrete specification | When you have an intuition but not a plan |
 | `/review-paper [file]` | Full manuscript review with referee objections | Before submission or after a draft |
 | `/data-analysis-python [data]` | End-to-end Python analysis: explore, regress, produce publication-ready output | Empirical analysis phase |
-| `/python-regression` | Python regression with publication-ready output tables | Running regressions in Python |
 | `/stata-regression` | Stata regression with publication-ready output tables | Running regressions in Stata |
 | `/econ-visualization` | Publication-quality charts and graphs for economics papers | Creating figures for papers |
 
@@ -1660,7 +1587,6 @@ A research project is not a waterfall --- it is a **dependency graph**. Some pha
 /research-ideation ─────┐
                         ├──→ /lit-search ──→ /lit-read ──→ /lit-review ──→ /data-analysis-python ──→ /review-paper
 /interview-me ──────────┘                                                     ↑                  |
-                                                                      /python-regression         |
                                                                       /stata-regression          |
                                                                       /econ-visualization        |
                                                                                                  v
@@ -2196,7 +2122,7 @@ The YAML frontmatter controls how your skill behaves. Here are all available fie
 
 | Field | Purpose | Example |
 |-------|---------|---------|
-| `name` | Display name in `/` menu | `compile-latex` |
+| `name` | Display name in `/` menu | `deploy` |
 | `description` | **Most important.** Controls when Claude auto-loads the skill | `Compile Beamer slides...` |
 | `argument-hint` | Placeholder shown after `/skill-name` | `<filename>` |
 | `allowed-tools` | Restrict which tools the skill can use | `["Read", "Bash", "Glob"]` |
@@ -2224,7 +2150,7 @@ Skills can include dynamic values using string substitutions and live command ou
 
 | Syntax | Expands To | Example Use |
 |--------|-----------|-------------|
-| `$ARGUMENTS` | Full argument string after `/skill-name` | `/compile-latex Lecture01` → `$ARGUMENTS` = `Lecture01` |
+| `$ARGUMENTS` | Full argument string after `/skill-name` | `/deploy Lecture01` → `$ARGUMENTS` = `Lecture01` |
 | `$0`, `$1`, `$N` | Positional arguments (0-based, space-separated) | `/deploy Lecture01 draft` → `$0` = `Lecture01`, `$1` = `draft` |
 | `${CLAUDE_SESSION_ID}` | Current session identifier | Unique log file names |
 | `${CLAUDE_SKILL_DIR}` | Path to the skill's directory | Reference supporting files bundled with the skill |
@@ -2374,7 +2300,6 @@ Claude Code supports **plugins** --- bundled collections of skills, agents, hook
 
 | Skill | Directory | Purpose |
 |-------|-----------|---------|
-| `/compile-latex` | `.claude/skills/compile-latex/` | XeLaTeX 3-pass compilation |
 | `/deploy` | `.claude/skills/deploy/` | Quarto render + GitHub Pages sync |
 | `/extract-tikz` | `.claude/skills/extract-tikz/` | TikZ to SVG conversion |
 | `/proofread` | `.claude/skills/proofread/` | Run proofreading agent |
@@ -2391,11 +2316,10 @@ Claude Code supports **plugins** --- bundled collections of skills, agents, hook
 | `/lit-search` | `.claude/skills/lit-search/` | Academic literature search (CrossRef, Semantic Scholar, Tavily) |
 | `/lit-read` | `.claude/skills/lit-read/` | Structured reading of academic PDFs |
 | `/lit-review` | `.claude/skills/lit-review/` | Literature search and synthesis |
-| `/research-ideation` | `.claude/skills/research-ideation/` | Research questions and strategies |
+| `/research-ideation` | `.claude/skills/research-ideation/` | Research topics from empirical observations (PXYV framework) |
 | `/interview-me` | `.claude/skills/interview-me/` | Interactive research interview |
 | `/review-paper` | `.claude/skills/review-paper/` | Manuscript review |
-| `/data-analysis-python` | `.claude/skills/data-analysis-python/` | End-to-end Python analysis |
-| `/python-regression` | `.claude/skills/python-regression/` | Python regression with publication tables |
+| `/data-analysis-python` | `.claude/skills/data-analysis-python/` | End-to-end Python analysis (EDA, regression, tables, figures) |
 | `/stata-regression` | `.claude/skills/stata-regression/` | Stata regression with publication tables |
 | `/econ-visualization` | `.claude/skills/econ-visualization/` | Publication-quality charts and graphs |
 | `/jupyter-notebook` | `.claude/skills/jupyter-notebook/` | Create structured Jupyter notebooks |
@@ -2470,7 +2394,7 @@ Claude Code supports **plugins** --- bundled collections of skills, agents, hook
 
 **Fix:**
 1. Check you have XeLaTeX installed: `which xelatex`
-2. Ensure `TEXINPUTS` includes `Preambles/`: the `/compile-latex` skill handles this
+2. Ensure `TEXINPUTS` includes `Preambles/`: set when compiling manually
 3. Missing package? Install via TeX Live: `tlmgr install [package]`
 
 ### Quarto Won't Render
