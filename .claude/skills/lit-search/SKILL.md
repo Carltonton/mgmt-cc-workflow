@@ -1,15 +1,15 @@
 ---
 name: lit-search
-description: Academic literature search, reference lookup, and metadata collection using CrossRef, Semantic Scholar, and Tavily APIs. Automatically collects paper metadata after each search.
+description: Academic literature search, reference lookup, and metadata collection using OpenAlex, CrossRef, Semantic Scholar, Tavily, SSRN, and Unpaywall APIs. Automatically collects paper metadata after each search.
   Triggers: "search for papers", "literature search", "find publications", "DOI lookup", "paper references", "extract references", "reference extraction"
   Replaces: WebSearch for academic queries (saves MCP quota).
-version: 1.7.0
-argument-hint: "[query] --source [crossref|semantic-scholar|tavily|google-scholar|all] --references [path.md] --doi [DOI] --topic [topic-dir] --abs-rating [3|4|4*|all] --field [Management|Psychology|etc]"
+version: 2.0.0
+argument-hint: "[query] --source [openalex|crossref|semantic-scholar|google-scholar|ssrn|all] --references [path.md] --doi [DOI] --topic [topic-dir] --abs-rating [3|4|4*|all] --field [Management|Psychology|etc] --expand --chain [DOI1,DOI2]"
 allowed-tools: ["Read", "Write", "Bash"]
 ---
 # Academic Literature Search
 
-Search academic literature using direct API calls to CrossRef, Semantic Scholar, and Tavily. Bypasses WebSearch to save MCP quota and provides richer academic metadata. **Automatically persists paper metadata to `docs/{topic}/metadata.json` after each search, then screens abstracts for relevance.**
+Search academic literature using direct API calls to OpenAlex, CrossRef, Semantic Scholar, Tavily, and SSRN. Bypasses WebSearch to save MCP quota and provides richer academic metadata. **Automatically persists paper metadata to `docs/{topic}/metadata.json` after each search, then screens abstracts for relevance.**
 
 ## Workflow Overview
 
@@ -39,6 +39,7 @@ Parse `$ARGUMENTS` to determine the search mode:
 | Flag Present             | Mode                 | Action                                  |
 | ------------------------ | -------------------- | --------------------------------------- |
 | `--references path.md` | Reference extraction | Extract references from a markdown file |
+| `--chain DOI1,DOI2`    | Citation chaining    | Find papers cited by seed DOIs          |
 | `--doi DOI`            | Single DOI lookup    | Fetch metadata for one paper            |
 | Query string only        | Topic search         | Search by keyword across APIs           |
 
@@ -68,6 +69,15 @@ Parse `$ARGUMENTS` to determine the search mode:
    ```
 4. Read and display the extracted references to the user
 
+#### Protocol C: Citation Chaining (`--chain DOI1,DOI2`)
+
+1. Build the CLI command:
+   ```bash
+   python3 .claude/skills/lit-search/lit-search.py --chain "DOI1,DOI2" --topic coaching-papers
+   ```
+2. This uses Semantic Scholar's `get_references()` to find papers cited by the seed DOIs
+3. Results go through the same merge and metadata pipeline
+
 **If no results found**, stop here and inform the user.
 
 ### Step 3: Relevance Screening
@@ -91,7 +101,7 @@ For each paper from the current search:
      - **Exact match** (any length), OR
      - **Substring match** for ABS names with ≥ 3 words (e.g., "Human Resource Development International" matches even if stored with slight variation). Short ABS names (1-2 words like "Management Science", "Omega") require exact match to avoid false positives.
    - Journal matches an ABS entry → proceed to Step 1 (relevance screening)
-   - Journal does NOT match → **SKIP** with reason: "Non-ABS journal: [journal name]"d
+   - Journal does NOT match → **SKIP** with reason: "Non-ABS journal: [journal name]"
 
 ##### Step 1: Relevance Screening (only for papers that passed ABS filter)
 
@@ -118,7 +128,7 @@ Use this format for the new section:
 
 ## Search: "query string" — YYYY-MM-DD
 
-**Source**: CrossRef + Semantic Scholar + Tavily | **Kept**: N / **Skipped**: M / **Auto-kept (no abstract)**: K
+**Source**: OpenAlex + CrossRef + Semantic Scholar | **Kept**: N / **Skipped**: M / **Auto-kept (no abstract)**: K
 
 ### Kept Papers
 
@@ -158,9 +168,14 @@ Screening: 8 kept / 4 skipped / 2 auto-kept (no abstract) → docs/{topic}/paper
 
 | Source                     | Best For                     | Requires Key                 | Rate Limit          |
 | -------------------------- | ---------------------------- | ---------------------------- | ------------------- |
+| **OpenAlex** | Abstracts, ISSN batch filtering, concept search | No (mailto for polite pool) | 10 req/sec (polite) |
 | **CrossRef**         | Journal metadata, DOI lookup | No (email recommended)       | 1 req/sec           |
-| **Semantic Scholar** | Citation counts, abstracts   | Optional (100→300 req/5min) | 20 req/5min free    |
-| **Google Scholar** (via Tavily) | Academic web search across publisher sites (Sage, Wiley, Springer, Elsevier, APA, etc.) | Yes (1000 req/month free) | Returns actual paper pages from publisher domains |
+| **Semantic Scholar** | Citation counts, abstracts, citation chaining | Optional (100→300 req/5min) | 20 req/5min free    |
+| **Google Scholar** (via Tavily) | Academic web search across publisher sites | Yes (1000 req/month free) | Returns actual paper pages from publisher domains |
+| **SSRN** (via Tavily) | Management working papers, preprints | Yes (Tavily key) | Via Tavily limits |
+| **Unpaywall** | OA status enrichment (not search) | No (email) | 100K req/day |
+
+**Merge priority**: OpenAlex > CrossRef > Semantic Scholar > Google Scholar > SSRN
 
 ## Usage Examples
 
@@ -172,7 +187,31 @@ Screening: 8 kept / 4 skipped / 2 auto-kept (no abstract) → docs/{topic}/paper
 
 **Output**: Papers from Academy of Management Journal, Journal of Management, etc.
 
-### Example 2: DOI Lookup
+### Example 2: OpenAlex Search (abstracts + ISSN filtering)
+
+```bash
+/lit-search "AI coaching performance" --source openalex --abs-rating 4* --max-results 20
+```
+
+**Output**: Papers with abstracts from ABS 4* journals. OpenAlex filters all ISSNs in a single API call.
+
+### Example 3: Citation Chaining
+
+```bash
+/lit-search --chain "10.1177/00218863241283919,10.5465/amj.2023.1308" --topic coaching-papers
+```
+
+**Output**: Papers cited by the two seed papers, using Semantic Scholar's reference graph.
+
+### Example 4: Query Expansion
+
+```bash
+/lit-search "coaching effectiveness" --expand --source all --topic coaching-papers
+```
+
+**Output**: Searches multiple query variants (e.g., "mentoring effectiveness", "development intervention effectiveness") for broader coverage.
+
+### Example 5: DOI Lookup
 
 ```bash
 /lit-search --doi 10.1287/mksc.2018.0886 --source semantic-scholar
@@ -180,29 +219,13 @@ Screening: 8 kept / 4 skipped / 2 auto-kept (no abstract) → docs/{topic}/paper
 
 **Output**: Paper metadata with abstract.
 
-### Example 3: Google Scholar Search
-
-```bash
-/lit-search "hidden Markov models customer retention" --source google-scholar
-```
-
-**Output**: Results from scholar.google.com via Tavily API.
-
-### Example 4: Reference Extraction from Markdown
+### Example 6: Reference Extraction from Markdown
 
 ```bash
 /lit-search --references references/articles_md/AMJ_kilduff_2015.md --topic coaching-papers
 ```
 
 **Output**: Extracts all references from the markdown file, saves to metadata.json. Run CrossRef DOI lookup as a follow-up to enrich with DOIs.
-
-### Example 5: Field-Specific Search
-
-```bash
-/lit-search "statistical significance" --field Psychology --abs-rating all
-```
-
-**Output**: Papers from Journal of Applied Psychology, Psychological Science, etc.
 
 ---
 
@@ -229,13 +252,13 @@ Every search automatically persists structured paper metadata to `docs/{topic}/m
 
 ### Metadata Schema
 
-Standard 9 fields per paper entry:
+Standard fields per paper entry:
 
 ```json
 {
   "_meta": {
     "topic": "coaching-papers",
-    "last_updated": "2026-03-30T14:00:00Z",
+    "last_updated": "2026-04-27T14:00:00Z",
     "total_entries": 42,
     "created_date": "2026-03-30T12:00:00Z"
   },
@@ -248,8 +271,8 @@ Standard 9 fields per paper entry:
       "doi": "10.5465/amj.2023.1308",
       "abstract": "...",
       "keywords": [],
-      "source": "semantic_scholar",
-      "added_date": "2026-03-30T14:00:00Z"
+      "source": "openalex",
+      "added_date": "2026-04-27T14:00:00Z"
     }
   }
 }
@@ -263,7 +286,7 @@ Standard 9 fields per paper entry:
 
 ## ABS Journal Filtering
 
-The module includes 100+ ABS-rated journals with filtering capability:
+The module includes 468 ABS-rated journals (3+) with filtering capability:
 
 ### Available Ratings
 
@@ -284,9 +307,11 @@ The module includes 100+ ABS-rated journals with filtering capability:
 
 ### Filter Logic
 
-- **CrossRef**: Uses ISSN filtering (first ISSN if multiple specified)
-- **Semantic Scholar**: Uses venue/journal name filtering
-- **Google Scholar** (Tavily): Uses `include_domains` restricted to scholar.google.com
+- **OpenAlex**: Uses pipe-separated ISSN filtering in a single API call (most efficient)
+- **CrossRef**: Uses ISSN filtering (batch mode searches all target journals)
+- **Semantic Scholar**: Screening-time filtering (ABS check happens after search)
+- **Google Scholar** (Tavily): Uses `include_domains` restricted to academic publisher sites
+- **SSRN** (Tavily): Domain-restricted to ssrn.com
 
 ---
 
@@ -298,8 +323,13 @@ This skill includes a self-contained scripts module:
 .claude/skills/lit-search/
 ├── scripts/
 │   ├── __init__.py                # Public API
+│   ├── shared_types.py            # Paper dataclass + matching
 │   ├── search_orchestrator.py     # Main search logic
+│   ├── query_expander.py          # Query expansion strategies
 │   ├── metadata_manager.py        # Metadata persistence & deduplication
+│   ├── openalex_client.py         # OpenAlex API (abstracts + ISSN batch)
+│   ├── unpaywall_client.py        # Unpaywall OA enrichment
+│   ├── ssrn_client.py             # SSRN search (via Tavily)
 │   ├── crossref_client.py          # CrossRef API
 │   ├── semantic_scholar_client.py  # Semantic Scholar API
 │   ├── tavily_client.py            # Google Scholar (via Tavily include_domains)
@@ -309,7 +339,7 @@ This skill includes a self-contained scripts module:
 │   ├── abs_journals.json            # ABS journal database
 │   ├── config.py                   # Configuration
 │   ├── convert_pdfs_to_md.py       # PDF→Markdown conversion + reference extraction
-│   ├── s2_enrich.py                # S2 enrichment + CrossRef DOI lookup
+│   ├── s2_enrich.py                # S2 + Unpaywall enrichment
 │   └── temp/                       # Search results cache
 └── SKILL.md                        # This file
 ```
@@ -317,9 +347,9 @@ This skill includes a self-contained scripts module:
 ### How It Works
 
 1. Parse query and parameters from `$ARGUMENTS`
-2. Determine search mode (topic search vs. reference extraction vs. DOI lookup)
-3. Execute via appropriate protocol (API search or reference extraction)
-4. API clients query CrossRef, Semantic Scholar, Tavily
+2. Determine search mode (topic search vs. reference extraction vs. DOI lookup vs. citation chaining)
+3. Execute via appropriate protocol (API search, reference extraction, or citation chain)
+4. API clients query OpenAlex, CrossRef, Semantic Scholar, Tavily, SSRN
 5. Results deduplicated by DOI, persisted to `metadata.json`
 6. Claude screens abstracts for relevance
 7. Kept papers appended to `paper-list.md`
@@ -377,11 +407,12 @@ cd "$PROJECT_DIR" && PYTHONPATH=.claude/skills/lit-search \
 
 ## Version History
 
-- **v1.7.0** (2026-04-12): Comprehensiveness fixes — CrossRef ISSN batching (searches all target journals, not just first), S2 multi-journal venue filter removal, Tavily max raised 20→50, DOI supplement cap 3→10, metadata-rich merge priority
-- **v1.6.0** (2026-04-10): Renamed `tavily` source to `google-scholar`; uses `include_domains` with academic publisher domains (Sage, Wiley, Springer, Elsevier, APA, etc.) instead of `scholar.google.com` which only returned author profile pages
-- **v1.5.0** (2026-03-31): Unified SKILL.md with actual implementation — fixed mode judgment, metadata schema, workflow overview
-- **v1.4.0** (2026-03-31): Rewrote `--references` mode — now extracts references from markdown files, removed S2 API dependency
-- **v1.3.0** (2026-03-30): S2 fail-fast on rate limit + background enrichment script (s2_enrich.py)
+- **v2.0.0** (2026-04-27): Major upgrade — OpenAlex client (ISSN batch, abstracts, concepts), Unpaywall OA enrichment, SSRN via Tavily, Paper dataclass for standardized types, query expansion with domain-specific synonyms, citation chaining via S2 `get_references()`, updated merge priority (OpenAlex first), `--expand` and `--chain` CLI flags
+- **v1.7.0** (2026-04-12): Comprehensiveness fixes — CrossRef ISSN batching, S2 multi-journal venue filter removal, Tavily max raised 20→50, DOI supplement cap 3→10, metadata-rich merge priority
+- **v1.6.0** (2026-04-10): Renamed `tavily` source to `google-scholar`; uses `include_domains` with academic publisher domains
+- **v1.5.0** (2026-03-31): Unified SKILL.md with actual implementation
+- **v1.4.0** (2026-03-31): Rewrote `--references` mode
+- **v1.3.0** (2026-03-30): S2 fail-fast on rate limit + background enrichment script
 - **v1.2.0** (2026-03-30): Added Step 3 relevance screening → paper-list.md output
-- **v1.1.0** (2026-03-30): Merged lit-refs (--references mode), added automatic metadata collection
+- **v1.1.0** (2026-03-30): Merged lit-refs, added automatic metadata collection
 - **v1.0.0** (2026-03-18): Initial skill creation from scripts module

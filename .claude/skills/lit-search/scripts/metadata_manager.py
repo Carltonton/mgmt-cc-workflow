@@ -115,30 +115,39 @@ class MetadataManager:
     ) -> Dict[str, Any]:
         """Map raw API result fields to canonical metadata schema.
 
-        Handles field name differences across CrossRef, Semantic Scholar, and Tavily.
+        Handles field name differences across CrossRef, Semantic Scholar,
+        OpenAlex, Tavily, and other sources.
         """
         now = datetime.now(timezone.utc).isoformat()
         doi = paper.get("doi") or None
         if doi:
-            doi = doi.strip()
+            doi = doi.strip().lower()
+
+        # Accept "journal/venue", "venue", or "journal"
+        journal = (
+            paper.get("journal")
+            or paper.get("journal/venue")
+            or paper.get("venue")
+            or None
+        )
 
         return {
             "title": (paper.get("title") or "").strip(),
             "authors": paper.get("authors") or [],
             "year": paper.get("year"),
-            "journal": paper.get("journal/venue") or None,
+            "journal": journal,
             "doi": doi,
             "abstract": (paper.get("abstract") or paper.get("content") or "").strip() or None,
-            "keywords": [],
+            "keywords": paper.get("keywords") or [],
             "source": paper.get("source", "unknown"),
-            "added_date": now
+            "added_date": now,
         }
 
     def _get_dedup_key(self, paper: Dict[str, Any]) -> str:
         """Return deduplication key: DOI if present, else title hash."""
         doi = paper.get("doi")
         if doi:
-            return doi
+            return doi.lower().strip()
 
         title = paper.get("title", "").lower().strip()
         if title:

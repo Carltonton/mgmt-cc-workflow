@@ -87,6 +87,29 @@ TAVILY_API_KEY: Optional[str] = os.environ.get("TAVILY_API_KEY")
 WOS_API_URL: str = "https://api.clarivate.com/api/wos"
 WOS_API_KEY: Optional[str] = os.environ.get("WOS_API_KEY")
 
+# OpenAlex API (250M+ works, free, with abstracts)
+OPENALEX_API_URL: str = "https://api.openalex.org/works"
+OPENALEX_MAILTO: str = os.environ.get(
+    "OPENALEX_EMAIL",
+    CROSSREF_POLITE_MAILTO,
+)
+OPENALEX_RATE_LIMIT: float = 0.1  # 10 req/sec in polite pool
+OPENALEX_MAX_PER_PAGE: int = 200
+
+# Unpaywall API (OA metadata by DOI)
+UNPAYWALL_API_URL: str = "https://api.unpaywall.org/v2"
+UNPAYWALL_EMAIL: str = os.environ.get(
+    "UNPAYWALL_EMAIL",
+    CROSSREF_POLITE_MAILTO,
+)
+UNPAYWALL_RATE_LIMIT: float = 1.0  # Conservative: 1 req/sec
+
+# Query expansion
+QUERY_EXPANSION_ENABLED: bool = os.environ.get(
+    "LIT_SEARCH_EXPAND_QUERIES", "false"
+).lower() == "true"
+DEFAULT_DOMAIN: str = "management"
+
 
 # =============================================================================
 # Rate Limiting Configuration
@@ -146,8 +169,10 @@ SEMANTIC_SCHOLAR_FIELDS: str = (
 # DOI Validation Configuration
 # =============================================================================
 
-# Multi-source merge priority
-MERGE_SOURCE_PRIORITY: List[str] = ["crossref", "semantic_scholar", "google_scholar"]
+# Multi-source merge priority (OpenAlex first for richest metadata)
+MERGE_SOURCE_PRIORITY: List[str] = [
+    "openalex", "crossref", "semantic_scholar", "google_scholar", "ssrn"
+]
 
 # DOI supplementation settings
 SUPPLEMENT_DOI: bool = os.environ.get("BIBLIOGRAPHY_SUPPLEMENT_DOI", "true").lower() == "true"

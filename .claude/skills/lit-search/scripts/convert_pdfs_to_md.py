@@ -506,9 +506,9 @@ Examples:
                 print(f"Error converting {pdf_path.name}: {e}")
 
     else:
-        # Legacy mode: predefined papers list
-        pdf_dir = Path("references/articles_pdf")
-        md_dir = Path("references/articles_md")
+        # Legacy mode: predefined coaching papers list
+        pdf_dir = Path("/Users/carlton/Library/Mobile Documents/com~apple~CloudDocs/iFiles/学习资料/AI Coaching/references/articles_pdf")
+        md_dir = Path("/Users/carlton/Library/Mobile Documents/com~apple~CloudDocs/iFiles/学习资料/AI Coaching/references/articles_md")
 
         md_dir.mkdir(parents=True, exist_ok=True)
 

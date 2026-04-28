@@ -1,9 +1,9 @@
 """
-Jupyter Notebook Generator for Academic Research
-学术研究笔记本生成器
+Jupyter Notebook Generator for Membership Subscription Research
+会员订阅研究笔记本生成器
 
 Usage:
-    python new_notebook.py --kind experiment --title "Data Exploration" --out scripts/python/
+    python new_notebook.py --kind experiment --title "Churn Survival Analysis" --out scripts/python/
 """
 
 import argparse

@@ -1,0 +1,23 @@
+{
+  "skill_name": "mgmt-intro",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "I'm writing a paper on customer churn prediction for a telecom subscription service. Can you help me structure the introduction following ABS 4-Star journal conventions?",
+      "expected_output": "A structured introduction following the 5-step format: (1) Managerial Hook about subscription churn, (2) Traditional churn prediction methods with citation clustering, (3) Counter-intuitive pivot challenging conventional wisdom, (4) Present study description, (5) Three contributions summary. Should include specific examples like RISK ≠ LIFT concept.",
+      "files": []
+    },
+    {
+      "id": 2,
+      "prompt": "I've reviewed 15 papers on subscription retention but I'm struggling to articulate my research gap. The papers say targeting high-risk customers is important, but I found that sometimes it backfires. Help me frame this.",
+      "expected_output": "Guidance on framing the research gap using the counter-intuitive pivot pattern. Should explain how to position the finding (retention can backfire) as challenging the dominant logic rather than just filling a gap. Should include citation clustering examples and gap statement formula.",
+      "files": []
+    },
+    {
+      "id": 3,
+      "prompt": "Write my three contributions statement for my paper on mental accounting in subscription programs. I used HMM models and found that heavy discount use in baseline causes post-expiration churn.",
+      "expected_output": "A three-contributions statement following the template: (1) Methodological contribution (HMM framework), (2) Empirical finding (the 'curse of early break-even' phenomenon), (3) Managerial implications (targeting strategy). Should avoid vague claims and include quantitative language where appropriate.",
+      "files": []
+    }
+  ]
+}

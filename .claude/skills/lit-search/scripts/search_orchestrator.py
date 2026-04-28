@@ -28,8 +28,11 @@ from pathlib import Path
 
 # Absolute imports - works when .claude is on PYTHONPATH
 from scripts import CrossRefClient, SemanticScholarClient
+from scripts.openalex_client import OpenAlexClient
 from scripts.tavily_client import TavilySearchClient
+from scripts.ssrn_client import search_ssrn
 from scripts.exceptions import RateLimitError
+from scripts.query_expander import expand_query
 from scripts.config import (
     SEARCH_RESULTS_PATH,
     TEMP_DIR,
@@ -37,9 +40,13 @@ from scripts.config import (
     DEFAULT_MAX_RESULTS,
     get_abs_issns,
     get_abs_journal_names,
+    MERGE_SOURCE_PRIORITY,
+    QUERY_EXPANSION_ENABLED,
+    DEFAULT_DOMAIN,
 )
 from scripts import doi_utils
 from scripts.metadata_manager import MetadataManager
+from scripts.shared_types import Paper
 from difflib import SequenceMatcher
 
 
@@ -170,12 +177,12 @@ format_references_markdown = lambda query, results: format_papers_markdown(query
 
 def merge_papers_by_doi(
     papers: List[Dict[str, Any]],
-    priority: List[str] = ["crossref", "semantic_scholar", "google_scholar"]
+    priority: List[str] = None,
 ) -> List[Dict[str, Any]]:
     """
     Merge papers from multiple sources by DOI.
 
-    Priority: CrossRef > Semantic Scholar > Tavily
+    Priority: OpenAlex > CrossRef > Semantic Scholar > Tavily > SSRN
     For papers without DOI, merge by title similarity.
 
     Args:
@@ -185,7 +192,8 @@ def merge_papers_by_doi(
     Returns:
         Merged list with unique papers, using highest priority source for each DOI
     """
-    # Group papers by DOI
+    if priority is None:
+        priority = MERGE_SOURCE_PRIORITY
     papers_by_doi = {}  # doi -> list of papers
     papers_without_doi = []
 
@@ -427,6 +435,62 @@ def search_google_scholar(
         return []
 
 
+def search_openalex(
+    query: str,
+    max_results: int = 10,
+    issns: Optional[List[str]] = None,
+) -> List[Dict[str, Any]]:
+    """
+    Search OpenAlex for papers.
+
+    Args:
+        query: Search query
+        max_results: Maximum number of results
+        issns: Optional list of ISSNs for journal filtering
+
+    Returns:
+        List of paper metadata
+    """
+    try:
+        client = OpenAlexClient()
+        if issns:
+            results = client.search_by_issn_batch(query, issns, max_results=max_results)
+        else:
+            results = client.search_by_query(query, max_results=max_results)
+        client.close()
+        return results
+    except Exception as e:
+        logger.error(f"OpenAlex search failed: {e}")
+        return []
+
+
+def search_citation_chain(
+    seed_dois: List[str],
+    max_results: int = 50,
+) -> List[Dict[str, Any]]:
+    """Citation chaining: find papers cited by seed papers.
+
+    Uses SemanticScholarClient.get_references() for each seed DOI.
+    Fails fast on S2 rate limits.
+    """
+    all_refs = []
+    client = SemanticScholarClient()
+    try:
+        for doi in seed_dois:
+            try:
+                refs = client.get_references(f"DOI:{doi}", max_results=max_results)
+                all_refs.extend(refs)
+            except RateLimitError:
+                logger.warning("S2 rate limited during citation chaining. Stopping.")
+                break
+            except Exception as e:
+                logger.warning(f"Citation chain failed for {doi}: {e}")
+    finally:
+        client.close()
+
+    return merge_papers_by_doi(all_refs)
+
+
 def search_all_apis(
     query: str,
     max_results: int = 10,
@@ -447,7 +511,11 @@ def search_all_apis(
     """
     all_results = []
 
-    # Search CrossRef with ISSN filter
+    # OpenAlex first — has abstracts + ISSN batch in one call
+    openalex_results = search_openalex(query, max_results, issns=issns)
+    all_results.extend(openalex_results)
+
+    # CrossRef — good DOI coverage, ISSN batch
     crossref_results = search_crossref(query, max_results, issns=issns)
     all_results.extend(crossref_results)
 
@@ -529,7 +597,7 @@ def main():
     parser.add_argument(
         "--source",
         type=str,
-        choices=["crossref", "semantic-scholar", "google-scholar", "all"],
+        choices=["crossref", "semantic-scholar", "google-scholar", "openalex", "ssrn", "all"],
         default="all",
         help="API source to query (default: all)"
     )
@@ -573,6 +641,16 @@ def main():
         default=None,
         help="Topic directory for metadata storage under docs/ (default: coaching-papers)"
     )
+    parser.add_argument(
+        "--expand",
+        action="store_true",
+        help="Expand query with synonyms and related terms",
+    )
+    parser.add_argument(
+        "--chain",
+        type=str,
+        help="Citation chaining: comma-separated seed DOIs",
+    )
 
     args = parser.parse_args()
 
@@ -613,7 +691,7 @@ def main():
 
         return 0
     query = args.query
-    if not query:
+    if not query and not args.chain:
         try:
             stdin_data = json.load(sys.stdin)
             query = stdin_data.get("query", "")
@@ -626,9 +704,30 @@ def main():
         max_results = args.max_results
         source = args.source
 
-    if not query:
+    if not query and not args.chain:
         print("Error: No query provided", file=sys.stderr)
         sys.exit(1)
+
+    # Handle --chain mode (citation chaining)
+    if args.chain:
+        seed_dois = [d.strip() for d in args.chain.split(",") if d.strip()]
+        if not seed_dois:
+            print("Error: --chain requires comma-separated DOIs", file=sys.stderr)
+            sys.exit(1)
+        results = search_citation_chain(seed_dois, max_results=args.max_results)
+        source_name = f"Citation chain ({len(seed_dois)} seeds)"
+        results_markdown = format_results_markdown(args.chain, results, source_name)
+        output = args.output
+        if output == "file":
+            file_path = save_results(results_markdown)
+            print(f"Results saved to: {file_path}", file=sys.stderr)
+            print(results_markdown)
+        elif output == "stdout":
+            print(results_markdown)
+        elif output == "json":
+            print(json.dumps(results, indent=2, ensure_ascii=False))
+        _persist_metadata(args, results, f"chain:{args.chain}")
+        return 0
 
     # Handle ABS journal filtering
     issns = None
@@ -662,18 +761,44 @@ def main():
     # Perform search
     logger.info(f"Searching for: {query} (source={source}, max_results={max_results})")
 
-    if source == "crossref":
-        results = search_crossref(query, max_results, issns=issns)
-        source_name = "CrossRef"
-    elif source == "semantic-scholar":
-        results = search_semantic_scholar(query, max_results, journal_names=journal_names)
-        source_name = "Semantic Scholar"
-    elif source == "google-scholar":
-        results = search_google_scholar(query, max_results)
-        source_name = "Google Scholar (via Tavily)"
-    else:  # all
-        results = search_all_apis(query, max_results, issns=issns, journal_names=journal_names)
-        source_name = "CrossRef + Semantic Scholar"
+    # Handle query expansion
+    if args.expand:
+        queries = expand_query(query, domain=DEFAULT_DOMAIN)
+        if len(queries) > 1:
+            print(f"Query expansion: {len(queries)} variants", file=sys.stderr)
+            for i, q in enumerate(queries):
+                print(f"  [{i+1}] {q}", file=sys.stderr)
+    else:
+        queries = [query]
+
+    # Execute searches for all query variants
+    all_variant_results = []
+    for q in queries:
+        if source == "crossref":
+            variant_results = search_crossref(q, max_results, issns=issns)
+            source_name = "CrossRef"
+        elif source == "semantic-scholar":
+            variant_results = search_semantic_scholar(q, max_results, journal_names=journal_names)
+            source_name = "Semantic Scholar"
+        elif source == "google-scholar":
+            variant_results = search_google_scholar(q, max_results)
+            source_name = "Google Scholar (via Tavily)"
+        elif source == "openalex":
+            variant_results = search_openalex(q, max_results, issns=issns)
+            source_name = "OpenAlex"
+        elif source == "ssrn":
+            variant_results = search_ssrn(q, max_results)
+            source_name = "SSRN (via Tavily)"
+        else:  # all
+            variant_results = search_all_apis(q, max_results, issns=issns, journal_names=journal_names)
+            source_name = "OpenAlex + CrossRef + Semantic Scholar"
+        all_variant_results.extend(variant_results)
+
+    # Merge results across query variants
+    if len(queries) > 1:
+        results = merge_papers_by_doi(all_variant_results)
+    else:
+        results = all_variant_results
 
     # Format results
     results_markdown = format_results_markdown(query, results, source_name)

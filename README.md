@@ -122,7 +122,7 @@ ANTHROPIC_API_KEY=sk-ant-your-key-here
 
 - **Presentation:** `/create-lecture`, `/deploy`, `/translate-to-quarto`, `/extract-tikz`, `/qa-quarto`, `/visual-audit`, `/pedagogy-review`, `/slide-excellence`, `/compile-latex`
 - **Quality:** `/proofread`, `/review-python`, `/review-paper`, `/deep-audit`, `/devils-advocate`, `/context-status`
-- **Research:** `/lit-search`, `/lit-read`, `/lit-review`, `/validate-bib`, `/research-ideation`, `/interview-me`, `/mgmt-*`
+- **Research:** `/lit-search`, `/lit-read`, `/mgmt-lit-review`, `/validate-bib`, `/research-ideation`, `/interview-me`, `/mgmt-*`
 - **Analysis:** `/data-analysis-python`, `/python-regression`, `/stata-regression`, `/econ-visualization`, `/jupyter-notebook`
 - **Workflow:** `/commit`, `/deploy`, `/learn`, `/simplify`, `/drawio`, `/defuddle`, `/obsidian-*`
 

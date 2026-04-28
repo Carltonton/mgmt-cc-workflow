@@ -214,6 +214,7 @@ class TavilySearchClient:
         "pubmed.ncbi.nlm.nih.gov",  # PubMed
         "scholar.google.com",       # Google Scholar (citation pages)
         "doi.org",                  # DOI resolver
+        "ssrn.com",                 # SSRN working papers
         "researchgate.net",         # ResearchGate
         # Preprint / open repositories
         "arxiv.org",

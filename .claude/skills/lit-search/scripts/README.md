@@ -190,4 +190,4 @@ Set API keys for higher limits.
 
 ## License
 
-This module is part of the Claude Code academic workflow template.
+This module is part of the customer retention research project at UCAS.

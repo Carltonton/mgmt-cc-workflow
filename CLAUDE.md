@@ -15,8 +15,8 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ### Project Structure
 
-| Phase | Focus | Outcome |
-| ----- | ----- | ------- |
+| Phase       | Focus                 | Outcome           |
+| ----------- | --------------------- | ----------------- |
 | **1** | [Phase 1 description] | [Phase 1 outcome] |
 | **2** | [Phase 2 description] | [Phase 2 outcome] |
 | **3** | [Phase 3 description] | [Phase 3 outcome] |
@@ -47,7 +47,7 @@ See `.claude/rules/` for detailed protocols.
 - `/review-paper` — Comprehensive manuscript review
 - `/research-ideation` — Generate research topics from empirical observations using PXYV framework
 - `/interview-me` — Formalize research idea into specification
-- `/mgmt-*` — Management research guides (theory, empirical, qualitative, intro)
+- `/mgmt-*` — Management research guides (intro, theory, empirical, qualitative)
 
 ### Quality Reviews
 
