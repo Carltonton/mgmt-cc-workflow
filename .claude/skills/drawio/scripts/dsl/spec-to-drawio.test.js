@@ -22,7 +22,8 @@ import {
   deriveNodeIcon,
   validateXml,
   validateColorScheme,
-  validateLayoutConsistency
+  validateLayoutConsistency,
+  detectOverlaps
 } from './spec-to-drawio.js'
 
 // ============================================================================
@@ -476,6 +477,146 @@ describe('calculateLayout', () => {
     const dbPos = positions.get('db')
     assert.ok(internalPos.x <= dbPos.x, 'internal module should include manually positioned nodes')
     assert.ok(internalPos.y <= dbPos.y, 'internal module should extend above manually positioned nodes')
+  })
+
+  it('horizontal layout without modules: nodes flow left-to-right', () => {
+    const spec = {
+      meta: { layout: 'horizontal' },
+      nodes: [
+        { id: 'n1', label: 'Node 1' },
+        { id: 'n2', label: 'Node 2' },
+        { id: 'n3', label: 'Node 3' }
+      ]
+    }
+    const theme = { canvas: { gridSize: 8 }, module: { padding: 24 } }
+    const { positions } = calculateLayout(spec, theme)
+
+    const pos1 = positions.get('n1')
+    const pos2 = positions.get('n2')
+    const pos3 = positions.get('n3')
+
+    assert.ok(pos2.x > pos1.x, 'n2.x should be greater than n1.x')
+    assert.ok(pos3.x > pos2.x, 'n3.x should be greater than n2.x')
+    assert.strictEqual(pos1.y, pos2.y, 'all nodes should share Y coordinate')
+    assert.strictEqual(pos2.y, pos3.y, 'all nodes should share Y coordinate')
+  })
+
+  it('vertical layout without modules: nodes flow top-to-bottom', () => {
+    const spec = {
+      meta: { layout: 'vertical' },
+      nodes: [
+        { id: 'n1', label: 'Node 1' },
+        { id: 'n2', label: 'Node 2' },
+        { id: 'n3', label: 'Node 3' }
+      ]
+    }
+    const theme = { canvas: { gridSize: 8 }, module: { padding: 24 } }
+    const { positions } = calculateLayout(spec, theme)
+
+    const pos1 = positions.get('n1')
+    const pos2 = positions.get('n2')
+    const pos3 = positions.get('n3')
+
+    assert.ok(pos2.y > pos1.y, 'n2.y should be greater than n1.y')
+    assert.ok(pos3.y > pos2.y, 'n3.y should be greater than n2.y')
+    assert.strictEqual(pos1.x, pos2.x, 'all nodes should share X coordinate')
+    assert.strictEqual(pos2.x, pos3.x, 'all nodes should share X coordinate')
+  })
+
+  it('horizontal layout without modules: no two nodes overlap', () => {
+    const spec = {
+      meta: { layout: 'horizontal' },
+      nodes: [
+        { id: 'n1', label: 'Node 1' },
+        { id: 'n2', label: 'Node 2' },
+        { id: 'n3', label: 'Node 3' }
+      ]
+    }
+    const theme = { canvas: { gridSize: 8 }, module: { padding: 24 } }
+    const { positions } = calculateLayout(spec, theme)
+    const all = [...positions.entries()]
+
+    for (let i = 0; i < all.length; i++) {
+      for (let j = i + 1; j < all.length; j++) {
+        const [, a] = all[i]
+        const [, b] = all[j]
+        const overlapsHorizontally = a.x < b.x + b.width && b.x < a.x + a.width
+        const overlapsVertically = a.y < b.y + b.height && b.y < a.y + a.height
+        assert.ok(
+          !(overlapsHorizontally && overlapsVertically),
+          'nodes should not overlap'
+        )
+      }
+    }
+  })
+
+  it('horizontal layout with modules: modules side-by-side, nodes stacked within', () => {
+    const spec = {
+      meta: { layout: 'horizontal' },
+      modules: [
+        { id: 'm1', label: 'Module 1' },
+        { id: 'm2', label: 'Module 2' }
+      ],
+      nodes: [
+        { id: 'n1', label: 'A', module: 'm1' },
+        { id: 'n2', label: 'B', module: 'm1' },
+        { id: 'n3', label: 'C', module: 'm2' }
+      ]
+    }
+    const theme = { canvas: { gridSize: 8 }, module: { padding: 24 } }
+    const { positions } = calculateLayout(spec, theme)
+
+    const pos1 = positions.get('n1')
+    const pos2 = positions.get('n2')
+    const pos3 = positions.get('n3')
+
+    assert.strictEqual(pos1.x, pos2.x, 'same-module nodes should share X')
+    assert.ok(pos2.y > pos1.y, 'n2 should be below n1 in same module')
+    assert.ok(pos3.x > pos1.x, 'm2 module should be to the right of m1')
+  })
+})
+
+// ============================================================================
+// Overlap Detection Tests
+// ============================================================================
+
+describe('detectOverlaps', () => {
+  it('returns no warnings when nodes are well-separated', () => {
+    const positions = new Map([
+      ['n1', { x: 40, y: 40, width: 120, height: 60 }],
+      ['n2', { x: 200, y: 40, width: 120, height: 60 }]
+    ])
+    const warnings = detectOverlaps(positions)
+    assert.deepStrictEqual(warnings, [])
+  })
+
+  it('detects overlapping bounding boxes', () => {
+    const positions = new Map([
+      ['n1', { x: 40, y: 40, width: 120, height: 60 }],
+      ['n2', { x: 100, y: 40, width: 120, height: 60 }]
+    ])
+    const warnings = detectOverlaps(positions)
+    assert.ok(warnings.length > 0, 'should detect overlap')
+    assert.ok(warnings[0].includes('"n1"'), 'warning should mention n1')
+    assert.ok(warnings[0].includes('"n2"'), 'warning should mention n2')
+  })
+
+  it('does not flag nodes separated by exactly minClearance', () => {
+    const positions = new Map([
+      ['n1', { x: 40, y: 40, width: 120, height: 60 }],
+      ['n2', { x: 168, y: 40, width: 120, height: 60 }]  // 168 = 40+120+8
+    ])
+    const warnings = detectOverlaps(positions, 8)
+    assert.deepStrictEqual(warnings, [])
+  })
+
+  it('checks auto-layout nodes, not just manually positioned ones', () => {
+    const positions = new Map([
+      ['a', { x: 40, y: 40, width: 120, height: 60 }],
+      ['b', { x: 50, y: 50, width: 120, height: 60 }]
+    ])
+    const warnings = detectOverlaps(positions)
+    assert.ok(warnings.length > 0, 'should detect overlap even for auto-layout positions')
   })
 })
 

@@ -24,7 +24,6 @@
 | `quality_reports/` | Read-Write | Session logs, plans, reviews |
 | `references/` | Read-Write | Reference materials |
 | `assets/` | Read-Write | Static assets |
-| `logs/` | Read-Write | Application logs |
 | `data/` | **READ ONLY** | Research data |
 | `survey/` | **READ ONLY** | Survey instruments and responses |
 | `.claude/` | **READ ONLY** | Infrastructure |

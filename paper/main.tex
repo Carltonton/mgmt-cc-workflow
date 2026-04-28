@@ -1,0 +1,120 @@
+% ============================================================================
+% Research Paper: [Your Paper Title]
+% ============================================================================
+% Author: [Your Name]
+% Institution: [Your Institution]
+% Date: [Date]
+% ============================================================================
+
+\documentclass[12pt,a4paper]{article}
+
+% ----------------------------------------------------------------------------
+% Packages
+% ----------------------------------------------------------------------------
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage{graphicx}
+\usepackage{booktabs}   % For professional tables
+\usepackage{multirow}   % For multi-row table cells
+\usepackage{dcolumn}    % For decimal-aligned table columns
+\usepackage{hyperref}
+\usepackage{natbib}     % For bibliography management
+\usepackage{geometry}
+\usepackage{setspace}
+\usepackage{enumitem}
+
+% ----------------------------------------------------------------------------
+% Page Layout
+% ----------------------------------------------------------------------------
+\geometry{
+    a4paper,
+    left=2.5cm,
+    right=2.5cm,
+    top=2.5cm,
+    bottom=2.5cm
+}
+
+% ----------------------------------------------------------------------------
+% Hyperlinks
+% ----------------------------------------------------------------------------
+\hypersetup{
+    colorlinks=true,
+    linkcolor=blue,
+    citecolor=blue,
+    urlcolor=blue
+}
+
+% ----------------------------------------------------------------------------
+% Theorem Environments
+% ----------------------------------------------------------------------------
+\newtheorem{theorem}{Theorem}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{corollary}[theorem]{Corollary}
+\theoremstyle{definition}
+\newtheorem{definition}{Definition}
+\theoremstyle{remark}
+\newtheorem{remark}{Remark}
+
+% Research question environment
+\newtheorem{researchquestion}{Research Question}
+
+% ----------------------------------------------------------------------------
+% Commands
+% ----------------------------------------------------------------------------
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\Var}{\mathrm{Var}}
+\newcommand{\Cov}{\mathrm{Cov}}
+\newcommand{\hazard}{h(t \mid \mathbf{x})}
+\newcommand{\survival}{S(t \mid \mathbf{x})}
+
+% Decimal column type for tables (aligns on decimal point)
+\newcolumntype{d}[1]{D{.}{.}{#1}}
+
+% ----------------------------------------------------------------------------
+% Title Information
+% ----------------------------------------------------------------------------
+\title{[Your Paper Title]}
+\author{[Your Name]\\[Your Institution]}
+\date{[Date]}
+
+% ============================================================================
+% Document
+% ============================================================================
+\begin{document}
+
+\maketitle
+
+% ----------------------------------------------------------------------------
+% Abstract
+% ----------------------------------------------------------------------------
+\begin{abstract}
+
+\textbf{Keywords:} 
+\end{abstract}
+
+% ----------------------------------------------------------------------------
+% Main Content
+% ----------------------------------------------------------------------------
+% \input{sections/01_introduction.tex}
+% \input{sections/02_literature.tex}
+% \input{sections/03_methodology.tex}
+% \input{sections/04_results.tex}
+% \input{sections/05_conclusion.tex}
+
+% ----------------------------------------------------------------------------
+% References
+% ----------------------------------------------------------------------------
+% \bibliographystyle{plainnat}
+% \bibliography{../Bibliography_base}
+
+% ----------------------------------------------------------------------------
+% Appendices (optional)
+% ----------------------------------------------------------------------------
+% \appendix
+% \section{Additional Tables and Figures}
+% \section{Robustness Checks}
+
+\end{document}

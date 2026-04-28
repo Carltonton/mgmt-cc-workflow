@@ -22,11 +22,10 @@
       "Bash(gh pr merge *)",
       "Bash(gh pr create *)",
       "Bash(gh repo *)",
-      "Bash(xelatex *)",
+      "Bash(bash .claude/hooks/latex-compile-guard.sh *)",
+      "Bash(bash .claude/hooks/latex-compile-guard.sh)",
       "Bash(TEXINPUTS=*)",
       "Bash(BIBINPUTS=*)",
-      "Bash(latexmk *)",
-      "Bash(bibtex *)",
       "Bash(pdfinfo *)",
       "Bash(pdf2svg *)",
       "Bash(quarto render *)",
@@ -91,6 +90,16 @@
           {
             "type": "command",
             "command": "\"$CLAUDE_PROJECT_DIR\"/.claude/hooks/protect-files.sh",
+            "timeout": 5
+          }
+        ]
+      },
+      {
+        "matcher": "Bash",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "\"$CLAUDE_PROJECT_DIR\"/.claude/hooks/latex-compile-guard.sh",
             "timeout": 5
           }
         ]

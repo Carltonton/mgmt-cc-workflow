@@ -190,7 +190,7 @@ For each paper, read the full text (PDF or markdown). Use the Read tool's `pages
 Read the reading note template first:
 
 ```
-.claude/skills/read-lit/references/reading-note-template.md
+.claude/skills/lit-read/references/reading-note-template.md
 ```
 
 Then extract notes following the template structure. Save each note to:

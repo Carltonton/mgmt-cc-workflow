@@ -407,61 +407,97 @@ export function calculateLayout(spec, theme) {
     moduleGroups.get(moduleId).push(node)
   }
 
+  const hasExplicitModules = modules.length > 0
+
   let currentX = 40
   let currentY = 40
 
   if (normalizedLayout === 'horizontal') {
-    // Horizontal: modules side by side, nodes stacked vertically
-    for (const [moduleId, moduleNodes] of moduleGroups) {
-      if (moduleNodes.length === 0) continue
+    if (hasExplicitModules) {
+      // Horizontal: modules side by side, nodes stacked vertically within each
+      for (const [moduleId, moduleNodes] of moduleGroups) {
+        if (moduleNodes.length === 0) continue
 
-      const moduleX = snapToGrid(currentX, gridSize)
-      const moduleY = snapToGrid(40, gridSize)
-      let maxWidth = 0
-      let nodeY = moduleY + containerPadding + moduleHeaderHeight
+        const moduleX = snapToGrid(currentX, gridSize)
+        const moduleY = snapToGrid(40, gridSize)
+        let maxWidth = 0
+        let nodeY = moduleY + containerPadding + moduleHeaderHeight
 
-      for (const node of moduleNodes) {
-        if (manuallyPositioned.has(node.id)) continue
-        const semanticType = detectSemanticType(node.label, node.type, node.network)
-        const size = getNodeSize(node.size, semanticType)
-        const nodeX = snapToGrid(moduleX + containerPadding, gridSize)
-        positions.set(node.id, {
-          x: nodeX,
-          y: snapToGrid(nodeY, gridSize),
-          width: size.width,
-          height: size.height
-        })
-        maxWidth = Math.max(maxWidth, size.width)
-        nodeY += size.height + nodeMargin
+        for (const node of moduleNodes) {
+          if (manuallyPositioned.has(node.id)) continue
+          const semanticType = detectSemanticType(node.label, node.type, node.network)
+          const size = getNodeSize(node.size, semanticType)
+          const nodeX = snapToGrid(moduleX + containerPadding, gridSize)
+          positions.set(node.id, {
+            x: nodeX,
+            y: snapToGrid(nodeY, gridSize),
+            width: size.width,
+            height: size.height
+          })
+          maxWidth = Math.max(maxWidth, size.width)
+          nodeY += size.height + nodeMargin
+        }
+
+        currentX += maxWidth + containerPadding * 2 + nodeMargin
       }
-
-      currentX += maxWidth + containerPadding * 2 + nodeMargin
-    }
-  } else if (normalizedLayout === 'vertical') {
-    // Vertical: modules stacked, nodes side by side
-    for (const [moduleId, moduleNodes] of moduleGroups) {
-      if (moduleNodes.length === 0) continue
-
-      const moduleX = snapToGrid(40, gridSize)
-      const moduleY = snapToGrid(currentY, gridSize)
-      let nodeX = moduleX + containerPadding
-      let maxHeight = 0
-
-      for (const node of moduleNodes) {
+    } else {
+      // No explicit modules: flow left-to-right
+      let nodeX = snapToGrid(40, gridSize)
+      for (const node of nodes) {
         if (manuallyPositioned.has(node.id)) continue
         const semanticType = detectSemanticType(node.label, node.type, node.network)
         const size = getNodeSize(node.size, semanticType)
         positions.set(node.id, {
           x: snapToGrid(nodeX, gridSize),
-          y: snapToGrid(moduleY + containerPadding + moduleHeaderHeight, gridSize),
+          y: snapToGrid(40, gridSize),
           width: size.width,
           height: size.height
         })
-        maxHeight = Math.max(maxHeight, size.height)
         nodeX += size.width + nodeMargin
       }
+    }
+  } else if (normalizedLayout === 'vertical') {
+    if (hasExplicitModules) {
+      // Vertical: modules stacked, nodes side by side within each
+      for (const [moduleId, moduleNodes] of moduleGroups) {
+        if (moduleNodes.length === 0) continue
 
-      currentY += maxHeight + containerPadding * 2 + moduleHeaderHeight + nodeMargin
+        const moduleX = snapToGrid(40, gridSize)
+        const moduleY = snapToGrid(currentY, gridSize)
+        let nodeX = moduleX + containerPadding
+        let maxHeight = 0
+
+        for (const node of moduleNodes) {
+          if (manuallyPositioned.has(node.id)) continue
+          const semanticType = detectSemanticType(node.label, node.type, node.network)
+          const size = getNodeSize(node.size, semanticType)
+          positions.set(node.id, {
+            x: snapToGrid(nodeX, gridSize),
+            y: snapToGrid(moduleY + containerPadding + moduleHeaderHeight, gridSize),
+            width: size.width,
+            height: size.height
+          })
+          maxHeight = Math.max(maxHeight, size.height)
+          nodeX += size.width + nodeMargin
+        }
+
+        currentY += maxHeight + containerPadding * 2 + moduleHeaderHeight + nodeMargin
+      }
+    } else {
+      // No explicit modules: flow top-to-bottom
+      let nodeY = snapToGrid(40, gridSize)
+      for (const node of nodes) {
+        if (manuallyPositioned.has(node.id)) continue
+        const semanticType = detectSemanticType(node.label, node.type, node.network)
+        const size = getNodeSize(node.size, semanticType)
+        positions.set(node.id, {
+          x: snapToGrid(40, gridSize),
+          y: snapToGrid(nodeY, gridSize),
+          width: size.width,
+          height: size.height
+        })
+        nodeY += size.height + nodeMargin
+      }
     }
   } else if (layout === 'star') {
     const autoNodes = nodes.filter(node => !manuallyPositioned.has(node.id))
@@ -1078,6 +1114,50 @@ export function validateLayoutConsistency(spec) {
   return warnings
 }
 
+/**
+ * Detect overlapping nodes using axis-aligned bounding box (AABB) collision.
+ * Operates on the computed positions Map from calculateLayout().
+ * @param {Map<string, {x:number, y:number, width:number, height:number}>} positions
+ * @param {number} [minClearance=8] - Minimum gap between node edges (in pixels)
+ * @returns {Array<string>} Warning messages for each overlapping pair
+ */
+export function detectOverlaps(positions, minClearance = 8) {
+  const warnings = []
+  const entries = [...positions.entries()]
+  const valid = entries.filter(([, pos]) =>
+    pos && typeof pos.x === 'number' && typeof pos.y === 'number' &&
+    typeof pos.width === 'number' && typeof pos.height === 'number'
+  )
+
+  for (let i = 0; i < valid.length; i++) {
+    for (let j = i + 1; j < valid.length; j++) {
+      const [idA, a] = valid[i]
+      const [idB, b] = valid[j]
+
+      const overlapX = (a.x - minClearance) < (b.x + b.width) &&
+                       (b.x - minClearance) < (a.x + a.width)
+      const overlapY = (a.y - minClearance) < (b.y + b.height) &&
+                       (b.y - minClearance) < (a.y + a.height)
+
+      if (overlapX && overlapY) {
+        const overlapLeft = Math.max(a.x, b.x)
+        const overlapRight = Math.min(a.x + a.width, b.x + b.width)
+        const overlapTop = Math.max(a.y, b.y)
+        const overlapBottom = Math.min(a.y + a.height, b.y + b.height)
+        const overlapW = Math.max(0, overlapRight - overlapLeft)
+        const overlapH = Math.max(0, overlapBottom - overlapTop)
+
+        warnings.push(
+          `Nodes "${idA}" and "${idB}" overlap by ${overlapW}x${overlapH}px ` +
+          `(clearance < ${minClearance}px)`
+        )
+      }
+    }
+  }
+
+  return warnings
+}
+
 const FACE_SLOTS = [0.25, 0.5, 0.75, 0.33, 0.66, 0.2, 0.8]
 
 function resolveProfile(spec) {
@@ -1443,12 +1523,14 @@ export function specToDrawioXml(spec, options = {}) {
   // Run validation passes
   const colorWarnings = validateColorScheme(spec, theme)
   const layoutWarnings = validateLayoutConsistency(spec)
+  const overlapWarnings = detectOverlaps(layout.positions)
   const connectionPointWarnings = validateConnectionPointPolicy(spec)
   const edgeWarnings = validateEdgeQuality(spec, layout)
   const academicWarnings = validateAcademicProfile(spec)
   const allValidationWarnings = [
     ...colorWarnings,
     ...layoutWarnings,
+    ...overlapWarnings,
     ...connectionPointWarnings,
     ...edgeWarnings,
     ...academicWarnings

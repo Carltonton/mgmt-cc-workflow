@@ -36,26 +36,26 @@ if torch_available:
 - Return type hints, explicit return statements
 
 ```python
-def calculate_reliability(
+def calculate_hazard_rate(
     data: pd.DataFrame,
-    items: list[str],
-    method: str = "cronbach"
-) -> float:
-    """Calculate internal consistency reliability for scale items.
+    time_col: str = "tenure",
+    event_col: str = "churned"
+) -> pd.Series:
+    """Calculate hazard rate for subscription data.
 
     Args:
-        data: Input dataframe with survey responses
-        items: Column names for scale items
-        method: Reliability method ("cronbach" or "omega")
+        data: Input dataframe with subscription records
+        time_col: Column name for time/tenure variable
+        event_col: Column name for churn event indicator
 
     Returns:
-        Reliability coefficient (0-1)
+        Series containing hazard rates by time period
 
     Raises:
         ValueError: If required columns are missing
     """
     # Implementation here
-    return reliability
+    return hazard_rates
 ```
 
 ## 3. Domain Correctness
@@ -63,47 +63,62 @@ def calculate_reliability(
 <!-- Customize for your field's known pitfalls -->
 - Verify numerical implementations match theoretical formulas
 - Check for floating-point precision issues in probability calculations
-- Validate statistical assumptions (normality, independence, measurement invariance)
+- Validate survival analysis assumptions (censoring, independence)
 - Document model assumptions in docstrings
 
-## 4. Visual Identity
+## 4. Visual Identity (AMJ Management Journal Style)
 
 ```python
-# --- Research palette for publication figures ---
+# --- AMJ-style grayscale palette ---
 PALETTE = {
-    "primary_blue": "#012169",
-    "primary_gold": "#f2a900",
-    "accent_gray": "#525252",
-    "positive_green": "#15803d",
-    "negative_red": "#b91c1c",
+    "black": "#000000",
+    "dark_gray": "#333333",
+    "medium_gray": "#666666",
+    "light_gray": "#999999",
+    "pale_gray": "#CCCCCC",
 }
+
+# Line styles for series differentiation
+LINE_STYLES = {"solid": "-", "dashed": "--", "dotted": ":", "dashdot": "-."}
+
+# Markers for group differentiation
+MARKERS = {"circle": "o", "square": "s", "triangle": "^", "diamond": "D"}
+
+# Hatch patterns for bar charts
+HATCHES = ["", "//", "\\\\", "xx", ".."]
 ```
+
+### AMJ Figure Rules
+1. **No color** — use black/white/gray only (journal print requirement)
+2. **Differentiate series** by line style + marker, not by color
+3. **No figure titles** — AMJ places captions below, not titles on figures
+4. **Minimal chart junk** — light grid, clean axes
 
 ### Matplotlib Style Configuration
 ```python
 import matplotlib.pyplot as plt
+import matplotlib as mpl
 import seaborn as sns
 
-# Set publication-quality defaults
+GRAYSCALE_CYCLE = ["#000000", "#333333", "#666666", "#999999", "#CCCCCC"]
+
 plt.style.use("seaborn-v0_8-whitegrid")
 sns.set_context("paper", font_scale=1.2)
 
-# Custom figure style
-def setup_figure_style():
-    """Configure matplotlib for publication-quality figures."""
-    plt.rcParams.update({
-        "figure.dpi": 300,
-        "savefig.dpi": 300,
-        "savefig.bbox": "tight",
-        "savefig.transparent": True,
-        "font.family": "serif",
-        "font.serif": ["Times New Roman"],
-        "axes.labelsize": 12,
-        "axes.titlesize": 14,
-        "xtick.labelsize": 10,
-        "ytick.labelsize": 10,
-        "legend.fontsize": 10,
-    })
+plt.rcParams.update({
+    "figure.dpi": 300,
+    "savefig.dpi": 300,
+    "savefig.bbox": "tight",
+    "savefig.transparent": True,
+    "font.family": "serif",
+    "font.serif": ["Times New Roman"],
+    "axes.labelsize": 12,
+    "axes.titlesize": 14,
+    "xtick.labelsize": 10,
+    "ytick.labelsize": 10,
+    "legend.fontsize": 10,
+    "axes.prop_cycle": mpl.cycler(color=GRAYSCALE_CYCLE),
+})
 ```
 
 ### Figure Saving
@@ -203,8 +218,8 @@ np.random.seed(SEED)
 1. Breaking the line would harm readability of the math
 2. An inline comment explains the mathematical operation:
    ```python
-   # Composite reliability: CR = (sum λ)^2 / [(sum λ)^2 + sum δ]
-   composite_reliability = (sum_loadings ** 2) / (sum_loadings ** 2 + sum_errors)
+   # Hazard function: h(t) = f(t) / S(t), ratio of density to survival
+   hazard_rate = density_func(t) / survival_func(t)
    ```
 3. The line is in a numerically intensive section (optimization loops, estimation routines)
 
@@ -244,11 +259,11 @@ pip freeze > requirements.lock
 ```python
 # Validate assumptions
 assert not df.isnull().any().any(), "Data contains missing values"
-assert df["item1"].min() >= 1, "Values below scale minimum found"
-assert df["item1"].max() <= 7, "Values above scale maximum found"
+assert df["tenure"].min() >= 0, "Negative tenure values found"
+assert df["churned"].isin([0, 1]).all(), "Invalid churn indicator"
 
 # Log key statistics
 print(f"Sample size: {len(df)}")
-print(f"Missing rate: {df.isnull().mean().mean():.2%}")
+print(f"Churn rate: {df['churned'].mean():.2%}")
 print(f"Date range: {df['date'].min()} to {df['date'].max()}")
 ```

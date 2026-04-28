@@ -10,7 +10,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 **Project:** [YOUR PROJECT NAME]
 
-**Researcher:** [YOUR NAME] ([YOUR INSTITUTION]) | **Supervisor:** [YOUR SUPERVISOR]
+**Researcher:** [YOUR NAME] ([YOUR INSTITUTION]) 
 **Discipline:** [YOUR DISCIPLINE]
 
 ### Project Structure
@@ -56,14 +56,8 @@ See `.claude/rules/` for detailed protocols.
 
 ### Analysis & Documentation
 
-- `/data-analysis-python` — End-to-end Python workflow (EDA, regression, tables, figures)
 - `/stata-regression` — Stata regression analysis
-- `/econ-visualization` — Publication-quality charts
-
-### Development
-
-- `/commit` — Stage, commit, create PR, merge
-- `/learn` — Extract session knowledge into skill
+- `visualization` — Publication-quality charts
 
 ---
 
@@ -71,7 +65,7 @@ See `.claude/rules/` for detailed protocols.
 
 **[YOUR DOMAIN] Research** — [key concepts and theories]
 
-**See:** [`.claude/rules/knowledge-base.md`](.claude/rules/knowledge-base.md)
+**See:** [`.claude/rules/knowledge-base-template.md`](.claude/rules/knowledge-base-template.md)
 
 ---
 

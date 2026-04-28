@@ -5,7 +5,6 @@ version: 1.2.0
 argument-hint: "[research topic or question]"
 allowed-tools: ["Read", "Grep", "Glob", "Write", "WebSearch", "mcp__web_reader__webReader"]
 ---
-
 # Management Literature Review
 
 Guidance for conducting literature reviews, identifying research gaps, building theoretical conversations, and writing review papers in management research, following AMJ standards.
@@ -55,13 +54,13 @@ Organize into four categories:
 
 ### 6. Identify Research Gaps
 
-| Gap Type | Example | AMJ Relevance |
-|----------|---------|---------------|
-| **Contradictory Findings** | Studies find opposite results | High — synthesis opportunity |
-| **Under-explored Context** | No studies in emerging markets | High — boundary condition |
-| **Missing Mechanism** | Relationship exists but "why" unknown | High — theoretical contribution |
-| **New Construct** | Construct never studied in this context | Medium — requires justification |
-| **Methodological Limitation** | Existing studies have design flaws | Medium — method contribution |
+| Gap Type                            | Example                                 | AMJ Relevance                    |
+| ----------------------------------- | --------------------------------------- | -------------------------------- |
+| **Contradictory Findings**    | Studies find opposite results           | High — synthesis opportunity    |
+| **Under-explored Context**    | No studies in emerging markets          | High — boundary condition       |
+| **Missing Mechanism**         | Relationship exists but "why" unknown   | High — theoretical contribution |
+| **New Construct**             | Construct never studied in this context | Medium — requires justification |
+| **Methodological Limitation** | Existing studies have design flaws      | Medium — method contribution    |
 
 ### 7. Extract BibTeX Citations
 
@@ -69,7 +68,7 @@ Required: `author`, `title`, `year`, `journal`. Recommended: `volume`, `number`,
 
 ### 8. Save Structured Report
 
-Save to: `quality_reports/lit_review_[sanitized_topic].md`
+Save to: `docs/lit_review_[sanitized_topic].md`
 
 ---
 
@@ -129,10 +128,10 @@ Save to: `quality_reports/lit_review_[sanitized_topic].md`
 
 ## Reference Files
 
-| File | When to Read |
-|------|-------------|
-| `references/search-strategy.md` | When building search strings or selecting databases |
-| `references/evaluation-writing.md` | When evaluating papers, writing the review, or avoiding common pitfalls |
+| File                                 | When to Read                                                                    |
+| ------------------------------------ | ------------------------------------------------------------------------------- |
+| `references/search-strategy.md`    | When building search strings or selecting databases                             |
+| `references/evaluation-writing.md` | When evaluating papers, writing the review, or avoiding common pitfalls         |
 | `references/reading-management.md` | When managing citations, planning reading strategy, or integrating with project |
 
 ---
@@ -147,7 +146,7 @@ Save to: `quality_reports/lit_review_[sanitized_topic].md`
 - [ ] Contradictory findings addressed?
 - [ ] AMJ Research Canvas category specified for key contributions?
 - [ ] Citations in BibTeX format?
-- [ ] Report saved to `quality_reports/`?
+- [ ] Report saved to `docs/`?
 
 ---
 
