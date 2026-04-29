@@ -577,7 +577,7 @@ def _persist_metadata(
         )
         print(
             f"Metadata: {stats['added']} new, {stats['updated']} updated "
-            f"→ docs/{topic}/metadata.json",
+            f"→ references/{topic}/metadata.json",
             file=sys.stderr,
         )
     except Exception as e:
@@ -639,7 +639,7 @@ def main():
         "--topic",
         type=str,
         default=None,
-        help="Topic directory for metadata storage under docs/ (default: coaching-papers)"
+        help="Topic directory for metadata storage under references/ (default: coaching-papers)"
     )
     parser.add_argument(
         "--expand",

@@ -2,7 +2,7 @@
 Metadata Manager for Bibliography Search System
 
 Persists structured paper metadata (title, authors, year, DOI, abstract, etc.)
-to docs/{topic}/metadata.json. Deduplicates by DOI (primary) or
+to references/{topic}/metadata.json. Deduplicates by DOI (primary) or
 normalized title hash (fallback). Supports append-or-update semantics.
 """
 

@@ -1,0 +1,13 @@
+{
+  "renderNullAs": "\\-",
+  "taskCompletionTracking": false,
+  "taskCompletionUseEmojiShorthand": false,
+  "taskCompletionText": "completion",
+  "taskCompletionDateFormat": "YYYY-MM-DD",
+  "warnOnEmptyResult": true,
+  "enableHtml": true,
+  "enableDataviewJs": true,
+  "enableInlineDataviewJs": true,
+  "prettyRenderInlineFields": true,
+  "defaultRenderIndent": "  "
+}

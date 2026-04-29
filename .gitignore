@@ -115,6 +115,15 @@ models/*.pth
 # data/**/*.dta
 # !data/README.md
 
+# Node
+node_modules/
+
+# Obsidian workspace (user-specific)
+.obsidian/workspace.json
+.obsidian/workspace-mobile.json
+.obsidian/cache/
+.obsidian/trash.json
+
 # Log files
 *.log
 .env

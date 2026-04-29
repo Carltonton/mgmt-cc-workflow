@@ -10,7 +10,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 **Project:** [YOUR PROJECT NAME]
 
-**Researcher:** [YOUR NAME] ([YOUR INSTITUTION]) 
+**Researcher:** [YOUR NAME] ([YOUR INSTITUTION])
 **Discipline:** [YOUR DISCIPLINE]
 
 ### Project Structure
@@ -58,6 +58,12 @@ See `.claude/rules/` for detailed protocols.
 
 - `/stata-regression` — Stata regression analysis
 - `visualization` — Publication-quality charts
+
+### Obsidian Integration
+
+- `/obsidian-markdown` — Obsidian Flavored Markdown editing
+- `/obsidian-cli` — Obsidian vault CLI interaction
+- `/obsidian-bases` — Obsidian Bases (.base files)
 
 ---
 

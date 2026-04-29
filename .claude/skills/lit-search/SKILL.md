@@ -3,13 +3,13 @@ name: lit-search
 description: Academic literature search, reference lookup, and metadata collection using OpenAlex, CrossRef, Semantic Scholar, Tavily, SSRN, and Unpaywall APIs. Automatically collects paper metadata after each search.
   Triggers: "search for papers", "literature search", "find publications", "DOI lookup", "paper references", "extract references", "reference extraction"
   Replaces: WebSearch for academic queries (saves MCP quota).
-version: 2.0.0
+version: 2.1.0
 argument-hint: "[query] --source [openalex|crossref|semantic-scholar|google-scholar|ssrn|all] --references [path.md] --doi [DOI] --topic [topic-dir] --abs-rating [3|4|4*|all] --field [Management|Psychology|etc] --expand --chain [DOI1,DOI2]"
 allowed-tools: ["Read", "Write", "Bash"]
 ---
 # Academic Literature Search
 
-Search academic literature using direct API calls to OpenAlex, CrossRef, Semantic Scholar, Tavily, and SSRN. Bypasses WebSearch to save MCP quota and provides richer academic metadata. **Automatically persists paper metadata to `docs/{topic}/metadata.json` after each search, then screens abstracts for relevance.**
+Search academic literature using direct API calls to OpenAlex, CrossRef, Semantic Scholar, Tavily, and SSRN. Bypasses WebSearch to save MCP quota and provides richer academic metadata. **Automatically persists paper metadata to `references/{topic}/metadata.json` after each search, then screens abstracts for relevance. Generated documents (paper-list.md, etc.) are written to `knowledge-base/01-literature/`.**
 
 ## Workflow Overview
 
@@ -52,7 +52,7 @@ Parse `$ARGUMENTS` to determine the search mode:
    ```bash
    python3 .claude/skills/lit-search/lit-search.py --query "..." --source all --max-results 10
    ```
-3. The script outputs results as Markdown and persists ALL results to `docs/{topic}/metadata.json`
+3. The script outputs results as Markdown and persists ALL results to `references/{topic}/metadata.json`
 4. Read and display the Markdown output to the user
 
 #### Protocol B: Reference Extraction (`--references path.md`)
@@ -61,7 +61,7 @@ Parse `$ARGUMENTS` to determine the search mode:
    ```bash
    python3 .claude/skills/lit-search/scripts/convert_pdfs_to_md.py --input path.md --extract-references --topic coaching-papers
    ```
-2. This extracts all references from the markdown file and saves them to `docs/{topic}/metadata.json`
+2. This extracts all references from the markdown file and saves them to `references/{topic}/metadata.json`
 3. **Follow up with DOI/abstract enrichment** (CrossRef first, then S2):
    ```bash
    cd "$PROJECT_DIR" && PYTHONPATH=.claude/skills/lit-search \
@@ -86,7 +86,7 @@ Parse `$ARGUMENTS` to determine the search mode:
 
 #### 3a. Read metadata
 
-Read `docs/{topic}/metadata.json` — focus on papers from the current search (papers with the most recent `added_date`).
+Read `references/{topic}/metadata.json` — focus on papers from the current search (papers with the most recent `added_date`).
 
 #### 3b. Screen each paper
 
@@ -116,7 +116,7 @@ For each paper from the current search:
 
 #### 3c. Write paper-list.md
 
-Append results to `docs/{topic}/paper-list.md`.
+Append results to `knowledge-base/01-literature/paper-list.md`.
 
 **If the file exists**: read it first, deduplicate by DOI against existing entries, then append a new dated section.
 **If the file doesn't exist**: create it with a header.
@@ -159,7 +159,7 @@ Use this format for the new section:
 After writing the file, print a one-line summary:
 
 ```
-Screening: 8 kept / 4 skipped / 2 auto-kept (no abstract) → docs/{topic}/paper-list.md
+Screening: 8 kept / 4 skipped / 2 auto-kept (no abstract) → knowledge-base/01-literature/paper-list.md
 ```
 
 ---
@@ -231,7 +231,7 @@ Screening: 8 kept / 4 skipped / 2 auto-kept (no abstract) → docs/{topic}/paper
 
 ## Automatic Metadata Collection
 
-Every search automatically persists structured paper metadata to `docs/{topic}/metadata.json`.
+Every search automatically persists structured paper metadata to `references/{topic}/metadata.json`.
 
 ### How It Works
 
@@ -407,6 +407,7 @@ cd "$PROJECT_DIR" && PYTHONPATH=.claude/skills/lit-search \
 
 ## Version History
 
+- **v2.1.0** (2026-04-29): Path migration — metadata.json → `references/{topic}/`, generated docs (paper-list.md) → `knowledge-base/01-literature/`; added `KB_LITERATURE_DIR` to config.py
 - **v2.0.0** (2026-04-27): Major upgrade — OpenAlex client (ISSN batch, abstracts, concepts), Unpaywall OA enrichment, SSRN via Tavily, Paper dataclass for standardized types, query expansion with domain-specific synonyms, citation chaining via S2 `get_references()`, updated merge priority (OpenAlex first), `--expand` and `--chain` CLI flags
 - **v1.7.0** (2026-04-12): Comprehensiveness fixes — CrossRef ISSN batching, S2 multi-journal venue filter removal, Tavily max raised 20→50, DOI supplement cap 3→10, metadata-rich merge priority
 - **v1.6.0** (2026-04-10): Renamed `tavily` source to `google-scholar`; uses `include_domains` with academic publisher domains

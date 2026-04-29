@@ -1,6 +1,8 @@
 # Claude Code Academic Workflow Template
 
-A structured AI-assisted workflow for academic research, built on [Claude Code](https://claude.ai/code). Includes specialized agents, skills, rules, and hooks for slides, papers, data analysis, and literature review. For the complete walkthrough, see the [**full workflow guide**](https://carltonton.github.io/mgmt-cc-workflow/Quarto/guide/workflow-guide.html).
+A structured AI-assisted workflow for academic research, built on [Claude Code](https://claude.ai/code). Includes specialized agents, skills, rules, and hooks for slides, papers, data analysis, and literature review.
+
+For the complete walkthrough, see the [**full workflow guide**](https://carltonton.github.io/mgmt-cc-workflow/Quarto/guide/workflow-guide.html).
 
 **Author:** Lexuan Huang (based on Pedro Sant'Anna)
 **License:** MIT
@@ -42,7 +44,7 @@ claude --version
 ### Step 2: Clone This Template
 
 ```bash
-git clone https://github.com/Carltonton/mgmt-cc-workflow.git my-project
+git clone https://github.com/`YOUR_USERNAME`/mgmt-cc-workflow.git my-project
 cd my-project
 ```
 
@@ -133,6 +135,45 @@ ANTHROPIC_API_KEY=sk-ant-your-key-here
 
 ---
 
+## Obsidian Knowledge Base
+
+The `knowledge-base/` folder doubles as an [Obsidian](https://obsidian.md) vault for research notes, literature tracking, and theoretical constructs.
+
+### Setup
+
+1. [Install Obsidian](https://obsidian.md) and open `knowledge-base/` as a vault
+2. Install these **required plugins** (Settings → Community Plugins):
+   - **[Dataview](https://github.com/blacksmithgu/obsidian-dataview)** — powers the dashboard queries and literature tracking tables
+   - **[Templater](https://github.com/SilentVoid13/Templater)** — processes templates with dynamic values (dates, clipboard, file names)
+
+### Folder Structure
+
+| Folder                       | Purpose                                          |
+| ---------------------------- | ------------------------------------------------ |
+| `00-home/`                 | Dashboard and landing pages (Dataview-powered)   |
+| `01-literature/notes/`     | Individual literature notes (one per paper)      |
+| `01-literature/summaries/` | Condensed literature summaries                   |
+| `01-literature/synthesis/` | Cross-paper synthesis and thematic reviews       |
+| `02-theory/`               | Theoretical constructs, propositions, hypotheses |
+| `03-methods/`              | Methodological notes and design decisions        |
+| `04-project/`              | Project management, briefs, timelines            |
+| `05-sources/`              | Source materials and raw data references         |
+| `09-archive/`              | Archived or superseded notes                     |
+| `_templates/`              | Note templates (used by Templater)               |
+
+### Templates
+
+Templates live in `_templates/` with the `tpl-` prefix. They use [Templater syntax](https://silentvoid13.github.io/Templater/) for dynamic values:
+
+- `tpl-literature-note.md` — Literature notes with citekey, findings, relevance rating
+- `tpl-literature-summary.md` — Condensed summaries of key papers
+- `tpl-construct.md` — Theoretical construct definitions (bilingual fields)
+- `tpl-study-note.md` — Study design and findings notes
+- `tpl-research-log.md` — Daily research log with focus area and open questions
+- `tpl-meeting.md` — Meeting notes with agenda and action items
+
+---
+
 ## Directory Structure
 
 ```
@@ -147,6 +188,7 @@ my-project/
 │   └── guide/             # This workflow's full guide
 ├── data/                  # Research data (raw + processed)
 ├── docs/                  # Documents
+├── knowledge-base/        # Knowledge base (Obsidian)
 ├── scripts/               # Analysis scripts (Python, Stata)
 ├── slides/                # Presentation slides
 ├── output/                # Generated outputs (figures, tables, models)

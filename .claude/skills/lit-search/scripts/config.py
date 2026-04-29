@@ -195,9 +195,10 @@ DOI_RESOLUTION_TIMEOUT: float = float(os.environ.get("BIBLIOGRAPHY_DOI_TIMEOUT",
 # =============================================================================
 
 REFERENCES_DIR: Path = Path(__file__).resolve().parent.parent.parent.parent.parent / "references"
-TOPICS_DIR: Path = Path(__file__).resolve().parent.parent.parent.parent.parent / "docs"
+TOPICS_DIR: Path = REFERENCES_DIR
 DEFAULT_TOPIC: str = "coaching-papers"
 METADATA_FILENAME: str = "metadata.json"
+KB_LITERATURE_DIR: Path = Path(__file__).resolve().parent.parent.parent.parent.parent / "knowledge-base" / "01-literature"
 
 
 # =============================================================================
